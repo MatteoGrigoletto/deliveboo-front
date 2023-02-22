@@ -1,8 +1,4 @@
-<template>
-  <div>
-    <router-link :to="{ name: 'contact-us' }">Contatti</router-link>
-  </div>
-</template>
+<template></template>
 
 <script>
 export default {

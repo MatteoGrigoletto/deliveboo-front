@@ -2,22 +2,23 @@ import { createRouter, createWebHistory } from "vue-router";
 
 // Pages
 import HomePage from "./pages/HomePage.vue";
-import ContactUs from "./pages/ContactUs.vue";
 import Page404 from "./pages/Page404.vue";
+import ProductsRestaurant from "./pages/ProductsRestaurant.vue";
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
       path: "/",
-      name: "homepage",
+      name: "HomePage",
       component: HomePage,
     },
     {
-      path: "/contatti",
-      name: "contact-us",
-      component: ContactUs,
+      path: "/:slug",
+      name: "ProductsRestaurant",
+      component: ProductsRestaurant,
     },
+
     {
       path: "/:pathMatch(.*)*",
       name: "page-404",
