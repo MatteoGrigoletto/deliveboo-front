@@ -26,7 +26,7 @@ export default {
 .card {
   width: 300px;
   height: 200px;
-  background-color: black;
+  background-color: var(--card_bg_color);
   color: white;
 }
 </style>
