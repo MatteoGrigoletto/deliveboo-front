@@ -31,6 +31,6 @@ export default {
 .home-page-main {
   display: flex;
   flex-wrap: wrap;
-  width: 80%;
+  width: 100%;
 }
 </style>

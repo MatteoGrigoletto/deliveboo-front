@@ -22,4 +22,6 @@ export default {
 
 <style lang="scss">
 @import "./style/global.scss";
+div{
+  background-color: var(--main-bg-color);}
 </style>
