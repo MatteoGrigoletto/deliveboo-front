@@ -32,6 +32,7 @@ export default {
 <style lang="scss" scoped>
 header{
   background-color: var(--header-bg-color);
-
+  position: relative;
+  overflow: hidden;
 }
 </style>

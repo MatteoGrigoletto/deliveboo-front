@@ -36,6 +36,12 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  z-index: 100;
+  width: 100%;
+  background-color: var(--header-bg-color);
 
   .nav-bar__logo,.nav_bar__links{
     width: 25%;

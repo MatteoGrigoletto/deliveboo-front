@@ -49,9 +49,9 @@ mounted(){
 
 <style lang="scss" scoped>
 .container-slide {
+
   height: 200px;
-  position: relative;
-  overflow: hidden;
+  // position: relative;
 }
 
 img {

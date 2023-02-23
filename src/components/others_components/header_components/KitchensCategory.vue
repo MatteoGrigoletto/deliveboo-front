@@ -1,8 +1,9 @@
 <template>
 <div class="container-kitchens">
-    <div class="kitchen" v-for="item in findKitchensRestaurants(store.restaurants)"> 
-        <img :src="store.restaurants[0].image " alt="">
-        <span>{{ item.name }}</span>
+    <div class="kitchen" v-for="item in store.Kitchens"> 
+        
+        <img src="https://insanelygoodrecipes.com/wp-content/uploads/2020/07/Homemade-Pepperoni-Pizza.png" alt="">
+        <span>{{ item }}</span>
     </div>
 </div>
 <!-- <router-link :to="{name: 'RestaurantCategory',params: { category: item.name }}">Prodotti</router-link> -->
@@ -15,16 +16,12 @@ export default {
     data () {
         return {
             store,
-            Kitchens: []
         }
     },
     methods:{
-        findKitchensRestaurants(arr){
-        let kitchens = arr.flatMap(elm => elm.kitchens)
-        return kitchens
         }
     }
-}
+
 </script>
 
 <style lang="scss" scoped>
@@ -34,9 +31,12 @@ export default {
     justify-content:space-around;
     .kitchen{
         width: 10%;
-        height: 100px;
+        height: 80px;
         position: relative;
         margin: 10px;
+        border-radius: 5%;
+        border: 1px solid white;
+        
     }
     span{
         position: absolute;
@@ -45,6 +45,9 @@ export default {
         transform: translate(-50%,-50%);
         color: white;
         font-weight: bold ;
+        background-color: var(--text-bg-color);
+        border-radius: 10px;
+        padding: 4px 8px;
     }
 
 }

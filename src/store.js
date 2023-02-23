@@ -7,4 +7,6 @@ export const store = reactive({
   singleRestaurant: [],
   // variabile input v-model
   input: "",
+
+  Kitchens: ['italiano', 'internazionale', 'cinese', 'giapponese', 'messicano', 'indiano', 'coreano', 'francese', 'thailandese', 'australiano'],
 });
