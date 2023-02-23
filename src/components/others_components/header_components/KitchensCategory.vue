@@ -11,7 +11,7 @@
 <script> 
 import {store} from '../../../store'
 export default {
-    name:'SliderKitchens',
+    name:'KitchensCateogry',
     data () {
         return {
             store,
