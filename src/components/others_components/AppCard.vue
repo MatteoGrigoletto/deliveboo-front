@@ -3,7 +3,10 @@
     {{ restaurant.name }}
     <div>
       <router-link
-        :to="{ name: 'ProductsRestaurant', params: { slug: restaurant.slug } }"
+        :to="{
+          name: 'ProductsRestaurant',
+          params: { prodotti: restaurant.slug },
+        }"
         >Prodotti</router-link
       >
     </div>

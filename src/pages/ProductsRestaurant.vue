@@ -1,8 +1,8 @@
 <template>
   <!--ciclo per la visione dei prodotti -->
   <div v-for="product in store.singleRestaurant.products">
-    <h1></h1>
-    <img :src="product.image" alt="" />
+    <h1>{{ product.name}}</h1>
+    <!-- <img :src="product.image" alt="" /> -->
   </div>
 </template>
 
@@ -20,7 +20,9 @@ export default {
   // nel componente AppCard.vue
   created() {
     axios
-      .get(`http://localhost:8000/api/restaurants/${this.$route.params.slug}`)
+      .get(
+        `http://localhost:8000/api/restaurants/${this.$route.params.prodotti}`
+      )
       .then((response) => {
         this.store.singleRestaurant = response.data;
         console.log(this.store.singleRestaurant);
