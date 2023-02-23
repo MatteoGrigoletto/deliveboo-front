@@ -18,13 +18,13 @@ export default {
 main{
   margin: 10px;
   display: flex;
-  width: 100vw;
+
 
   .filter-side{
     width: 20%;
   }
   .main-view{
-    width: 70%;
+    width: 80%;
   }
 }
 

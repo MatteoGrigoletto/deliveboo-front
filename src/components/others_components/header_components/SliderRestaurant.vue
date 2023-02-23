@@ -48,11 +48,7 @@ mounted(){
 </script>
 
 <style lang="scss" scoped>
-.test {
-  width: 0vw;
-}
 .container-slide {
-  width: 100vw;
   height: 200px;
   position: relative;
   overflow: hidden;
@@ -67,7 +63,5 @@ img {
   transition: transform 1s;
   object-fit: cover;
 }
-
-
 
 </style>

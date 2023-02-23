@@ -3,9 +3,9 @@
     <div class="kitchen" v-for="item in findKitchensRestaurants(store.restaurants)"> 
         <img :src="store.restaurants[0].image " alt="">
         <span>{{ item.name }}</span>
-        <!-- <router-link :to="{name: 'RestaurantCategory',params: { category: item.name }}">Prodotti</router-link> -->
     </div>
 </div>
+<!-- <router-link :to="{name: 'RestaurantCategory',params: { category: item.name }}">Prodotti</router-link> -->
 </template>
 
 <script> 
@@ -36,6 +36,7 @@ export default {
         width: 10%;
         height: 100px;
         position: relative;
+        margin: 10px;
     }
     span{
         position: absolute;

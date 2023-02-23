@@ -24,8 +24,7 @@ export default {
       store,
     };
   },
-  methods:{  
-  }
+ 
 };
 </script>
 
@@ -33,7 +32,7 @@ export default {
 .card {
   border-radius: 10px;
   border: 2px solid black;
-  width: calc(100% / 3 - 10px);
+  width: calc(100% / 4 - 10px);
   margin: 5px;
   height: 400px;
   color: rgb(27, 27, 28);
