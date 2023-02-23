@@ -2,13 +2,7 @@
   <div class="card" v-for="restaurant in store.restaurants">
     {{ restaurant.name }}
     <div>
-      <router-link
-        :to="{
-          name: 'ProductsRestaurant',
-          params: { prodotti: restaurant.slug },
-        }"
-        >Prodotti</router-link
-      >
+      <router-link :to="{name: 'SingleRestaurant',params: { restaurant: restaurant.slug }}">Prodotti</router-link>
     </div>
   </div>
 </template>

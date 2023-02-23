@@ -3,7 +3,8 @@ import { createRouter, createWebHistory } from "vue-router";
 // Pages
 import HomePage from "./pages/HomePage.vue";
 import Page404 from "./pages/Page404.vue";
-import ProductsRestaurant from "./pages/ProductsRestaurant.vue";
+import SingleRestaurant from "./pages/SingleRestaurant.vue";
+// import RestaurantCategory from "./pages/RestaurantCategory.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -13,10 +14,15 @@ const router = createRouter({
       name: "HomePage",
       component: HomePage,
     },
+    // {
+    //   path: "/:category",
+    //   name: "RestaurantCategory",
+    //   component: RestaurantCategory,
+    // },
     {
-      path: "/:prodotti",
-      name: "ProductsRestaurant",
-      component: ProductsRestaurant,
+      path: "/:restaurant",
+      name: "SingleRestaurant",
+      component: SingleRestaurant,
     },
 
     {

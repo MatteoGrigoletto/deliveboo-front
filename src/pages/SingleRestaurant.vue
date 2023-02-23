@@ -1,7 +1,7 @@
 <template>
   <!--ciclo per la visione dei prodotti -->
-  <div v-for="product in store.singleRestaurant.products">
-    <h1>{{ product.name}}</h1>
+  <div v-for="product in store.singleRestaurant">
+    <h1>{{ product}}</h1>
     <!-- <img :src="product.image" alt="" /> -->
   </div>
 </template>
@@ -21,10 +21,11 @@ export default {
   created() {
     axios
       .get(
-        `http://localhost:8000/api/restaurants/${this.$route.params.prodotti}`
+        `http://localhost:8000/api/restaurants/${this.$route.params.restaurant}`
       )
       .then((response) => {
         this.store.singleRestaurant = response.data;
+      
         console.log(this.store.singleRestaurant);
       })
       .catch((err) => {

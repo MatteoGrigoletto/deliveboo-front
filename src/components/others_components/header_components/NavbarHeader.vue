@@ -36,7 +36,6 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--header-bg-color);
 
   .nav-bar__logo,.nav_bar__links{
     width: 25%;
@@ -124,7 +123,7 @@ img{
     }
   }
 }
-@media screen and (min-width:1301px) and (max-width: 1900px){
+@media screen and (min-width:1301px) and (max-width: 100000px){
   
   .nav-bar{
     padding: 20px 10px;
