@@ -4,22 +4,27 @@
       <NavbarHeader></NavbarHeader>
     </section>
     <section>
+      <SliderRestaurant></SliderRestaurant>
+    </section>
+    <section>
       <KitchensCategory></KitchensCategory>
     </section>
   </header>
 </template>
 
 <script>
-import KitchensCategory from "./others_components/header_components/KitchensCategory.vue";
 import NavbarHeader from "./others_components/header_components/NavbarHeader.vue";
+import SliderRestaurant from "./others_components/header_components/SliderRestaurant.vue";
+import KitchensCategory from "./others_components/header_components/KitchensCategory.vue";
 export default {
   name: "AppHeader",
   data() {
     return {};
   },
   components: {
-    KitchensCategory,
     NavbarHeader,
+    SliderRestaurant,
+    KitchensCategory,
   },
 };
 </script>
