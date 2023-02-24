@@ -1,7 +1,7 @@
 <template>
   <!--ciclo per la visione dei prodotti -->
-  <div v-for="product in store.singleRestaurant">
-    <h1>{{ product}}</h1>
+  <div >
+    <h1>{{ singleRestaurant.name}}</h1>
     <!-- <img :src="product.image" alt="" /> -->
   </div>
 </template>
@@ -14,6 +14,7 @@ export default {
   data() {
     return {
       store,
+      singleRestaurant: [],
     };
   },
   // chiamata axios che prende come parametro lo slag generato dal link della card presente
@@ -24,9 +25,9 @@ export default {
         `http://localhost:8000/api/restaurants/${this.$route.params.restaurant}`
       )
       .then((response) => {
-        this.store.singleRestaurant = response.data;
+        this.singleRestaurant = response.data;
       
-        console.log(this.store.singleRestaurant);
+        console.log(this.singleRestaurant);
       })
       .catch((err) => {
         console.log(err);
