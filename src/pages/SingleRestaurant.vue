@@ -1,8 +1,8 @@
 <template>
-<section>
+  <section>
   <div class="single-restaurant">
     <div class="single-restaurant__image">
-      <img :src="singleRestaurant.image_url" alt="image-restaurant" />
+      <img :src="singleRestaurant.image_url === null ? singleRestaurant.image : singleRestaurant.image_url" alt="">
     </div>
     <div class="single-restaurant__info">
       <h1>{{singleRestaurant.name}}</h1>
@@ -17,31 +17,30 @@
 
     <!-- card cibo prodotti -->
     <div class="product-restaurant__food">
-      <div class="card-product" v-for="product in singleRestaurant.products" v-show="product.typology != 'bevanda' && product.is_available === 1">
+      <div class="card-product" v-for="product in singleRestaurant.products" v-show="product.typology != 'bevande' && product.is_available === 1">
         <div class="card-product__image">
-          <img :src="product.image" alt="">
+          <img :src="product.image_url === null ? product.image : product.image_url" alt="">
         </div>
         <div class="card-product__info">   
           <h3>{{ product.name }}</h3>
           <p>{{ hiddenText(product.ingredients) }}...</p>
           <span>{{ product.price }} €</span>
-            <button @click="store.modalView = true">Aggiungi</button>
+          <button @click="store.cart.push(product)">clicca</button>
         </div>
       </div>
     </div>
     <h3>Bevande</h3>
-
     <!-- card bevande prodotti -->
     <div class="product-restaurant__drink">
-      <div class="card-product" v-for="product in singleRestaurant.products" v-show="product.typology == 'bevanda' && product.is_available === 1">
+      <div class="card-product" v-for="product in singleRestaurant.products" v-show="product.typology == 'bevande' && product.is_available === 1">
         <div class="card-product__image">
-          <img :src="product.image" alt="">
+          <img :src="product.image_url === null ? product.image : product.image_url" alt="">
         </div>
         <div class="card-product__info">
           <h3>{{ product.name }}</h3>
             <p>{{ hiddenText(product.ingredients) }}...</p>
-            <span>{{ product.price }} €</span>
-              <button>Aggiungi</button>           
+            <span>{{ product.price }} €</span>    
+            <button @click="store.cart.push(product)">clicca</button>
         </div>
       </div>
     </div> 
@@ -58,7 +57,10 @@ export default {
     return {
       store,
       singleRestaurant: [],
+      
     };
+  },
+  components:{
   },
   methods:{
     hiddenText(str){

@@ -9,7 +9,17 @@
     <div class="nav-bar__links">
       <ul>
         <li class="nav-bar__links__cart">
-          <a href=""><span><i class="fa-solid fa-cart-shopping"></i></span></a>
+          <button @click="showModal = true"><i class="fa-solid fa-cart-shopping"></i></button>
+          <div class="app">
+                  <ModalCard :show="showModal" title="Titolo della modale" @close="showModal = false">
+                    <div v-for="item in store.cart">
+                      <div>
+                        <img :src="item.image" alt="">
+                        <span>{{ item.name }}</span>
+                      </div>
+                    </div>
+                  </ModalCard>
+              </div>
         </li>
         <li class="nav-bar__links__login">
           <a href=""><span>Accedi</span></a>
@@ -17,17 +27,25 @@
       </ul>
     </div>
   </div>
+  
 </template>
 
 <script>
 import { store } from "../../../store.js";
+import ModalCard from "../main_components/ModalCard.vue";
 export default {
   name: "NavbarHeader",
   data() {
     return {
       store,
+      showModal: false,
     };
   },
+  components:{
+    ModalCard
+  },
+  methods:{
+  }
 };
 </script>
 
@@ -70,6 +88,11 @@ export default {
       border: 1px solid black;
       border-radius:5px;
       text-align: center;
+
+      button{
+        border: none;
+        background-color:var(--btn-bg-color) ;
+      }
       
       a{
         text-decoration: none;

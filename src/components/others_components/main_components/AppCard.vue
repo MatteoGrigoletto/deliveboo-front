@@ -1,7 +1,7 @@
 <template>
   <div class="card" v-for="restaurant in store.restaurants" v-show="restaurant.name.toLowerCase().includes(store.input.toLowerCase())" >
     <div class="card__img">
-      <img  :src="restaurant.image_url" alt="">
+      <img :src="restaurant.image_url === null ? restaurant.image : restaurant.image_url" alt="">
     </div>
     <div class="card__info">
       <h2>{{ restaurant.name }}</h2>
@@ -40,6 +40,7 @@ export default {
   }
   .card__info{
     padding-top: 5px;
+    text-align: center;
   
 
     h2{
