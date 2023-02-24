@@ -52,18 +52,10 @@ export default {
 
 }
 
-@media screen and (max-width:600px){
+@media screen and (max-width:1300px){
     .container-kitchens{
         display: none;
   }
 }
-@media screen and (min-width:601px) and (max-width:1000px){
-    .container-kitchens{
-        flex-wrap: wrap;
-    .kitchen{
-        margin: 5px;
-        width: calc(100% / 5 - 10px);
-    }
-  }
-}
+
 </style>

@@ -7,7 +7,7 @@
 <script>
 import { store } from "../store";
 import axios from "axios";
-import AppCard from "../components/others_components/AppCard.vue";
+import AppCard from "../components/others_components/main_components/AppCard.vue";
 export default {
   name: "HomePage",
   data() {

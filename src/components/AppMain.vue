@@ -23,6 +23,7 @@ main{
   margin: 10px;
   display: flex;
   overflow-x: hidden;
+  justify-content: center;
 
   .filter-side{
     width: 20%;
@@ -47,6 +48,22 @@ main{
 }
 .route-leave-active{
   transition: all 0.2s ease-in;
+}
+// media
+
+@media screen and (max-width:600px){
+  .filter-side{
+    display: none;
+  }
+}
+@media screen and (min-width:601px) and (max-width:960px){
+
+}
+@media screen and (min-width:961px) and (max-width: 1300px){
+  
+}
+@media screen and (min-width:1301px) and (max-width: 1600px){
+
 }
 
 </style>

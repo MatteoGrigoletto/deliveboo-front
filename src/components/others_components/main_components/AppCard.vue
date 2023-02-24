@@ -1,5 +1,4 @@
 <template>
-
   <div class="card" v-for="restaurant in store.restaurants" v-show="restaurant.name.toLowerCase().includes(store.input.toLowerCase())" >
     <div class="card__img">
       <img :src="restaurant.image" alt="">
@@ -16,7 +15,7 @@
 </template>
 
 <script>
-import { store } from "../../store";
+import { store } from "../../../store";
 export default {
   name: "AppCard",
   data() {
@@ -42,8 +41,7 @@ export default {
     height: 70%;
   }
   .card__info{
-    padding-top: 20px;
-    text-align: center; 
+    padding-top: 5px;
     background-color: white;
   
 
@@ -56,7 +54,32 @@ export default {
     border-radius: 5px;
     color: white;
     padding: 0px 5px 5px 5px;
+    text-align: center;
   }
+  }
+}
+
+// media
+
+@media screen and (max-width:600px){
+  .card{
+    width: 100%;
+  }
+}
+@media screen and (min-width:601px) and (max-width:960px){
+  
+  .card{
+    width: calc(100% / 2 - 10px);
+  }
+}
+@media screen and (min-width:961px) and (max-width: 1300px){
+  .card{
+    width: calc(100% / 3 - 10px);
+  }
+}
+@media screen and (min-width:1301px) and (max-width: 1600px){
+  .card{
+    width: calc(100% / 3 - 10px);
   }
 }
 </style>
