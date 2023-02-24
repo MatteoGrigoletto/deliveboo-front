@@ -21,6 +21,7 @@ export default {
   created() {
     axios.get("http://localhost:8000/api/restaurants").then((response) => {
       this.store.restaurants = response.data;
+      console.log(store.restaurants);
      
     });
   },

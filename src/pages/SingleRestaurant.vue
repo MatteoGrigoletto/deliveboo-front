@@ -1,7 +1,8 @@
 <template>
+<section>
   <div class="single-restaurant">
     <div class="single-restaurant__image">
-      <img :src="singleRestaurant.image" alt="image-restaurant" />
+      <img :src="singleRestaurant.image_url" alt="image-restaurant" />
     </div>
     <div class="single-restaurant__info">
       <h1>{{singleRestaurant.name}}</h1>
@@ -23,7 +24,8 @@
         <div class="card-product__info">   
           <h3>{{ product.name }}</h3>
           <p>{{ hiddenText(product.ingredients) }}...</p>
-          <p>{{ product.price }} €</p>
+          <span>{{ product.price }} €</span>
+            <button @click="store.modalView = true">Aggiungi</button>
         </div>
       </div>
     </div>
@@ -38,11 +40,13 @@
         <div class="card-product__info">
           <h3>{{ product.name }}</h3>
             <p>{{ hiddenText(product.ingredients) }}...</p>
-            <p>{{ product.price }} €</p>
+            <span>{{ product.price }} €</span>
+              <button>Aggiungi</button>           
         </div>
       </div>
     </div> 
   </div>
+</section>
 </template>
 
 <script>
@@ -59,7 +63,7 @@ export default {
   methods:{
     hiddenText(str){
      return str.slice(0,50)
-    }
+    },
   },
   // chiamata axios che prende come parametro lo slag generato dal link della card presente
   // nel componente AppCard.vue
@@ -90,7 +94,6 @@ export default {
   }
   .single-restaurant__info{
     margin-left: 50px;
-  
   }
 }
 
@@ -103,15 +106,35 @@ export default {
   }
   .card-product{
     display: flex;
-    background-color:var(--card-product-bg-color) ;
+    background-color:var(--card-bg-color) ;
     width: calc(100% / 3 - 30px);
     margin: 15px;
     margin-left: 0;
+    border: 2px solid rgb(70, 154, 210);
+    border-radius:5px;
   .card-product__image{
     max-width: 200px;
     min-width: 200px;
   }
-}
+  .card-product__info{
+    margin-left: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    > *{
+      margin: 5px;
+    }
+    span{
+      font-weight: bold;
+    }
+    button{
+      width: 100px;
+      border-radius: 5px;
+      }
+    }
+  }
 }
 
 // media
