@@ -5,11 +5,8 @@
     </div>
     <div class="card__info">
       <h2>{{ restaurant.name }}</h2>
-      <ul>
-        <li>{{ restaurant.street_address }}</li>
-        <li>{{ restaurant.city }}</li>
-        <li><router-link :to="{name: 'SingleRestaurant',params: { restaurant: restaurant.slug }}">Prodotti</router-link></li>
-      </ul>
+      <p>{{ restaurant.city }}</p>
+        <router-link :to="{name: 'SingleRestaurant',params: { restaurant: restaurant.slug }}">Prodotti</router-link>  
     </div>
   </div>
 </template>
@@ -55,6 +52,14 @@ export default {
     color: white;
     padding: 0px 5px 5px 5px;
     text-align: center;
+  }
+  
+  a{
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    background-color: rgb(160, 166, 166);
+    color: black;
   }
   }
 }

@@ -26,10 +26,10 @@ main{
   justify-content: center;
 
   .filter-side{
-    width: 20%;
+    width: 15%;
   }
   .main-view{
-    width: 80%;
+    width: 85%;
   }
 }
 

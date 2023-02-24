@@ -1,9 +1,8 @@
 <template>
 <div class="container-kitchens">
     <div class="kitchen" v-for="item in store.Kitchens"> 
-        
         <img src="https://insanelygoodrecipes.com/wp-content/uploads/2020/07/Homemade-Pepperoni-Pizza.png" alt="">
-        <span>{{ item }}</span>
+        <a href=""><span>{{ item }}</span></a>
     </div>
 </div>
 <!-- <router-link :to="{name: 'RestaurantCategory',params: { category: item.name }}">Prodotti</router-link> -->
