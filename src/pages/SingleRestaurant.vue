@@ -25,7 +25,7 @@
           <h3>{{ product.name }}</h3>
           <p>{{ hiddenText(product.ingredients) }}...</p>
           <span>{{ product.price }} €</span>
-          <button @click="pushStorage(product)">clicca</button>
+          <button @click="pushStorage(product)"><i class="fa-solid fa-cart-shopping"></i> Carrello</button>
         </div>
       </div>
     </div>
@@ -40,7 +40,7 @@
           <h3>{{ product.name }}</h3>
             <p>{{ hiddenText(product.ingredients) }}...</p>
             <span>{{ product.price }} €</span>    
-            <button @click="pushStorage(product)">clicca</button>
+            <button @click="pushStorage(product)"><i class="fa-solid fa-cart-shopping"></i> Carrello</button>
         </div>
       </div>
     </div> 

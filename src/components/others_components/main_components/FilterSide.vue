@@ -1,15 +1,23 @@
 <template>
     <div class="side">
-
+        <button @click="resetRestaurant()">Vedi tutti i ristoranti</button>
     </div>
 </template>
 
 <script>
+import { store } from '../../../store';
+
 export default {
     name: 'FilterSide',
     data () {
         return {
         
+        }
+    },
+    methods:{
+        resetRestaurant(){
+            store.inputKitchens= ''
+            store.input = ''
         }
     }
 }
