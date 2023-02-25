@@ -39,6 +39,8 @@ main{
   }
   .main-view{
     width: 85%;
+    position: relative;
+    overflow-y: scroll;
   }
 }
 
@@ -64,9 +66,12 @@ main{
   .filter-side{
     display: none;
   }
+  .main-view{
+    overflow-y:none;
+  }
 }
 @media screen and (min-width:601px) and (max-width:960px){
-
+  
 }
 @media screen and (min-width:961px) and (max-width: 1300px){
   

@@ -26,7 +26,7 @@ export default {
 <style lang="scss" scoped>
 .side{
     width: 100%;
-    height: 100%;
+    height: calc(100vh - 200px);
     background-color: rgb(206, 214, 214);
     border-radius: 5px;
 }

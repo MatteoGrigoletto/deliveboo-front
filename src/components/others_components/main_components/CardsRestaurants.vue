@@ -45,6 +45,7 @@ export default {
   color: rgb(27, 27, 28);
   position: relative;
   background-color: var(--card-bg-color);
+  
 
 }
 

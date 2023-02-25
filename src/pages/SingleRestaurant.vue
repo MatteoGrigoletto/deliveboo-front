@@ -100,6 +100,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+section{
+  position: absolute;
+  width: 100%;
+  top: 0%;
+  right: 0%;
+}
 .single-restaurant{
   display: flex;
   .single-restaurant__image{
@@ -154,7 +160,9 @@ export default {
 // media
 
 @media screen and (max-width:600px){
-
+  section{
+    position: relative;
+  }
 }
 @media screen and (min-width:601px) and (max-width:960px){
   

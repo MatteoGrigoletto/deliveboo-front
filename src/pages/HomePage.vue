@@ -34,5 +34,15 @@ export default {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  position: absolute;
+  top: 0%;
+  right: 0%;
+}
+
+
+@media screen and (max-width:600px){
+  .home-page-main{
+    position: relative;
+  }
 }
 </style>

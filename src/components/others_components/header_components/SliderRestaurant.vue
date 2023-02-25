@@ -50,7 +50,7 @@ mounted(){
 <style lang="scss" scoped>
 .container-slide {
 
-  height: 300px;
+  height: 250px;
   // position: relative;
 }
 
