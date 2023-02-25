@@ -1,5 +1,5 @@
 <template>
-  <div class="card" v-for="restaurant in store.restaurants" v-show="restaurant.name.toLowerCase().includes(store.input.toLowerCase())" >
+  <div v-if="store.input.length > 0" class="card" v-for="restaurant in store.restaurants" v-show="restaurant.name.toLowerCase().includes(store.input.toLowerCase()) " >
     <div class="card__img">
       <img :src="restaurant.image_url === null ? restaurant.image : restaurant.image_url" alt="">
     </div>
@@ -9,6 +9,29 @@
         <router-link :to="{name: 'SingleRestaurant',params: { restaurant: restaurant.slug }}">Prodotti</router-link>  
     </div>
   </div>
+  
+  <div v-else-if="store.inputKitchens.length > 0" class="card" v-for="restaurant in store.restaurants" v-show="restaurant.kitchens[0].name == store.inputKitchens " >
+    <div class="card__img">
+      <img :src="restaurant.image_url === null ? restaurant.image : restaurant.image_url" alt="">
+    </div>
+    <div class="card__info">
+      <h2>{{ restaurant.name }}</h2>
+      <p>{{ restaurant.city }}</p>
+        <router-link :to="{name: 'SingleRestaurant',params: { restaurant: restaurant.slug }}">Prodotti</router-link>  
+    </div>
+  </div>
+
+  <div v-else class="card" v-for="restaurant in store.restaurants" >
+    <div class="card__img">
+      <img :src="restaurant.image_url === null ? restaurant.image : restaurant.image_url" alt="">
+    </div>
+    <div class="card__info">
+      <h2>{{ restaurant.name }}</h2>
+      <p>{{ restaurant.city }}</p>
+        <router-link :to="{name: 'SingleRestaurant',params: { restaurant: restaurant.slug }}">Prodotti</router-link>  
+    </div>
+  </div>
+
 </template>
 
 <script>

@@ -2,7 +2,7 @@
 <div class="container-kitchens">
     <div class="kitchen" v-for="item in store.Kitchens"> 
         <img src="https://insanelygoodrecipes.com/wp-content/uploads/2020/07/Homemade-Pepperoni-Pizza.png" alt="">
-        <a href=""><span>{{ item }}</span></a>
+        <button v-on:click="change(item)">{{item}}</button>
     </div>
 </div>
 <!-- <router-link :to="{name: 'RestaurantCategory',params: { category: item.name }}">Prodotti</router-link> -->
@@ -18,6 +18,10 @@ export default {
         }
     },
     methods:{
+        change(str){
+            this.store.input = ''
+            this.store.inputKitchens = str
+        }
         }
     }
 
@@ -37,7 +41,7 @@ export default {
         border: 1px solid white;
         
     }
-    span{
+    button{
         position: absolute;
         top: 50%;
         left: 50%;
