@@ -1,13 +1,14 @@
 <template>
   <div class="home-page-main">
-    <AppCard></AppCard>
+    <CardsRestaurants></CardsRestaurants>
   </div>
 </template>
 
 <script>
 import { store } from "../store";
 import axios from "axios";
-import AppCard from "../components/others_components/main_components/AppCard.vue";
+import CardsRestaurants from "../components/others_components/main_components/CardsRestaurants.vue";
+
 export default {
   name: "HomePage",
   data() {
@@ -16,8 +17,8 @@ export default {
     };
   },
   components: {
-    AppCard,
-  },
+    CardsRestaurants
+},
   created() {
     axios.get("http://localhost:8000/api/restaurants").then((response) => {
       this.store.restaurants = response.data;

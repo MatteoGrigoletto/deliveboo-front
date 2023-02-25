@@ -46,34 +46,6 @@ export default {
   position: relative;
   background-color: var(--card-bg-color);
 
-  .card__img{
-    height: 70%;
-  }
-  .card__info{
-    padding-top: 5px;
-    text-align: center;
-  
-
-    h2{
-    position: absolute;
-    top: 3%;
-    right: 50%;
-    transform: translate(50%);
-    background-color:rgba(138, 129, 129, 0.5);
-    border-radius: 5px;
-    color: white;
-    padding: 0px 5px 5px 5px;
-    text-align: center;
-  }
-  
-  a{
-    padding: 5px 10px;
-    border-radius: 5px;
-    text-decoration: none;
-    background-color: rgb(160, 166, 166);
-    color: black;
-  }
-  }
 }
 
 // media
