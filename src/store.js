@@ -8,6 +8,6 @@ export const store = reactive({
   input: "",
 
   Kitchens: ['italiano', 'internazionale', 'cinese', 'giapponese', 'messicano', 'indiano', 'coreano', 'francese', 'thailandese', 'australiano'],
-
+  inputKitchens : '',
   cart: []
 });
