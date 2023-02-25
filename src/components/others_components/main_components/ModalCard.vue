@@ -13,7 +13,7 @@
               <div  v-for="item,index in store.cart">
                 <div class="item-cart">
                   <div class="item-cart__image">
-                    <img :src="item.image_url" alt="">
+                    <img :src="item.image_url === null ? item.image : item.image_url" alt="">
                   </div>
                   <div class="item-cart__info">
                     <span>{{ item.name }}</span>
@@ -24,7 +24,8 @@
                 </div>
               </div>
             </div>
-            <div>
+            <div class="container-info-cart">
+              <span>Totale: {{ totalPrice(store.cart) }} €</span>
               <button class="btn-pay">Conferma acquisto</button>
             </div>
           </slot>
@@ -57,6 +58,10 @@ export default {
     removeItemFromCart(item){
       this.store.cart.splice(item,1)
     },
+    totalPrice(arr){
+     return arr.map(elm => elm.price).reduce((totale,singlePrice)=> totale += Number(singlePrice),0).toFixed(2)
+     console.log(a);
+    }
   }
 };
 </script>
@@ -107,11 +112,7 @@ padding: 10px 2px;
   font-size: 20px;
   cursor: pointer;
 }
-.btn-pay{
-    margin-top: 50px;
-}
 // modale carrello
-
 .container-item-cart{
   width: 102%;
   height: 500px;
@@ -132,6 +133,16 @@ padding: 10px 2px;
       }
     }
   } 
+}
+.container-info-cart{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  >*{
+    width: 200px;
+    margin-top: 30px;
+  }
 }
 .fade-leave-active {
   transition: opacity 1s;

@@ -1,6 +1,7 @@
 <template>
   <main>
-    <section class="filter-side">           
+    <section class="filter-side">
+      <FilterSide></FilterSide>         
     </section>
     <section class="main-view">
         <router-view v-slot="{Component}">
@@ -13,8 +14,16 @@
   </template>
 
 <script>
+import FilterSide from './others_components/main_components/FilterSide.vue';
 export default {
   name: "AppMain",
+  data(){
+    return{
+    }
+  },
+  components:{
+    FilterSide,
+}
 };
 </script>
 
