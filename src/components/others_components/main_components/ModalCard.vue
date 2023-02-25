@@ -7,15 +7,35 @@
           <button class="close-button" @click="$emit('close')">X</button>
         </div>
         <div class="modal-body">
-          <slot></slot>
+          <slot>
+            <div v-for="item,index in store.cart">     
+              <div  class="item-cart">
+                <div class="item-cart__image">
+                  <img :src="item.image_url" alt="">
+                </div >
+                <div class="item-cart__info">
+                  <span>{{ item.name }}</span>
+                </div>
+                <div class="item-cart__btn">
+                  <button @click="removeItemFromCart(index)">remove</button>
+                </div>
+              </div>
+            </div>
+          </slot>
         </div>
       </div>
     </div>
   </template>
 
 <script>
+import {store} from '../../../store';
 export default {
   name: 'ModalCard',
+  data(){
+    return{
+      store,
+    }
+  },
   props: {
     show: {
       type: Boolean,
@@ -25,6 +45,11 @@ export default {
       type: String,
       required: true
     }
+  },
+  methods:{
+    removeItemFromCart(item){
+      this.store.cart.splice(item,1)
+    },
   }
 };
 </script>
@@ -74,4 +99,25 @@ export default {
   cursor: pointer;
 }
 
+
+
+
+
+// modale carrello
+.item-cart{
+    display: flex;
+    align-items: center;
+    margin: 10px 0px;
+    border-radius: 5px;
+    background-color: var(--header-bg-color);
+  
+    > div {
+      width: 33%;
+
+      button{
+      margin: 3px;
+      border: 2px solid black;
+      }
+    }
+  }
 </style>

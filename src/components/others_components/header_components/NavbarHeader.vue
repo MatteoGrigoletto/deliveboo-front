@@ -11,29 +11,16 @@
         <li class="nav-bar__links__cart">
 
           <!-- count oggetti nel carrello  -->
-          <div class="count-cart">
+          <div v-if="store.cart.length > 0 " class="count-cart">
             {{ store.cart.length }}
           </div>
 
-          <!-- bottone per attivare modale -->
+          <!-- bottone per attivare modale -->   
           <button @click="showModal = true"><i class="fa-solid fa-cart-shopping"></i></button>
           <div class="app">
-                  <ModalCard :show="showModal" title="Titolo della modale" @close="showModal = false">
-                    <div v-for="item,index in store.cart">
-                      <div class="item-cart">
-                        <div class="item-cart__image">
-                          <img :src="item.image_url" alt="">
-                        </div >
-                        <div class="item-cart__info">
-                          <span>{{ item.name }}</span>
-                        </div>
-                        <div class="item-cart__btn">
-                         <button @click="removeItemFromCart(index)">remove</button>
-                        </div>
-                      </div>
-                    </div>
-                  </ModalCard>
-              </div>
+              <ModalCard :show="showModal" title="Titolo della modale" @close="showModal = false">          
+              </ModalCard>
+          </div>
         </li>
         <li class="nav-bar__links__login">
           <a href=""><span>Accedi</span></a>
@@ -59,9 +46,6 @@ export default {
     ModalCard
   },
   methods:{
-    removeItemFromCart(item){
-      this.store.cart.splice(item,1)
-    }
   }
 };
 </script>
@@ -142,23 +126,6 @@ img{
 
 }
 
-// modale carrello
-  .item-cart{
-    display: flex;
-    align-items: center;
-    margin: 10px 0px;
-    border-radius: 5px;
-    background-color: var(--header-bg-color);
-  
-    > div {
-      width: 33%;
-
-      button{
-      margin: 3px;
-      border: 2px solid black;
-      }
-    }
-  }
 
 // media query
 @media screen and (max-width:600px){

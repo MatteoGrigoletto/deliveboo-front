@@ -67,7 +67,14 @@ export default {
      return str.slice(0,50)
     },
     pushStorage(obj){
-      store.cart.push(obj)
+
+      if(store.cart.length === 0){
+        store.cart.push(obj)
+      }else if(store.cart[0].restaurant_id === obj.restaurant_id){
+        store.cart.push(obj)
+      }else{
+        alert(`🍕🍕 Hai provato ad aggiungere prodotti di ristoranti diversi 🍕🍕`)
+      }
       console.log(store.cart);
       
     }
