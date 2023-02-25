@@ -9,13 +9,27 @@
     <div class="nav-bar__links">
       <ul>
         <li class="nav-bar__links__cart">
+
+          <!-- count oggetti nel carrello  -->
+          <div class="count-cart">
+            {{ store.cart.length }}
+          </div>
+
+          <!-- bottone per attivare modale -->
           <button @click="showModal = true"><i class="fa-solid fa-cart-shopping"></i></button>
           <div class="app">
                   <ModalCard :show="showModal" title="Titolo della modale" @close="showModal = false">
-                    <div v-for="item in store.cart">
-                      <div>
-                        <img :src="item.image" alt="">
-                        <span>{{ item.name }}</span>
+                    <div v-for="item,index in store.cart">
+                      <div class="item-cart">
+                        <div class="item-cart__image">
+                          <img :src="item.image_url" alt="">
+                        </div >
+                        <div class="item-cart__info">
+                          <span>{{ item.name }}</span>
+                        </div>
+                        <div class="item-cart__btn">
+                         <button @click="removeItemFromCart(index)">remove</button>
+                        </div>
                       </div>
                     </div>
                   </ModalCard>
@@ -45,6 +59,9 @@ export default {
     ModalCard
   },
   methods:{
+    removeItemFromCart(item){
+      this.store.cart.splice(item,1)
+    }
   }
 };
 </script>
@@ -92,8 +109,7 @@ export default {
       button{
         border: none;
         background-color:var(--btn-bg-color) ;
-      }
-      
+      }    
       a{
         text-decoration: none;
         color:var(--btn-text-color);
@@ -105,6 +121,43 @@ img{
   height: 50px;
   filter: invert(0.1);
   object-fit:cover;
+  }
+// 
+.nav-bar__links__cart{
+  position: relative;
+  .count-cart{
+    position: absolute;
+    top: -40%;
+    right: -20%;
+    width: 30px;
+    height: 30px;
+    border: 1px solid white;
+    border-radius: 100%;
+    background-color: rgb(30, 42, 218);
+    color: white;
+    text-align: center;
+    line-height: 30px;
+    font-size: 0.8rem;
+  }
+
+}
+
+// modale carrello
+  .item-cart{
+    display: flex;
+    align-items: center;
+    margin: 10px 0px;
+    border-radius: 5px;
+    background-color: var(--header-bg-color);
+  
+    > div {
+      width: 33%;
+
+      button{
+      margin: 3px;
+      border: 2px solid black;
+      }
+    }
   }
 
 // media query

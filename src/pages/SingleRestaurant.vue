@@ -25,7 +25,7 @@
           <h3>{{ product.name }}</h3>
           <p>{{ hiddenText(product.ingredients) }}...</p>
           <span>{{ product.price }} €</span>
-          <button @click="store.cart.push(product)">clicca</button>
+          <button @click="pushStorage(product)">clicca</button>
         </div>
       </div>
     </div>
@@ -40,7 +40,7 @@
           <h3>{{ product.name }}</h3>
             <p>{{ hiddenText(product.ingredients) }}...</p>
             <span>{{ product.price }} €</span>    
-            <button @click="store.cart.push(product)">clicca</button>
+            <button @click="pushStorage(product)">clicca</button>
         </div>
       </div>
     </div> 
@@ -66,6 +66,11 @@ export default {
     hiddenText(str){
      return str.slice(0,50)
     },
+    pushStorage(obj){
+      store.cart.push(obj)
+      console.log(store.cart);
+      
+    }
   },
   // chiamata axios che prende come parametro lo slag generato dal link della card presente
   // nel componente AppCard.vue
