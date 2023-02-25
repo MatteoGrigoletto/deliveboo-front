@@ -1,4 +1,5 @@
 <template>
+  <transition name="fade">
     <div class="modal" v-if="show">
       <div class="modal-background" @click="$emit('close')"></div>
       <div class="modal-content">
@@ -8,24 +9,30 @@
         </div>
         <div class="modal-body">
           <slot>
-            <div v-for="item,index in store.cart">     
-              <div  class="item-cart">
-                <div class="item-cart__image">
-                  <img :src="item.image_url" alt="">
-                </div >
-                <div class="item-cart__info">
-                  <span>{{ item.name }}</span>
-                </div>
-                <div class="item-cart__btn">
-                  <button @click="removeItemFromCart(index)">remove</button>
+            <div class="container-item-cart">
+              <div  v-for="item,index in store.cart">
+                <div class="item-cart">
+                  <div class="item-cart__image">
+                    <img :src="item.image_url" alt="">
+                  </div>
+                  <div class="item-cart__info">
+                    <span>{{ item.name }}</span>
+                  </div>
+                  <div class="item-cart__btn">
+                    <button @click="removeItemFromCart(index)">remove</button>
+                  </div>
                 </div>
               </div>
+            </div>
+            <div>
+              <button class="btn-pay">Conferma acquisto</button>
             </div>
           </slot>
         </div>
       </div>
     </div>
-  </template>
+  </transition>
+</template>
 
 <script>
 import {store} from '../../../store';
@@ -77,12 +84,12 @@ export default {
 
 .modal-content {
   background-color: white;
-  padding: 20px;
+  padding: 0px;
   border-radius: 4px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   width: 50%;
   height: 80%;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .modal-header {
@@ -91,33 +98,48 @@ export default {
   align-items: center;
   margin-bottom: 10px;
 }
-
+.modal-body{
+padding: 10px 2px;
+}
 .close-button {
   background-color: transparent;
   border: none;
   font-size: 20px;
   cursor: pointer;
 }
-
-
-
-
-
+.btn-pay{
+    margin-top: 50px;
+}
 // modale carrello
-.item-cart{
+
+.container-item-cart{
+  width: 102%;
+  height: 500px;
+  overflow-y: scroll; 
+  .item-cart{
     display: flex;
     align-items: center;
     margin: 10px 0px;
     border-radius: 5px;
     background-color: var(--header-bg-color);
-  
-    > div {
-      width: 33%;
 
-      button{
-      margin: 3px;
-      border: 2px solid black;
+    > div {
+        width: 33%;
+
+        button{
+          margin: 3px;
+          border: 2px solid black;
       }
     }
-  }
+  } 
+}
+.fade-leave-active {
+  transition: opacity 1s;
+}
+.fade-enter-active {
+  transition: opacity 1s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
 </style>

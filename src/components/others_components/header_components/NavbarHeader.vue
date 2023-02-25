@@ -106,7 +106,7 @@ img{
   filter: invert(0.1);
   object-fit:cover;
   }
-// 
+
 .nav-bar__links__cart{
   position: relative;
   .count-cart{
