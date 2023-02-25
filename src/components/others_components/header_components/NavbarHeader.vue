@@ -45,8 +45,6 @@ export default {
   components:{
     ModalCard
   },
-  methods:{
-  }
 };
 </script>
 

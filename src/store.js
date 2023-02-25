@@ -9,5 +9,8 @@ export const store = reactive({
 
   Kitchens: ['italiano', 'internazionale', 'cinese', 'giapponese', 'messicano', 'indiano', 'coreano', 'francese', 'thailandese', 'australiano'],
   inputKitchens : '',
-  cart: []
+
+  cart: [],
+  
+  count:0
 });

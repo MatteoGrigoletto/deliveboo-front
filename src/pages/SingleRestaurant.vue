@@ -67,16 +67,24 @@ export default {
      return str.slice(0,50)
     },
     pushStorage(obj){
-
+      
       if(store.cart.length === 0){
-        store.cart.push(obj)
+       
+        window.localStorage.setItem(`${this.store.count}`,JSON.stringify(obj))
+        this.store.cart.push(obj)
+        this.store.count++;
+
       }else if(store.cart[0].restaurant_id === obj.restaurant_id){
-        store.cart.push(obj)
+
+        window.localStorage.setItem(`${this.store.count}`,JSON.stringify(obj))
+        this.store.cart.push(obj)
+        this.store.count++
+
       }else{
         alert(`🍕🍕 Hai provato ad aggiungere prodotti di ristoranti diversi 🍕🍕`)
       }
       console.log(store.cart);
-      
+      console.log(window.localStorage);
     }
   },
   // chiamata axios che prende come parametro lo slag generato dal link della card presente

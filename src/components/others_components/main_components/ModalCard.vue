@@ -19,7 +19,7 @@
                     <span>{{ item.name }}</span>
                   </div>
                   <div class="item-cart__btn">
-                    <button @click="removeItemFromCart(index)">remove</button>
+                    <button @click="removeItemFromCart(item,index)">remove</button>
                   </div>
                 </div>
               </div>
@@ -41,8 +41,8 @@ export default {
   name: 'ModalCard',
   data(){
     return{
-      store,
-    }
+      store, 
+   }
   },
   props: {
     show: {
@@ -55,12 +55,29 @@ export default {
     }
   },
   methods:{
-    removeItemFromCart(item){
+    removeItemFromCart(item,index){
+    
+      // window.localStorage.clear()
+      window.localStorage.removeItem(index)
       this.store.cart.splice(item,1)
+      console.log(item);
+      console.log(window.localStorage);
     },
     totalPrice(arr){
      return arr.map(elm => elm.price).reduce((totale,singlePrice)=> totale += Number(singlePrice),0).toFixed(2)
-     console.log(a);
+    },
+  },
+  mounted(){
+    if (localStorage.length > 0) {
+      try {
+        for(let i = 0; i < localStorage.length; i++){
+          this.store.cart.push(JSON.parse(localStorage.getItem(i)));  
+        }
+      }
+      catch(e) {
+        // localStorage.removeItem(0);
+      }
+      console.log(this.store.cart);
     }
   }
 };
@@ -115,7 +132,7 @@ padding: 10px 2px;
 // modale carrello
 .container-item-cart{
   width: 102%;
-  height: 500px;
+  height: 400px;
   overflow-y: scroll; 
   .item-cart{
     display: flex;
