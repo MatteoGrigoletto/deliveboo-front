@@ -1,6 +1,7 @@
 <template>
     <div class="side">
-        <button @click="resetRestaurant()">Vedi tutti i ristoranti</button>
+        <button> <router-link :to="{name: 'HomePage'}" @click="resetRestaurant()">Prodotti</router-link> </button>
+
     </div>
 </template>
 

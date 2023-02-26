@@ -1,16 +1,22 @@
 <template>
+  <!-- TRE COMPONENTI IDENTICI CHE VENGONO VISUALIZZATI NEL COMPONENTE HomePage.vue  -->
+  <!-- IN BASE ALLA CONDIZIONE -->
+
+  <!-- RICERCA TRAMITE NavBarHeader INPUT -->
   <div v-if="store.input.length > 0" class="card" v-for="restaurant in store.restaurants" v-show="restaurant.name.toLowerCase().includes(store.input.toLowerCase()) " >
    <SingleCardRestaurant 
     :restaurant = "restaurant"
    ></SingleCardRestaurant>
   </div>
   
+  <!-- RICERCA TRAMITE CATEGORIE  -->
   <div v-else-if="store.inputKitchens.length > 0" class="card" v-for="restaurant in store.restaurants" v-show="restaurant.kitchens[0].name == store.inputKitchens " >
     <SingleCardRestaurant 
     :restaurant = "restaurant"
    ></SingleCardRestaurant>
   </div>
 
+  <!-- SE NON VIENE IMPOSTATA UNA RICERCA -->
   <div v-else class="card" v-for="restaurant in store.restaurants" >
     <SingleCardRestaurant 
     :restaurant = "restaurant"

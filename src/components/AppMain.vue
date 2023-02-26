@@ -3,6 +3,7 @@
     <section class="filter-side">
       <FilterSide></FilterSide>         
     </section>
+    <!-- TRANSIZIONE ANIMATA QUANDO SI CAMBIA ROTTA -->
     <section class="main-view">
         <router-view v-slot="{Component}">
           <transition name ="route" mode="out-in"> 

@@ -1,11 +1,11 @@
 <template>
+    <!-- COMPONENTE CHE GENERA DELLE CATEGORIE PER NAVIGARE VELOCEMENTE TRA I RISTORANTI -->
 <div class="container-kitchens">
     <div class="kitchen" v-for="item in store.Kitchens"> 
         <img src="https://insanelygoodrecipes.com/wp-content/uploads/2020/07/Homemade-Pepperoni-Pizza.png" alt="">
-        <button v-on:click="change(item)">{{item}}</button>
+        <button> <router-link :to="{name: 'HomePage'}" @click="change(item)">{{item}}</router-link> </button>
     </div>
 </div>
-<!-- <router-link :to="{name: 'RestaurantCategory',params: { category: item.name }}">Prodotti</router-link> -->
 </template>
 
 <script> 
@@ -18,6 +18,7 @@ export default {
         }
     },
     methods:{
+        // METODO PER SVUORATE I CAMPI DI RICERCA
         change(str){
             this.store.input = ''
             this.store.inputKitchens = str

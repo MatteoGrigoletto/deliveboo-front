@@ -2,6 +2,7 @@
   <section>
   <div class="single-restaurant">
     <div class="single-restaurant__image">
+      <!-- CONTROLLO IMMAGINE -->
       <img :src="singleRestaurant.image_url === null ? singleRestaurant.image : singleRestaurant.image_url" alt="">
     </div>
     <div class="single-restaurant__info">
@@ -10,12 +11,17 @@
       <p>{{singleRestaurant.street_address}}</p>
     </div>
   </div>
-  <!-- prodotti del ristorante -->
+
+  <!-- PRODOTTI DEL RISTORANTE -->
   <h2>Prodotti del ristorante</h2>
   <div class="product-restaurant">
-    <h3>Cibo</h3>
 
-    <!-- card cibo prodotti -->
+<!-- ************************************************************************** -->
+<!-- POSSIBILITA' CREARE UN COMPONENTE PRODUCT PER ELIMINARE CODICE RINDONDANTE -->
+<!-- ************************************************************************** -->
+
+    <!-- CARD CIBO PRODOTTI -->
+    <h3>Cibo</h3>
     <div class="product-restaurant__food">
       <div class="card-product" v-for="product in singleRestaurant.products" v-show="product.typology != 'bevande' && product.is_available === 1">
         <div class="card-product__image">
@@ -29,8 +35,9 @@
         </div>
       </div>
     </div>
+
+    <!-- CARD BEVANDE PRODOTTI -->
     <h3>Bevande</h3>
-    <!-- card bevande prodotti -->
     <div class="product-restaurant__drink">
       <div class="card-product" v-for="product in singleRestaurant.products" v-show="product.typology == 'bevande' && product.is_available === 1">
         <div class="card-product__image">
@@ -66,8 +73,9 @@ export default {
     hiddenText(str){
      return str.slice(0,50)
     },
-    pushStorage(obj){
-      
+    // METODO PER TRASFORMARE L'OGGETTO IN STRINGA E MEMORIZZARLO NEL LOCALSTORAGE
+    // NEL COMPONENTE ModalCard.vue IL PRODOTTO VIENE RICONVERITO IN OGGETTO 
+    pushStorage(obj){ 
       if(store.cart.length === 0){
        
         window.localStorage.setItem(`${this.store.count}`,JSON.stringify(obj))
@@ -81,14 +89,14 @@ export default {
         this.store.count++
 
       }else{
+        // ALERT SE PROVI A COMPRARE DA DUE RISTORATORI
         alert(`🍕🍕 Hai provato ad aggiungere prodotti di ristoranti diversi 🍕🍕`)
       }
-      console.log(store.cart);
-      console.log(window.localStorage);
     }
   },
-  // chiamata axios che prende come parametro lo slag generato dal link della card presente
-  // nel componente AppCard.vue
+
+  // CHIAMATA AXIOS CHE PRENDE COME PARAMETRO LO SLAG GENERATO DAL LINK DELLA CARD PRESENTE
+  // NEL COMPONENTE AppCard.vue
   created() {
     axios
       .get(

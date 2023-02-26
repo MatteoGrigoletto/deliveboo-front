@@ -1,4 +1,5 @@
 <template>   
+<!-- CARD DEL SIGNOLO RISTORANTE CON ROUTE RELATIVA AI SUOI PRODOTTI -->
   <div class="card__img">
     <img :src="restaurant.image_url === null ? restaurant.image : restaurant.image_url" alt="">
   </div>

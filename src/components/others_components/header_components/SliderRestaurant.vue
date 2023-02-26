@@ -51,7 +51,6 @@ mounted(){
 .container-slide {
 
   height: 250px;
-  // position: relative;
 }
 
 img {

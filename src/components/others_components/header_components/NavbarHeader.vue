@@ -10,12 +10,12 @@
       <ul>
         <li class="nav-bar__links__cart">
 
-          <!-- count oggetti nel carrello  -->
+          <!-- TAG IN POSIZIONE ABSOLUTE CHE INDICA LA QUANTITA' DI PRODOTTI NEL CARRELLO  -->
           <div v-if="store.cart.length > 0 " class="count-cart">
             {{ store.cart.length }}
           </div>
 
-          <!-- bottone per attivare modale -->   
+          <!-- BOTTONE PER ATTIVARE IL COMPONENTE ModalCard.vue -->   
           <button @click="showModal = true"><i class="fa-solid fa-cart-shopping"></i></button>
           <div class="app">
               <ModalCard :show="showModal" title="Titolo della modale" @close="showModal = false">          

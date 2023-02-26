@@ -1,4 +1,6 @@
 <template>
+  <!-- MODALE CARRELLO CHE COMPARE CLICCANDO IL TASTO RELATIVO NEL COMPONENTE NavBarHeader.vue -->
+  <!-- E' POSSIBILE RIMUOVERE I PRODOTTI E VIENE CALCOLATO IL TOTALE -->
   <transition name="fade">
     <div class="modal" v-if="show">
       <div class="modal-background" @click="$emit('close')"></div>
@@ -55,18 +57,19 @@ export default {
     }
   },
   methods:{
+    // METODO PER ELIMINARE PRODOTTI DAL CARRELLO
     removeItemFromCart(item,index){
-    
       // window.localStorage.clear()
       window.localStorage.removeItem(index)
       this.store.cart.splice(item,1)
-      console.log(item);
-      console.log(window.localStorage);
     },
+    // METODO PER CALCOLARE IL VALORE TOTALE DEL CARRELLO
     totalPrice(arr){
      return arr.map(elm => elm.price).reduce((totale,singlePrice)=> totale += Number(singlePrice),0).toFixed(2)
     },
   },
+  // PERMETTE DI PRENDERE I DATI SALVATI NEL LOCALSTORAGE DI JS...LA LOGICA PER SALVARLI ALL'INTERNO DEL LOCALSTORAGE
+  // E' PRESENTE NEL COMPONENTE SingleRestaurant.vue
   mounted(){
     if (localStorage.length > 0) {
       try {
