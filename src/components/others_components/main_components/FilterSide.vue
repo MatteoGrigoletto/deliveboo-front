@@ -1,7 +1,15 @@
 <template>
     <div class="side">
-        <button> <router-link :to="{name: 'HomePage'}" @click="resetRestaurant()">Prodotti</router-link> </button>
-
+      <!-- FUNZIONE BASE DELLA SIDE -->
+      <button> <router-link :to="{name: 'HomePage'}" @click="resetRestaurant()">Prodotti</router-link> </button>     
+      <div>
+          <form @submit.prevent="submitForm">
+          <label v-for="(option, index) in store.Kitchens" :key="index">
+              <input type="checkbox" :value="option" v-model="store.checkbox">
+              {{ option }}
+          </label>
+          </form>
+      </div>
     </div>
 </template>
 
@@ -12,14 +20,17 @@ export default {
     name: 'FilterSide',
     data () {
         return {
-        
+        store,
         }
     },
     methods:{
         resetRestaurant(){
             store.inputKitchens= ''
             store.input = ''
-        }
+        },
+        submitForm() {
+      console.log(this.store.checkbox)
+    }
     }
 }
 </script>

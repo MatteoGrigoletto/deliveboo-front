@@ -4,6 +4,8 @@ export const store = reactive({
   // gli viene assegnato un valore quando viene aperto il sito (tramite API)
   restaurants: [],
   
+  // 
+  checkbox: [],
   // variabile input v-model
   input: "",
 

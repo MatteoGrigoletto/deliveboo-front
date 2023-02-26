@@ -1,5 +1,5 @@
 <template>
-  <!-- TRE COMPONENTI IDENTICI CHE VENGONO VISUALIZZATI NEL COMPONENTE HomePage.vue  -->
+  <!-- QUATTRO COMPONENTI IDENTICI CHE VENGONO VISUALIZZATI NEL COMPONENTE HomePage.vue  -->
   <!-- IN BASE ALLA CONDIZIONE -->
 
   <!-- RICERCA TRAMITE NavBarHeader INPUT -->
@@ -11,6 +11,13 @@
   
   <!-- RICERCA TRAMITE CATEGORIE  -->
   <div v-else-if="store.inputKitchens.length > 0" class="card" v-for="restaurant in store.restaurants" v-show="restaurant.kitchens[0].name == store.inputKitchens " >
+    <SingleCardRestaurant 
+    :restaurant = "restaurant"
+   ></SingleCardRestaurant>
+  </div>
+
+  <!-- RICERCA TRAMITE COMPONENTE FiltetSide -->
+  <div v-else-if="store.checkbox.length > 0" class="card" v-for="restaurant in store.restaurants" v-show="filterCheckbox(restaurant)" >
     <SingleCardRestaurant 
     :restaurant = "restaurant"
    ></SingleCardRestaurant>
@@ -37,6 +44,13 @@ export default {
   },
  components:{
   SingleCardRestaurant,
+},
+methods:{
+    filterCheckbox(restaurant){   
+     let arr = restaurant.kitchens.map(elm => elm.name)
+     return this.store.checkbox.every(elm => arr.includes(elm)) 
+
+    }
 }
 };
 </script>
