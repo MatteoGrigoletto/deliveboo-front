@@ -32,13 +32,9 @@ Kitchens:[{
         
 ],
 
-  SideCategory: ['italiano', 'internazionale', 'cinese', 'giapponese', 'messicano', 'indiano', 'coreano', 'francese', 'thailandese', 'australiano'],
+SideCategory: ['italiano', 'internazionale', 'cinese', 'giapponese', 'messicano', 'indiano', 'coreano', 'francese', 'thailandese', 'australiano'],
 
+inputKitchens : '',
 
-
-  inputKitchens : '',
-
-  cart: [],
-  
-  count:0
+cart: [],
 });

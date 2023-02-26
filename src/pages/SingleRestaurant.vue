@@ -31,7 +31,7 @@
           <h3>{{ product.name }}</h3>
           <p>{{ hiddenText(product.ingredients) }}...</p>
           <span>{{ product.price }} €</span>
-          <button @click="pushStorage(product)"><i class="fa-solid fa-cart-shopping"></i> Carrello</button>
+          <button @click="pushProduct(product)"><i class="fa-solid fa-cart-shopping"></i> Carrello</button>
         </div>
       </div>
     </div>
@@ -47,7 +47,7 @@
           <h3>{{ product.name }}</h3>
             <p>{{ hiddenText(product.ingredients) }}...</p>
             <span>{{ product.price }} €</span>    
-            <button @click="pushStorage(product)"><i class="fa-solid fa-cart-shopping"></i> Carrello</button>
+            <button @click="pushProduct(product)"><i class="fa-solid fa-cart-shopping"></i> Carrello</button>
         </div>
       </div>
     </div> 
@@ -75,19 +75,15 @@ export default {
     },
     // METODO PER TRASFORMARE L'OGGETTO IN STRINGA E MEMORIZZARLO NEL LOCALSTORAGE
     // NEL COMPONENTE ModalCard.vue IL PRODOTTO VIENE RICONVERITO IN OGGETTO 
-    pushStorage(obj){ 
+    pushProduct(obj){ 
       if(store.cart.length === 0){
-       
-        window.localStorage.setItem(`${this.store.count}`,JSON.stringify(obj))
-        this.store.cart.push(obj)
-        this.store.count++;
-
+         this.store.cart.push(obj)
+         localStorage.setItem('cartItems',JSON.stringify(this.store.cart))
+     
       }else if(store.cart[0].restaurant_id === obj.restaurant_id){
-
-        window.localStorage.setItem(`${this.store.count}`,JSON.stringify(obj))
         this.store.cart.push(obj)
-        this.store.count++
-
+        localStorage.setItem('cartItems',JSON.stringify(this.store.cart))
+        
       }else{
         // ALERT SE PROVI A COMPRARE DA DUE RISTORATORI
         alert(`🍕🍕 Hai provato ad aggiungere prodotti di ristoranti diversi 🍕🍕`)

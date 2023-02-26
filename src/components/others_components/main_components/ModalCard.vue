@@ -59,9 +59,11 @@ export default {
   methods:{
     // METODO PER ELIMINARE PRODOTTI DAL CARRELLO
     removeItemFromCart(item,index){
-      // window.localStorage.clear()
-      window.localStorage.removeItem(index)
-      this.store.cart.splice(item,1)
+      // const index = this.store.cart.indexOf(item)
+      if(index !== -1){
+        this.store.cart.splice(index,1)
+        localStorage.setItem('cartItems', JSON.stringify(this.store.cart));
+      }
     },
     // METODO PER CALCOLARE IL VALORE TOTALE DEL CARRELLO
     totalPrice(arr){
@@ -71,17 +73,11 @@ export default {
   // PERMETTE DI PRENDERE I DATI SALVATI NEL LOCALSTORAGE DI JS...LA LOGICA PER SALVARLI ALL'INTERNO DEL LOCALSTORAGE
   // E' PRESENTE NEL COMPONENTE SingleRestaurant.vue
   mounted(){
-    if (localStorage.length > 0) {
-      try {
-        for(let i = 0; i < localStorage.length; i++){
-          this.store.cart.push(JSON.parse(localStorage.getItem(i)));  
-        }
-      }
-      catch(e) {
-        // localStorage.removeItem(0);
-      }
-      console.log(this.store.cart);
-    }
+  const savedCartItems = localStorage.getItem('cartItems');
+  if(savedCartItems){
+    this.store.cart = JSON.parse(savedCartItems);
+  }
+
   }
 };
 </script>
