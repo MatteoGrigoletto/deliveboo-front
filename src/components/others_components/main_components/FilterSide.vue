@@ -1,14 +1,14 @@
 <template>
     <div class="side">
       <!-- FUNZIONE BASE DELLA SIDE -->
-      <button> <router-link :to="{name: 'HomePage'}" @click="resetRestaurant()">Prodotti</router-link> </button>     
+      <button> <router-link :to="{name: 'HomePage'}" @click="resetRestaurant()">Torna a tutti i ristoranti</router-link> </button>     
       <div>
-          <form @submit.prevent="submitForm">
-          <label v-for="(option, index) in store.Kitchens" :key="index">
-              <input type="checkbox" :value="option" v-model="store.checkbox">
-              {{ option }}
-          </label>
-          </form>
+        <form @submit.prevent="submitForm">
+        <label v-for="(kitchen, index) in store.SideCategory" :key="index">
+            <input type="checkbox" :value="kitchen" v-model="store.checkbox">
+            {{ kitchen }}
+        </label>
+        </form>
       </div>
     </div>
 </template>

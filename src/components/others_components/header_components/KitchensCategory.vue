@@ -2,8 +2,8 @@
     <!-- COMPONENTE CHE GENERA DELLE CATEGORIE PER NAVIGARE VELOCEMENTE TRA I RISTORANTI -->
 <div class="container-kitchens">
     <div class="kitchen" v-for="item in store.Kitchens"> 
-        <img src="https://insanelygoodrecipes.com/wp-content/uploads/2020/07/Homemade-Pepperoni-Pizza.png" alt="">
-        <button> <router-link :to="{name: 'HomePage'}" @click="change(item)">{{item}}</router-link> </button>
+        <img :src="item.image" alt="">
+        <button> <router-link :to="{name: 'HomePage'}" @click="change(item.name)">{{item.name}}</router-link> </button>
     </div>
 </div>
 </template>
