@@ -1,8 +1,8 @@
 <template>
   <div class="nav-bar">
-    <div class="nav-bar__logo">
-      <!-- <img src="https://impactwebagency.com/wp-content/uploads/2022/05/banner-deliveboo.png" alt="logo"> -->
-    </div>
+    <!-- <div class="nav-bar__logo">
+      <img src="https://impactwebagency.com/wp-content/uploads/2022/05/banner-deliveboo.png" alt="logo">
+    </div> -->
     <div class="nav-bar__input">
       <input type="text" v-model="store.input" placeholder="Ricerca ristorante o prodotto "/>
     </div>
@@ -22,8 +22,11 @@
               </ModalCard>
           </div>
         </li>
+        <li class="nav-bar__links__register">
+          <a href="http://127.0.0.1:8000/register"><span>Registrati</span></a>
+        </li>
         <li class="nav-bar__links__login">
-          <a href=""><span>Accedi</span></a>
+          <a href="http://127.0.0.1:8000/login"><span>Accedi</span></a>
         </li>
       </ul>
     </div>
@@ -187,7 +190,7 @@ img{
     .nav-bar__links{
       
       li{
-        margin: 0px 20px;
+        margin: 0px 10px;
         padding: 10px 40px;
       }
     }
