@@ -25,7 +25,7 @@
     <!-- CARD CIBO PRODOTTI -->
     <h3>Cibo</h3>
     <div class="product-restaurant__food">
-      <div class="card-product" v-for="product in singleRestaurant.products" v-show="product.typology != 'bevande' && product.is_available === 1">
+      <div class="card-product" v-for="product in singleRestaurant.products" v-show="product.is_available === 1">
         <div class="card-product__image">
           <img :src="product.image_url === null ? product.image : product.image_url" alt="">
         </div>
@@ -33,26 +33,11 @@
           <h5>{{ product.name }}</h5>
           <p>{{ hiddenText(product.ingredients) }}...</p>
           <span>{{ product.price }} €</span>
+          <input type="number" name="quantity" :id="`${product.id}-quantity`" min="1">
           <button @click="pushProduct(product)"><i class="fa-solid fa-cart-shopping"></i> </button>
         </div>
       </div>
     </div>
-
-    <!-- CARD BEVANDE PRODOTTI -->
-    <h3>Bevande</h3>
-    <div class="product-restaurant__drink">
-      <div class="card-product" v-for="product in singleRestaurant.products" v-show="product.typology == 'bevande' && product.is_available === 1">
-        <div class="card-product__image">
-          <img :src="product.image_url === null ? product.image : product.image_url" alt="">
-        </div>
-        <div class="card-product__info">
-          <h5>{{ product.name }}</h5>
-            <p>{{ hiddenText(product.ingredients) }}...</p>
-            <span>{{ product.price }} €</span>    
-            <button @click="pushProduct(product)"><i class="fa-solid fa-cart-shopping"></i></button>
-        </div>
-      </div>
-    </div> 
   </div>
 </section>
 </template>
@@ -78,14 +63,19 @@ export default {
     // METODO PER TRASFORMARE L'OGGETTO IN STRINGA E MEMORIZZARLO NEL LOCALSTORAGE
     // NEL COMPONENTE ModalCard.vue IL PRODOTTO VIENE RICONVERITO IN OGGETTO 
     pushProduct(obj){ 
-      if(store.cart.length === 0){
+    this.store.productQuantity =  document.getElementById(`${obj.id}-quantity`).value
+     obj.quantity = Number(this.store.productQuantity)
+      if(store.cart.length === 0 && obj.quantity > 0){
          this.store.cart.push(obj)
          localStorage.setItem('cartItems',JSON.stringify(this.store.cart))
      
-      }else if(store.cart[0].restaurant_id === obj.restaurant_id){
+      }else if(store.cart[0].restaurant_id === obj.restaurant_id && obj.quantity > 0){
         this.store.cart.push(obj)
         localStorage.setItem('cartItems',JSON.stringify(this.store.cart))
         
+      }else if(obj.quantity <= 0){
+        // ALERT SE PROVI A INSERIRE UN VALORE NEL INPUT CARRELLO NEGATIVO 
+        alert(`Inserisci nel carrello un quantitativo positivo`)
       }else{
         // ALERT SE PROVI A COMPRARE DA DUE RISTORATORI
         alert(`🍕🍕 Hai provato ad aggiungere prodotti di ristoranti diversi 🍕🍕`)

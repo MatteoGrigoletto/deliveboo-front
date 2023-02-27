@@ -37,4 +37,7 @@ SideCategory: ['italiano', 'internazionale', 'cinese', 'giapponese', 'messicano'
 inputKitchens : '',
 
 cart: [],
+
+// 
+productQuantity: '',
 });

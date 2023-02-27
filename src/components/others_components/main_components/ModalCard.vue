@@ -19,6 +19,9 @@
                   </div>
                   <div class="item-cart__info">
                     <span>{{ item.name }}</span>
+                    <button @click="quantityDown(item,index)"> - </button>
+                    <button @click="quantityUp(item,index)"> + </button>
+                    <p>{{ item.quantity }}</p>
                   </div>
                   <div class="item-cart__btn">
                     <button @click="removeItemFromCart(item,index)">remove</button>
@@ -59,7 +62,6 @@ export default {
   methods:{
     // METODO PER ELIMINARE PRODOTTI DAL CARRELLO
     removeItemFromCart(item,index){
-      // const index = this.store.cart.indexOf(item)
       if(index !== -1){
         this.store.cart.splice(index,1)
         localStorage.setItem('cartItems', JSON.stringify(this.store.cart));
@@ -67,9 +69,20 @@ export default {
     },
     // METODO PER CALCOLARE IL VALORE TOTALE DEL CARRELLO
     totalPrice(arr){
-     return arr.map(elm => elm.price).reduce((totale,singlePrice)=> totale += Number(singlePrice),0).toFixed(2)
+     return arr.map(elm => elm.quantity * elm.price).reduce((totale,singlePrice)=> totale += Number(singlePrice),0).toFixed(2)
     },
+    quantityUp(product,index){
+      product.quantity++
+    },
+    quantityDown(product,index){
+      product.quantity--
+      if( product.quantity <= 0){
+        this.store.cart.splice(index,1)
+        localStorage.setItem('cartItems', JSON.stringify(this.store.cart));
+      }
+    }
   },
+
   // PERMETTE DI PRENDERE I DATI SALVATI NEL LOCALSTORAGE DI JS...LA LOGICA PER SALVARLI ALL'INTERNO DEL LOCALSTORAGE
   // E' PRESENTE NEL COMPONENTE SingleRestaurant.vue
   mounted(){
