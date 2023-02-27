@@ -17,15 +17,22 @@
                   <div class="item-cart__image">
                     <img :src="item.image_url === null ? item.image : item.image_url" alt="">
                   </div>
-                  <div class="item-cart__info">
+                  <div class="item-cart__name">
                     <span>{{ item.name }}</span>
-                    <button @click="quantityDown(item,index)"> - </button>
-                    <button @click="quantityUp(item,index)"> + </button>
-                    <p>{{ item.quantity }}</p>
                   </div>
-                  <div class="item-cart__btn">
-                    <button @click="removeItemFromCart(item,index)">remove</button>
+                  <div class="item-cart__info">
+                    <div class="item-cart__info__btn">
+                      <button @click="quantityDown(item,index)"> - </button>
+                      <button @click="quantityUp(item,index)"> + </button>
+                    </div>
+                    <div>
+                      <p>Quantita: {{ item.quantity }}</p>
+                    </div>
+                    <div>
+                      <button @click="removeItemFromCart(item,index)">remove</button>
+                    </div>
                   </div>
+                 
                 </div>
               </div>
             </div>
@@ -90,8 +97,7 @@ export default {
   if(savedCartItems){
     this.store.cart = JSON.parse(savedCartItems);
   }
-
-  }
+}
 };
 </script>
 
@@ -113,7 +119,8 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 1;
 }
 
 .modal-content {
@@ -148,17 +155,30 @@ padding: 10px 2px;
   overflow-y: scroll; 
   .item-cart{
     display: flex;
+    justify-content: space-between;
     align-items: center;
     margin: 10px 0px;
     border-radius: 5px;
-    background-color: var(--header-bg-color);
+    // background-color: var(--header-bg-color);
 
-    > div {
-        width: 33%;
+    .item-cart__image{
+      width: 30%;
+    }
+    .item-cart__info{
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content:center;
 
+      p{
+        margin: 5px 0px;
+      }
+      .item-cart__info__btn{
+        
         button{
-          margin: 3px;
-          border: 2px solid black;
+          margin: 0px 10px;
+        }
       }
     }
   } 

@@ -23,7 +23,7 @@
   <div class="product-restaurant">
     <h3 >Numero di prodotti del ristorante: {{ singleRestaurant.products.length }}</h3>
     <!-- CARD CIBO PRODOTTI -->
-    <h3>Cibo</h3>
+    <h3>Prodotti</h3>
     <div class="product-restaurant__food">
       <div class="card-product" v-for="product in singleRestaurant.products" v-show="product.is_available === 1">
         <div class="card-product__image">
@@ -33,8 +33,8 @@
           <h5>{{ product.name }}</h5>
           <button class="card-product__btn-info">Informazioni</button>
           <p>{{ product.price }} €</p>
-          <input class="card-product__input" type="number" name="quantity" :id="`${product.id}-quantity`" min="1" max="5">
-          <button @click="pushProduct(product)"><i class="fa-solid fa-cart-shopping"></i> </button>
+          <input class="card-product__input" type="number" name="quantity" :id="`${product.id}-quantty`" min="1" max="5">
+          <button @click="pushProduct(product)"><i class="fa-solid fa-cart-shopping"></i></button>
         </div>
       </div>
     </div>
@@ -63,8 +63,9 @@ export default {
     // METODO PER TRASFORMARE L'OGGETTO IN STRINGA E MEMORIZZARLO NEL LOCALSTORAGE
     // NEL COMPONENTE ModalCard.vue IL PRODOTTO VIENE RICONVERITO IN OGGETTO 
     pushProduct(obj){ 
-    this.store.productQuantity =  document.getElementById(`${obj.id}-quantity`).value
+    this.store.productQuantity =  document.getElementById(`${obj.id}-quantty`).value
      obj.quantity = Number(this.store.productQuantity)
+
       if(store.cart.length === 0 && obj.quantity > 0){
          this.store.cart.push(obj)
          localStorage.setItem('cartItems',JSON.stringify(this.store.cart))
