@@ -6,29 +6,22 @@
     <div class="nav-bar__input">
       <input type="text" v-model="store.input" placeholder="Ricerca ristorante o prodotto "/>
     </div>
-    <div class="nav-bar__links">
-      <ul>
-        <li class="nav-bar__links__cart">
+    <div class="nav-bar__buttons">
+      <!-- BOTTONE PER ATTIVARE IL COMPONENTE ModalCard.vue -->   
+      <button class="nav-bar__buttons__cart" @click="showModal = true"><i class="fa-solid fa-cart-shopping"></i> 
+        
+       <!-- TAG IN POSIZIONE ABSOLUTE CHE INDICA LA QUANTITA' DI PRODOTTI NEL CARRELLO  -->
+       <div v-if="store.cart.length > 0 " class="count-cart">
+        {{ store.cart.length }}
+      </div>    
 
-          <!-- TAG IN POSIZIONE ABSOLUTE CHE INDICA LA QUANTITA' DI PRODOTTI NEL CARRELLO  -->
-          <div v-if="store.cart.length > 0 " class="count-cart">
-            {{ store.cart.length }}
-          </div>
-
-          <!-- BOTTONE PER ATTIVARE IL COMPONENTE ModalCard.vue -->   
-          <button @click="showModal = true"><i class="fa-solid fa-cart-shopping"></i></button>
-          <div class="app">
-              <ModalCard :show="showModal" title="Titolo della modale" @close="showModal = false">          
-              </ModalCard>
-          </div>
-        </li>
-        <li class="nav-bar__links__register">
-          <a href="http://127.0.0.1:8000/register"><span>Registrati</span></a>
-        </li>
-        <li class="nav-bar__links__login">
-          <a href="http://127.0.0.1:8000/login"><span>Accedi</span></a>
-        </li>
-      </ul>
+      </button> 
+      <button><a href="http://127.0.0.1:8000/register">Registrati</a></button>
+      <button><a href="http://127.0.0.1:8000/login">Accedi</a></button>   
+    </div>
+    <div class="app">
+        <ModalCard :show="showModal" title="Titolo della modale" @close="showModal = false">          
+        </ModalCard>
     </div>
   </div>
   
@@ -63,7 +56,7 @@ export default {
   width: 100%;
   background-color: var(--header-bg-color);
 
-  .nav-bar__logo,.nav_bar__links{
+  .nav-bar__logo,.nav_bar__buttons{
     width: 25%;
     height: 100%;
   }
@@ -76,56 +69,38 @@ export default {
     }
   }
 }
-.nav-bar__links{
+.nav-bar__buttons{
 
-  ul{
     display: flex;
     list-style: none;
     justify-content: space-around;
     align-items: center;
     margin:0;
-
-    li{
-      background-color: var(--btn-bg-color); 
-      border: 1px solid black;
-      border-radius:5px;
-      text-align: center;
-
-      button{
-        border: none;
-        background-color:var(--btn-bg-color) ;
-      }    
-      a{
-        text-decoration: none;
-        color:var(--btn-text-color);
-      }
+    .nav-bar__buttons__cart{
+      position: relative;
     }
-  }
 }
 img{
   height: 50px;
-  filter: invert(0.1);
   object-fit:cover;
   }
 
-.nav-bar__links__cart{
-  position: relative;
+
   .count-cart{
     position: absolute;
     top: -40%;
     right: -20%;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     border: 1px solid white;
     border-radius: 100%;
-    background-color: rgb(30, 42, 218);
+    background-image: var(--body-bg-color);
     color: white;
     text-align: center;
-    line-height: 30px;
-    font-size: 0.8rem;
+    line-height: 40px;
+    font-size: 1rem;
   }
 
-}
 
 
 // media query
@@ -142,10 +117,10 @@ img{
         border-radius: 10px;
       }
     }
-    .nav-bar__links{
+    .nav-bar__buttons{
       
-      li{
-        margin: 0px 20px;
+    button {
+        margin: 0px 10px;
         padding: 5px 10px;
       }
     }
@@ -164,9 +139,9 @@ img{
         border-radius: 10px;
       }
     }
-    .nav-bar__links{
+    .nav-bar__buttons{
       
-      li{
+      button {
         margin: 0px 10px;
         padding: 10px 20px;
       }
@@ -187,11 +162,11 @@ img{
         border-radius: 10px;
       }
     }
-    .nav-bar__links{
+    .nav-bar__buttons{
       
-      li{
+      button{
         margin: 0px 10px;
-        padding: 10px 40px;
+        padding: 10px 30px;
       }
     }
   }

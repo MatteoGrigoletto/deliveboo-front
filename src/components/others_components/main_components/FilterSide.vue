@@ -1,7 +1,7 @@
 <template>
     <div class="side">
       <!-- FUNZIONE BASE DELLA SIDE -->
-      <button> <router-link :to="{name: 'HomePage'}" @click="resetRestaurant()">Torna a tutti i ristoranti</router-link> </button>     
+      <button> <router-link :to="{name: 'HomePage'}" @click="resetRestaurant()">Tutti i ristoranti</router-link> </button>     
       <div>
         <form @submit.prevent="submitForm">
         <label v-for="(kitchen, index) in store.SideCategory" :key="index">
@@ -36,10 +36,28 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.side{
-    width: 100%;
-    height: calc(100vh - 200px);
-    background-color: rgb(206, 214, 214);
-    border-radius: 5px;
+.side {
+  width: 100%;
+  height: calc(100vh - 200px);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px 30px;
+//   overflow-y: scroll;
+  background-color: var(--side-bg--color) ;
+  color: var(--side-text-color);
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+
+  input[type="checkbox"] {
+    margin: 30px 10px 0px 0px;
+    
+  }
 }
 </style>

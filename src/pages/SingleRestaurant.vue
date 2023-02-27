@@ -9,17 +9,19 @@
       <h1>{{singleRestaurant.name}}</h1>
       <p>{{singleRestaurant.city}}</p>
       <p>{{singleRestaurant.street_address}}</p>
+      <span>Tipilogia di cucina: </span>
+      <span class="badge text-bg-light fs-6 me-1 rounded-pill" v-for="tipology in filterKitchens(singleRestaurant.kitchens)">{{ tipology}}</span>
     </div>
   </div>
 
   <!-- PRODOTTI DEL RISTORANTE -->
-  <h2>Prodotti del ristorante</h2>
+  
+  <!-- ************************************************************************** -->
+  <!-- POSSIBILITA' CREARE UN COMPONENTE PRODUCT PER ELIMINARE CODICE RINDONDANTE -->
+  <!-- ************************************************************************** -->
+  
   <div class="product-restaurant">
-
-<!-- ************************************************************************** -->
-<!-- POSSIBILITA' CREARE UN COMPONENTE PRODUCT PER ELIMINARE CODICE RINDONDANTE -->
-<!-- ************************************************************************** -->
-
+    <h3 >Numero di prodotti del ristorante: {{ singleRestaurant.products.length }}</h3>
     <!-- CARD CIBO PRODOTTI -->
     <h3>Cibo</h3>
     <div class="product-restaurant__food">
@@ -28,10 +30,10 @@
           <img :src="product.image_url === null ? product.image : product.image_url" alt="">
         </div>
         <div class="card-product__info">   
-          <h3>{{ product.name }}</h3>
+          <h5>{{ product.name }}</h5>
           <p>{{ hiddenText(product.ingredients) }}...</p>
           <span>{{ product.price }} €</span>
-          <button @click="pushProduct(product)"><i class="fa-solid fa-cart-shopping"></i> Carrello</button>
+          <button @click="pushProduct(product)"><i class="fa-solid fa-cart-shopping"></i> </button>
         </div>
       </div>
     </div>
@@ -44,10 +46,10 @@
           <img :src="product.image_url === null ? product.image : product.image_url" alt="">
         </div>
         <div class="card-product__info">
-          <h3>{{ product.name }}</h3>
+          <h5>{{ product.name }}</h5>
             <p>{{ hiddenText(product.ingredients) }}...</p>
             <span>{{ product.price }} €</span>    
-            <button @click="pushProduct(product)"><i class="fa-solid fa-cart-shopping"></i> Carrello</button>
+            <button @click="pushProduct(product)"><i class="fa-solid fa-cart-shopping"></i></button>
         </div>
       </div>
     </div> 
@@ -88,6 +90,12 @@ export default {
         // ALERT SE PROVI A COMPRARE DA DUE RISTORATORI
         alert(`🍕🍕 Hai provato ad aggiungere prodotti di ristoranti diversi 🍕🍕`)
       }
+    },
+    filterKitchens(restaurant){
+      let final = new Set(restaurant.map(elm => elm.name))
+      console.log([...final]);
+      return [...final]
+
     }
   },
 
@@ -117,52 +125,57 @@ section{
   width: 100%;
   top: 0%;
   right: 0%;
+  color: var(--restaurant-text-color);
 }
 .single-restaurant{
   display: flex;
   .single-restaurant__image{
     width: 700px;
     height: 400px;
+    border: 1px solid white;
   }
   .single-restaurant__info{
     margin-left: 50px;
+
+    p,span{
+    font-size: 1.3rem;
+    }
   }
 }
 
 // products
 .product-restaurant{
-
+  margin-top: 30px;
   .product-restaurant__food,.product-restaurant__drink {
     display: flex;
     flex-wrap: wrap;
   }
   .card-product{
     display: flex;
-    background-color:var(--card-bg-color) ;
-    width: calc(100% / 3 - 30px);
+    background-image:var(--product-bg-color) ;
+    width: calc(100% / 4 - 30px);
     margin: 15px;
     margin-left: 0;
-    border: 2px solid rgb(70, 154, 210);
+    padding: 10px;
+    border: 1px solid white;
     border-radius:5px;
   .card-product__image{
-    max-width: 200px;
-    min-width: 200px;
+    max-width: 150px;
+    max-height: 150px;
+
+    img{
+      object-fit: cover;
+    }
   }
   .card-product__info{
     margin-left: 10px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 
-    > *{
-      margin: 5px;
-    }
     span{
       font-weight: bold;
+      
     }
     button{
-      width: 100px;
+      margin-left: 40px;
       border-radius: 5px;
       }
     }

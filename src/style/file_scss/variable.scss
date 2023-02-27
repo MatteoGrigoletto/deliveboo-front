@@ -1,15 +1,27 @@
 :root {
   // header
-  --header-bg-color:rgba(79, 197, 230, 0.7);
-  // card
-  --text-bg-color:rgba(44, 42, 42, 0.8);
+  --header-bg-color:rgba(1, 1, 1, 0.7);
+
   // colore bottoni
-  --btn-bg-color: rgb(226, 216, 207);
-  --btn-text-color: rgb(20, 20, 20);
+  --btn-bg-color: var(--header-bg-color);
+  --btn-text-color: rgb(254, 251, 251);
 
   // card product
-
   --card-bg-color: rgba(179, 172, 172, 0.2);
+  
+  // MAIN
+  --body-bg-color: linear-gradient(to bottom, #000000, #000000, #080808, #1b1a1a, #8c8a8a, #bcb9b9, #9a9898, #bcb9b9, #636262, #070707);
+  --main-bg-color: var(--body--bg-color);
+  // SIDE
+  --side-bg--color: rgba(0, 0, 0, 0.21);
+  --side-text-color: var(--btn-text-color);
 
-  // --main-bg-color: rgb(116, 123, 115);
+  // CARD RESTAURANT
+  --card-bg-color:linear-gradient(to bottom, #181717, #424141, #777575, #c4c4c4);
+  --card-text-color: var(--btn-text-color);
+
+  // CARD PRODUCT
+  --product-bg-color: linear-gradient(to top, #121213, #22233a, #1d1d29, #131212);
+  // SINGLE RESTAURANT
+  --restaurant-text-color:var(--card-text-color);
 }

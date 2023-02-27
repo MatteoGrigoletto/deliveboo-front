@@ -3,11 +3,16 @@
   <div class="card__img">
     <img :src="restaurant.image_url === null ? restaurant.image : restaurant.image_url" alt="">
   </div>
-  <div class="card__info">
-    <h2>{{ restaurant.name }}</h2>
-    <p>{{ restaurant.city }}</p>
-    <router-link :to="{name: 'SingleRestaurant',params: { restaurant: restaurant.slug }}">Prodotti</router-link>  
+  <h5>{{ restaurant.name }}</h5>
+  <div class="card__info">  
+    <div>
+      <p>Città: {{ restaurant.city }}</p>
+      <span>Indirizzo: {{ restaurant.street_address }}</span>
+      <p>Nº prodotti: {{ restaurant.products.length }}</p>
+      <button><router-link :to="{name: 'SingleRestaurant',params: { restaurant: restaurant.slug }}">Prodotti</router-link></button>
+    </div>
   </div>
+
 </template>
 
 <script>
@@ -26,31 +31,37 @@ export default {
 
 <style lang="scss" scoped>
 .card__img{
-    height: 70%;
+    height: 60%;
+    
+    img{
+    border-radius: 20px 20px 0px 0px;
+    }
   }
 .card__info{
 padding-top: 5px;
 text-align: center;
+height: 40%;
+border-radius:0px 0px 20px 20px;
+background-image: var(--card-bg-color);
+color: var(--card-text-color);
 
+  p{
+    margin: 0px;
+  }
+  button{
+    margin-top: 10px;
+  }
 
-h2{
+}
+h5{
 position: absolute;
 top: 3%;
 right: 50%;
 transform: translate(50%);
-background-color:rgba(138, 129, 129, 0.5);
+background-image:var(--card-bg-color);
 border-radius: 5px;
 color: white;
 padding: 0px 5px 5px 5px;
 text-align: center;
-}
-
-a{
-padding: 5px 10px;
-border-radius: 5px;
-text-decoration: none;
-background-color: rgb(160, 166, 166);
-color: black;
-}
 }
 </style>

@@ -14,7 +14,7 @@ Kitchens:[{
   image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjuCLjIw7roxv0VKvGEtptGPMIdN5kMCxyADEUB9AzTQ&s'
   },
   {
-  name:'internazione',
+  name:'internazionale',
   image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoSrxTs5TXNBm4Mf6AUOu0ivwU3Wg9gBvr0Q&usqp=CAU'
   },
   {

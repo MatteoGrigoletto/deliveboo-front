@@ -57,16 +57,14 @@ methods:{
 
 <style lang="scss" scoped>
 .card {
-  border-radius: 10px;
-  border: 2px solid black;
-  width: calc(100% / 4 - 10px);
-  margin: 5px;
-  height: 400px;
+  border-radius: 20px;
+  border: 2px solid rgb(219, 215, 215);
+  width: calc(100% / 4 - 20px);
+  margin: 10px;
+  height: 350px;
   color: rgb(27, 27, 28);
   position: relative;
-  background-color: var(--card-bg-color);
-  
-
+  background-image: var(--card-bg-color);
 }
 
 // media
@@ -79,17 +77,17 @@ methods:{
 @media screen and (min-width:601px) and (max-width:960px){
   
   .card{
-    width: calc(100% / 2 - 10px);
+    width: calc(100% / 2 - 20px);
   }
 }
 @media screen and (min-width:961px) and (max-width: 1300px){
   .card{
-    width: calc(100% / 3 - 10px);
+    width: calc(100% / 3 - 20px);
   }
 }
 @media screen and (min-width:1301px) and (max-width: 1600px){
   .card{
-    width: calc(100% / 3 - 10px);
+    width: calc(100% / 3 - 20px);
   }
 }
 </style>

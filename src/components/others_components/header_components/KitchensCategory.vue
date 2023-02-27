@@ -47,9 +47,7 @@ export default {
         top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);
-        color: white;
         font-weight: bold ;
-        background-color: var(--text-bg-color);
         border-radius: 10px;
         padding: 4px 8px;
     }

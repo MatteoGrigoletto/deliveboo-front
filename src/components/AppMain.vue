@@ -30,10 +30,11 @@ export default {
 
 <style lang="scss" scoped>
 main{
-  margin: 10px;
+  margin-top: 20px;
   display: flex;
   overflow-x: hidden;
   justify-content: center;
+  background-image: var(--main-bg-color);
 
   .filter-side{
     width: 15%;
@@ -42,6 +43,7 @@ main{
     width: 85%;
     position: relative;
     overflow-y: scroll;
+    margin-left: 20px;
   }
 }
 
