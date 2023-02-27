@@ -31,9 +31,9 @@
         </div>
         <div class="card-product__info">   
           <h5>{{ product.name }}</h5>
-          <p>{{ hiddenText(product.ingredients) }}...</p>
-          <span>{{ product.price }} €</span>
-          <input type="number" name="quantity" :id="`${product.id}-quantity`" min="1">
+          <button class="card-product__btn-info">Informazioni</button>
+          <p>{{ product.price }} €</p>
+          <input class="card-product__input" type="number" name="quantity" :id="`${product.id}-quantity`" min="1" max="5">
           <button @click="pushProduct(product)"><i class="fa-solid fa-cart-shopping"></i> </button>
         </div>
       </div>
@@ -159,15 +159,28 @@ section{
   }
   .card-product__info{
     margin-left: 10px;
+    max-height: 150px;
+    
+    > *{
+      margin-bottom: 3px;
+    }
 
     span{
       font-weight: bold;
       
     }
+    .card-product__btn-info{
+      margin: 0px;
+      padding: 2px;
+    }
+    .card-product__input{
+      padding-right:5px;
+    }
     button{
-      margin-left: 40px;
+      margin-left: 10px;
       border-radius: 5px;
       }
+
     }
   }
 }
