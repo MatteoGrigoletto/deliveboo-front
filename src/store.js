@@ -29,6 +29,26 @@ Kitchens:[{
   name:'messicano',
   image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz6RRRT1C5_VKfrL4X9f5C4WZwJHT91FbIdg&usqp=CAU'
   },
+  {
+  name:'indiano',
+  image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrxnknt5zorMtwrsQ-u2bQan-uE_dZDKAmTg&usqp=CAU'
+  },
+  {
+  name:'coreano',
+  image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo0E3OSY-gBiQKRL6J34NzkVd2xS32Uo8wEw&usqp=CAU'
+  },
+  {
+  name:'francese',
+  image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmtbUnZAkzojti9CTZ-BuGxpolt9Q8W0qkrA&usqp=CAU'
+  },
+  {
+  name:'thailandese',
+  image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsqvYZRX0-wvMF4aXWpsb2OyFD0TbF7rVyWg&usqp=CAU'
+  },
+  {
+  name:'australiano',
+  image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz6RRRT1C5_VKfrL4X9f5C4WZwJHT91FbIdg&usqp=CAU'
+  },
         
 ],
 
@@ -40,4 +60,9 @@ cart: [],
 
 // 
 productQuantity: '',
+
+
+// modal show
+showModal: false,
+
 });

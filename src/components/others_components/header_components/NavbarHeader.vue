@@ -1,14 +1,14 @@
 <template>
   <div class="nav-bar">
-    <!-- <div class="nav-bar__logo">
+    <div class="nav-bar__logo">
       <img src="https://impactwebagency.com/wp-content/uploads/2022/05/banner-deliveboo.png" alt="logo">
-    </div> -->
+    </div>
     <div class="nav-bar__input">
-      <input type="text" v-model="store.input" placeholder="Ricerca ristorante o prodotto "/>
+      <input type="text" v-model="store.input" placeholder="Ricerca ristorante"/>
     </div>
     <div class="nav-bar__buttons">
       <!-- BOTTONE PER ATTIVARE IL COMPONENTE ModalCard.vue -->   
-      <button class="nav-bar__buttons__cart" @click="showModal = true"><i class="fa-solid fa-cart-shopping"></i> 
+      <button class="nav-bar__buttons__cart" @click="store.showModal = true"><i class="fa-solid fa-cart-shopping"></i> 
         
        <!-- TAG IN POSIZIONE ABSOLUTE CHE INDICA LA QUANTITA' DI PRODOTTI NEL CARRELLO  -->
        <div v-if="store.cart.length > 0 " class="count-cart">
@@ -20,7 +20,7 @@
       <button><a href="http://127.0.0.1:8000/login">Accedi</a></button>   
     </div>
     <div class="app">
-        <ModalCard :show="showModal" title="Titolo della modale" @close="showModal = false">          
+        <ModalCard :show="store.showModal" title="Titolo della modale" @close="store.showModal = false">          
         </ModalCard>
     </div>
   </div>
@@ -35,7 +35,7 @@ export default {
   data() {
     return {
       store,
-      showModal: false,
+      
     };
   },
   components:{
@@ -90,14 +90,14 @@ img{
     position: absolute;
     top: -40%;
     right: -20%;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     border: 1px solid white;
     border-radius: 100%;
-    background-image: var(--body-bg-color);
+    background-image: var(--card-bg-color);
     color: white;
     text-align: center;
-    line-height: 40px;
+    line-height: 35px;
     font-size: 1rem;
   }
 

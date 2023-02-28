@@ -9,7 +9,7 @@
       <h1>{{singleRestaurant.name}}</h1>
       <p>{{singleRestaurant.city}}</p>
       <p>{{singleRestaurant.street_address}}</p>
-      <span>Tipilogia di cucina: </span>
+      <span>Tipologia di cucina: </span>
       <span class="badge text-bg-light fs-6 me-1 rounded-pill" v-for="tipology in filterKitchens(singleRestaurant.kitchens)">{{ tipology}}</span>
     </div>
   </div>
@@ -21,7 +21,6 @@
   <!-- ************************************************************************** -->
   
   <div class="product-restaurant">
-    <h3 >Numero di prodotti del ristorante: {{ singleRestaurant.products.length }}</h3>
     <!-- CARD CIBO PRODOTTI -->
     <h3>Prodotti</h3>
     <div class="product-restaurant__food">
@@ -33,11 +32,13 @@
           <h5>{{ product.name }}</h5>
           <button class="card-product__btn-info">Informazioni</button>
           <p>{{ product.price }} €</p>
-          <input class="card-product__input" type="number" name="quantity" :id="`${product.id}-quantty`" min="1" max="5">
           <button @click="pushProduct(product)"><i class="fa-solid fa-cart-shopping"></i></button>
         </div>
       </div>
     </div>
+  </div>
+  <div v-if="showPopup" class="popup">
+      Prodotto aggiunto al carrello!
   </div>
 </section>
 </template>
@@ -51,7 +52,7 @@ export default {
     return {
       store,
       singleRestaurant: [],
-      
+      showPopup: false,
     };
   },
   components:{
@@ -63,30 +64,37 @@ export default {
     // METODO PER TRASFORMARE L'OGGETTO IN STRINGA E MEMORIZZARLO NEL LOCALSTORAGE
     // NEL COMPONENTE ModalCard.vue IL PRODOTTO VIENE RICONVERITO IN OGGETTO 
     pushProduct(obj){ 
-    this.store.productQuantity =  document.getElementById(`${obj.id}-quantty`).value
-     obj.quantity = Number(this.store.productQuantity)
-
-      if(store.cart.length === 0 && obj.quantity > 0){
-         this.store.cart.push(obj)
-         localStorage.setItem('cartItems',JSON.stringify(this.store.cart))
-     
-      }else if(store.cart[0].restaurant_id === obj.restaurant_id && obj.quantity > 0){
-        this.store.cart.push(obj)
-        localStorage.setItem('cartItems',JSON.stringify(this.store.cart))
-        
-      }else if(obj.quantity <= 0){
+      obj.quantity = 1;
+      
+      if(obj.quantity > 5){
+        alert(`Non puoi ordinare piu' 5 di prodotti alla volta`)
+      }
+      else if(obj.quantity <= 0){
         // ALERT SE PROVI A INSERIRE UN VALORE NEL INPUT CARRELLO NEGATIVO 
         alert(`Inserisci nel carrello un quantitativo positivo`)
-      }else{
+      }
+      else if(store.cart.length === 0){
+        this.store.cart.push(obj)
+        localStorage.setItem('cartItems',JSON.stringify(this.store.cart))
+      }
+      else if(store.cart[0].restaurant_id === obj.restaurant_id) {
+        this.store.cart.push(obj)
+        localStorage.setItem('cartItems',JSON.stringify(this.store.cart))
+      }
+      else{ 
         // ALERT SE PROVI A COMPRARE DA DUE RISTORATORI
         alert(`🍕🍕 Hai provato ad aggiungere prodotti di ristoranti diversi 🍕🍕`)
       }
+      // FA COMPARIRE IL POP-UP
+      this.showPopup = true;
+      setTimeout(() => {
+        this.showPopup = false;
+      },5000);
     },
     filterKitchens(restaurant){
       let final = new Set(restaurant.map(elm => elm.name))
       console.log([...final]);
       return [...final]
-
     }
   },
 
@@ -124,12 +132,22 @@ section{
     width: 700px;
     height: 400px;
     border: 1px solid white;
+    border-radius: 10px ;
+    border: 2px solid orange;
+    
+    img{
+      border-radius: 10px;
+    }
   }
+
   .single-restaurant__info{
     margin-left: 50px;
 
     p,span{
     font-size: 1.3rem;
+    }
+    .badge{
+      background-image: var(--badge-bg-color);
     }
   }
 }
@@ -184,6 +202,18 @@ section{
 
     }
   }
+}
+
+// POP-UP NOTIFICA AGGIUNTO PRODOTTO AL CARRELLO
+.popup {
+  position: fixed;
+  bottom: 20px;
+  right: 0%;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
 }
 
 // media

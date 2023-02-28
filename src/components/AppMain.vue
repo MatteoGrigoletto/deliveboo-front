@@ -34,7 +34,7 @@ main{
   display: flex;
   overflow-x: hidden;
   justify-content: center;
-  background-image: var(--main-bg-color);
+  background-color: var(--main-bg-color);
 
   .filter-side{
     width: 15%;

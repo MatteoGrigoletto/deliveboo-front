@@ -75,18 +75,19 @@ export default {
       }
     },
     // METODO PER CALCOLARE IL VALORE TOTALE DEL CARRELLO
-    totalPrice(arr){
-     return arr.map(elm => elm.quantity * elm.price).reduce((totale,singlePrice)=> totale += Number(singlePrice),0).toFixed(2)
+    totalPrice(arr){ 
+     return arr.map(elm => elm.quantity * elm.price).reduce((totale,singlePrice)=> totale += Number(singlePrice),0).toFixed(2)  
     },
     quantityUp(product,index){
       product.quantity++
+      localStorage.setItem('cartItems', JSON.stringify(this.store.cart));
     },
     quantityDown(product,index){
       product.quantity--
       if( product.quantity <= 0){
         this.store.cart.splice(index,1)
-        localStorage.setItem('cartItems', JSON.stringify(this.store.cart));
       }
+      localStorage.setItem('cartItems', JSON.stringify(this.store.cart));
     }
   },
 
@@ -97,6 +98,7 @@ export default {
   if(savedCartItems){
     this.store.cart = JSON.parse(savedCartItems);
   }
+  console.log(this.store.cart);
 }
 };
 </script>

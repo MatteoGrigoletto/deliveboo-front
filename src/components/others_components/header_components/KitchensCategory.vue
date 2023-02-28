@@ -1,11 +1,11 @@
 <template>
     <!-- COMPONENTE CHE GENERA DELLE CATEGORIE PER NAVIGARE VELOCEMENTE TRA I RISTORANTI -->
-<div class="container-kitchens">
+<!-- <div class="container-kitchens">
     <div class="kitchen" v-for="item in store.Kitchens"> 
         <img :src="item.image" alt="">
         <button> <router-link :to="{name: 'HomePage'}" @click="change(item.name)">{{item.name}}</router-link> </button>
     </div>
-</div>
+</div> -->
 </template>
 
 <script> 

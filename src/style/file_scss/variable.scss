@@ -1,27 +1,31 @@
 :root {
   // header
-  --header-bg-color:rgba(1, 1, 1, 0.7);
+  --header-bg-color:rgba(0, 0, 0, 0.8);
 
   // colore bottoni
   --btn-bg-color: var(--header-bg-color);
   --btn-text-color: rgb(254, 251, 251);
+  --btn-hover-color:var(--product-bg-color);
 
   // card product
   --card-bg-color: rgba(179, 172, 172, 0.2);
   
   // MAIN
-  --body-bg-color: linear-gradient(to bottom, #000000, #000000, #080808, #1b1a1a, #8c8a8a, #bcb9b9, #9a9898, #bcb9b9, #636262, #070707);
+  --body-bg-color: rgb(233, 231, 229,0.5);
   --main-bg-color: var(--body--bg-color);
   // SIDE
-  --side-bg--color: rgba(0, 0, 0, 0.21);
+  --side-bg-color: rgb(241, 135, 13);
   --side-text-color: var(--btn-text-color);
 
   // CARD RESTAURANT
-  --card-bg-color:linear-gradient(to bottom, #181717, #424141, #777575, #c4c4c4);
-  --card-text-color: var(--btn-text-color);
+  --card-bg-color: linear-gradient(to bottom, #f8ede6, #f4ab7e, #ff6600);
+  --card-text-color: black;
 
   // CARD PRODUCT
-  --product-bg-color: linear-gradient(to top, #121213, #22233a, #1d1d29, #131212);
+  --product-bg-color: var(--card-bg-color);
   // SINGLE RESTAURANT
   --restaurant-text-color:var(--card-text-color);
+
+  //BADGE RESTAURANT
+  --badge-bg-color:var(--card-bg-color); 
 }

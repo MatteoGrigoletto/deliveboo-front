@@ -4,11 +4,12 @@
     <img :src="restaurant.image_url === null ? restaurant.image : restaurant.image_url" alt="">
   </div>
   <h5>{{ restaurant.name }}</h5>
-  <div class="card__info">  
-    <div>
-      <p>Città: {{ restaurant.city }}</p>
-      <span>Indirizzo: {{ restaurant.street_address }}</span>
-      <p>Nº prodotti: {{ restaurant.products.length }}</p>
+  <div class="card__info">   
+    <div class="card__info__text">
+      <p>{{ restaurant.street_address }},{{ restaurant.city }}</p>
+      <span class="badge text-bg-light fs-6 me-1 rounded-pill" v-for="kitchen in filterKitchens(restaurant.kitchens)">{{kitchen}}</span>
+    </div> 
+    <div class="card__info__btn">
       <button><router-link :to="{name: 'SingleRestaurant',params: { restaurant: restaurant.slug }}">Prodotti</router-link></button>
     </div>
   </div>
@@ -25,7 +26,13 @@ export default {
     },
     props:{
         restaurant: Object,
+    },
+    methods:{  
+      filterKitchens(restaurant){
+       let kitchen = restaurant.map(kitchen => kitchen.name)
+        return kitchen  
     }
+  }
 }
 </script>
 
@@ -38,18 +45,23 @@ export default {
     }
   }
 .card__info{
-padding-top: 5px;
-text-align: center;
-height: 40%;
-border-radius:0px 0px 20px 20px;
-background-image: var(--card-bg-color);
-color: var(--card-text-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 5px;
+  height: 40%;
+  border-radius:0px 0px 20px 20px;
+  background-image: var(--card-bg-color);
+  color: var(--card-text-color);
 
-  p{
-    margin: 0px;
+  .card__info__text{
+    > *{
+      margin: 2px;
+    }
   }
-  button{
-    margin-top: 10px;
+  .card__info__btn{
+    text-align: center;
+    margin-bottom: 5px;
   }
 
 }
@@ -58,7 +70,7 @@ position: absolute;
 top: 3%;
 right: 50%;
 transform: translate(50%);
-background-image:var(--card-bg-color);
+background-color:var(--header-bg-color);
 border-radius: 5px;
 color: white;
 padding: 0px 5px 5px 5px;
