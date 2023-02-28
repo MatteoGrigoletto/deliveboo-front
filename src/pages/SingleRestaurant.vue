@@ -2,7 +2,7 @@
   <section>
   <div class="single-restaurant">
     <div class="single-restaurant__image">
-      <!-- CONTROLLO IMMAGINE -->
+     <!-- Controllo immagine -->
       <img :src="singleRestaurant.image_url === null ? singleRestaurant.image : singleRestaurant.image_url" alt="">
     </div>
     <div class="single-restaurant__info">
@@ -13,16 +13,13 @@
       <span class="badge text-bg-light fs-6 me-1 rounded-pill" v-for="tipology in filterKitchens(singleRestaurant.kitchens)">{{ tipology}}</span>
     </div>
   </div>
-
-  <!-- PRODOTTI DEL RISTORANTE -->
   
-  <!-- ************************************************************************** -->
-  <!-- POSSIBILITA' CREARE UN COMPONENTE PRODUCT PER ELIMINARE CODICE RINDONDANTE -->
-  <!-- ************************************************************************** -->
+ <!-- Prodotti del ristorante -->
+ <!-- Possibilità di creare un componente "Product" per eliminare codice ridondante -->
   
   <div class="product-restaurant">
-    <!-- CARD CIBO PRODOTTI -->
     <h3>Prodotti</h3>
+    <!-- Card cibo prodotti -->
     <div class="product-restaurant__food">
       <div class="card-product" v-for="product in singleRestaurant.products" v-show="product.is_available === 1">
         <div class="card-product__image">
@@ -61,11 +58,11 @@ export default {
     hiddenText(str){
      return str.slice(0,50)
     },
-    // METODO PER TRASFORMARE L'OGGETTO IN STRINGA E MEMORIZZARLO NEL LOCALSTORAGE
-    // NEL COMPONENTE ModalCard.vue IL PRODOTTO VIENE RICONVERITO IN OGGETTO 
+   // Metodo per trasformare l'oggetto in stringa e memorizzarlo nel localStorage.
+   // Nel componente ModalCard.vue il prodotto viene riconvertito in oggetto.
     pushProduct(obj){ 
 
-    // VARIABILE CHE ASSUME IL VALORE DELL'OGGETTO DENTRO ALL'ARRAY SE PRESENTE
+     // Variabile che assume il valore dell'oggetto dentro all'array se presente.
     let check = this.store.cart.find(elm=> elm.id === obj.id)
      if(check){
       console.log(check);
@@ -83,7 +80,7 @@ export default {
         localStorage.setItem('cartItems',JSON.stringify(this.store.cart));
       }
       else{ 
-        // ALERT SE PROVI A COMPRARE DA DUE RISTORATORI
+        // Alert se si prova ad aggiungere prodotti di ristoranti diversi.
         alert(`🍕🍕 Hai provato ad aggiungere prodotti di ristoranti diversi 🍕🍕`)
       }
       // FA COMPARIRE IL POP-UP PER 5 SECONDI
@@ -97,9 +94,8 @@ export default {
       return [...final]
     }
   },
-
-  // CHIAMATA AXIOS CHE PRENDE COME PARAMETRO LO SLAG GENERATO DAL LINK DELLA CARD PRESENTE
-  // NEL COMPONENTE AppCard.vue
+  //Chiamata axios che prende come parametro lo slag generato dal liink della card presente
+  // nel componente AppCard.vue 
   created() {
     axios
       .get(

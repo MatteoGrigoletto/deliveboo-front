@@ -9,7 +9,7 @@
       <form @submit.prevent="submitForm">
         <label v-for="(kitchen, index) in store.Kitchens" :key="index">
           <input type="checkbox" :value="kitchen.name" v-model="store.checkbox" >
-          <span  :class="{ active: activeIndexes.includes(index) }">{{ kitchen.name }}</span>
+          <span @click="toggleActive(index)" :class="{ active: activeIndexes.includes(index) }">{{ kitchen.name }}</span>
           <img @click="toggleActive(index)" :src="kitchen.image" alt="">
         </label>
       </form>
@@ -54,7 +54,7 @@ export default {
 <style lang="scss" scoped>
 .side {
   width: 100%;
-  height: calc(100vh - 200px);
+  height: calc(100vh - 100px);
   border-radius: 5px 5px 0px 0px;
   display: flex;
   flex-direction: column;
@@ -68,7 +68,7 @@ export default {
 
     label {
       display: block;
-      margin-bottom: 10px;
+      margin-bottom: 21px;
       font-size: 1.1rem;
       font-weight: bold;
       height: 60px;
