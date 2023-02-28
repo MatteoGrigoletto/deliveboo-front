@@ -6,8 +6,9 @@
   <h5>{{ restaurant.name }}</h5>
   <div class="card__info">   
     <div class="card__info__text">
-      <p>{{ restaurant.street_address }},{{ restaurant.city }}</p>
-      <span class="badge text-bg-light fs-6 me-1 rounded-pill" v-for="kitchen in filterKitchens(restaurant.kitchens)">{{kitchen}}</span>
+      <p>{{ restaurant.street_address }}</p>
+      <p>{{ restaurant.city }}</p>
+      <span class="badge text-bg-light fs-7 rounded-pill" v-for="kitchen in filterKitchens(restaurant.kitchens)">{{kitchen}}</span>
     </div> 
     <div class="card__info__btn">
       <button><router-link :to="{name: 'SingleRestaurant',params: { restaurant: restaurant.slug }}">Prodotti</router-link></button>

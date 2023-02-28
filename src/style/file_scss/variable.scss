@@ -14,7 +14,7 @@
   --body-bg-color: rgb(233, 231, 229,0.5);
   --main-bg-color: var(--body--bg-color);
   // SIDE
-  --side-bg-color: rgb(12, 12, 12,0.9);
+  --side-bg-color: rgba(34, 33, 33, 0.9);
   --side-text-color: var(--btn-text-color);
 
   // CARD RESTAURANT
@@ -28,4 +28,7 @@
 
   //BADGE RESTAURANT
   --badge-bg-color:var(--card-bg-color); 
+
+  // FOOTER
+  --footer-bg-color:var(--side-bg-color);
 }
