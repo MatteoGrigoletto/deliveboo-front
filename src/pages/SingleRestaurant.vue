@@ -64,28 +64,29 @@ export default {
     // METODO PER TRASFORMARE L'OGGETTO IN STRINGA E MEMORIZZARLO NEL LOCALSTORAGE
     // NEL COMPONENTE ModalCard.vue IL PRODOTTO VIENE RICONVERITO IN OGGETTO 
     pushProduct(obj){ 
-      obj.quantity = 1;
-      
-      if(obj.quantity > 5){
-        alert(`Non puoi ordinare piu' 5 di prodotti alla volta`)
-      }
-      else if(obj.quantity <= 0){
-        // ALERT SE PROVI A INSERIRE UN VALORE NEL INPUT CARRELLO NEGATIVO 
-        alert(`Inserisci nel carrello un quantitativo positivo`)
-      }
+
+    // VARIABILE CHE ASSUME IL VALORE DELL'OGGETTO DENTRO ALL'ARRAY SE PRESENTE
+    let check = this.store.cart.find(elm=> elm.id === obj.id)
+     if(check){
+      console.log(check);
+      check.quantity ++;
+      localStorage.setItem('cartItems',JSON.stringify(this.store.cart));
+    }
       else if(store.cart.length === 0){
-        this.store.cart.push(obj)
-        localStorage.setItem('cartItems',JSON.stringify(this.store.cart))
+        obj.quantity = 1
+        this.store.cart.push(obj);
+        localStorage.setItem('cartItems',JSON.stringify(this.store.cart));
       }
       else if(store.cart[0].restaurant_id === obj.restaurant_id) {
-        this.store.cart.push(obj)
-        localStorage.setItem('cartItems',JSON.stringify(this.store.cart))
+        obj.quantity = 1;
+        this.store.cart.push(obj);
+        localStorage.setItem('cartItems',JSON.stringify(this.store.cart));
       }
       else{ 
         // ALERT SE PROVI A COMPRARE DA DUE RISTORATORI
         alert(`🍕🍕 Hai provato ad aggiungere prodotti di ristoranti diversi 🍕🍕`)
       }
-      // FA COMPARIRE IL POP-UP
+      // FA COMPARIRE IL POP-UP PER 5 SECONDI
       this.showPopup = true;
       setTimeout(() => {
         this.showPopup = false;
@@ -93,7 +94,6 @@ export default {
     },
     filterKitchens(restaurant){
       let final = new Set(restaurant.map(elm => elm.name))
-      console.log([...final]);
       return [...final]
     }
   },

@@ -4,7 +4,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "./pages/HomePage.vue";
 import Page404 from "./pages/Page404.vue";
 import SingleRestaurant from "./pages/SingleRestaurant.vue";
-// import RestaurantCategory from "./pages/RestaurantCategory.vue";
+import OrderCustomer from "./pages/OrderCustomer.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -14,11 +14,11 @@ const router = createRouter({
       name: "HomePage",
       component: HomePage,
     },
-    // {
-    //   path: "/:category",
-    //   name: "RestaurantCategory",
-    //   component: RestaurantCategory,
-    // },
+    {
+      path: "/order",
+      name: "OrderCustomer",
+      component: OrderCustomer,
+    },
     {
       path: "/:restaurant",
       name: "SingleRestaurant",

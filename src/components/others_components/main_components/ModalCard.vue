@@ -38,7 +38,8 @@
             </div>
             <div class="container-info-cart">
               <span>Totale: {{ totalPrice(store.cart) }} €</span>
-              <button class="btn-pay">Conferma acquisto</button>
+              <button class="btn-pay"><router-link :to="{name: 'OrderCustomer'}" @click="store.showModal = false">Conferma</router-link></button>
+            
             </div>
           </slot>
         </div>
@@ -85,7 +86,7 @@ export default {
     quantityDown(product,index){
       product.quantity--
       if( product.quantity <= 0){
-        this.store.cart.splice(index,1)
+        this.store.cart.splice(index,1)   
       }
       localStorage.setItem('cartItems', JSON.stringify(this.store.cart));
     }

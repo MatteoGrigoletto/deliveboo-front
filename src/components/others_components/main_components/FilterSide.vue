@@ -1,7 +1,7 @@
 <template>
     <div class="side">
       <!-- FUNZIONE BASE DELLA SIDE -->
-      <button> <router-link :to="{name: 'HomePage'}" @click="resetRestaurant()">Torna ai ristoranti</router-link> </button>     
+      <button> <router-link :to="{name: 'HomePage'}" @click="resetRestaurant()">Torna ai ristoranti</router-link> </button> 
       <div>
         <form @submit.prevent="submitForm">
         <label v-for="(kitchen, index) in store.Kitchens" :key="index">
