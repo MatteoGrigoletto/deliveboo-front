@@ -38,8 +38,7 @@
             </div>
             <div class="container-info-cart">
               <span>Totale: {{ totalPrice(store.cart) }} €</span>
-              <button class="btn-pay"><router-link :to="{name: 'OrderCustomer'}" @click="store.showModal = false">Conferma</router-link></button>
-            
+              <button class="btn-pay"><router-link :to="{name: 'OrderCustomer'}" @click="store.showModal = false">Conferma</router-link></button>      
             </div>
           </slot>
         </div>
@@ -77,7 +76,8 @@ export default {
     },
     // METODO PER CALCOLARE IL VALORE TOTALE DEL CARRELLO
     totalPrice(arr){ 
-     return arr.map(elm => elm.quantity * elm.price).reduce((totale,singlePrice)=> totale += Number(singlePrice),0).toFixed(2)  
+     this.store.totalPriceCart = arr.map(elm => elm.quantity * elm.price).reduce((totale,singlePrice)=> totale += Number(singlePrice),0).toFixed(2);
+     return this.store.totalPriceCart;
     },
     quantityUp(product,index){
       product.quantity++
@@ -122,7 +122,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(1, 10, 7, 0.8);
   opacity: 1;
 }
 
@@ -130,7 +130,7 @@ export default {
   background-color: white;
   padding: 0px;
   border-radius: 4px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 10px rgba(7, 7, 7, 0.5);
   width: 50%;
   height: 80%;
   overflow: hidden;

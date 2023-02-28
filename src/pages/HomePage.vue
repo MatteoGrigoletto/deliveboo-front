@@ -26,6 +26,9 @@ export default {
      
     });
   },
+  mounted(){
+    console.log('arrivo?');
+  }
 };
 </script>
 

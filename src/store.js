@@ -4,7 +4,7 @@ export const store = reactive({
   // gli viene assegnato un valore quando viene aperto il sito (tramite API)
   restaurants: [],
   
-  // 
+  //MEMORIZZA CUCINE DALLE CHECKBOX SELEZIONATE
   checkbox: [],
   // variabile input v-model
   input: "",
@@ -52,17 +52,18 @@ Kitchens:[{
         
 ],
 
-SideCategory: ['italiano', 'internazionale', 'cinese', 'giapponese', 'messicano', 'indiano', 'coreano', 'francese', 'thailandese', 'australiano'],
-
 inputKitchens : '',
 
+// CARRELLO
 cart: [],
 
-// 
-productQuantity: '',
-
+// productQuantity: '',
 
 // modal show
 showModal: false,
+
+// PREZZO TOTALE DEL CARRELLO
+totalPriceCart: 0,
+
 
 });

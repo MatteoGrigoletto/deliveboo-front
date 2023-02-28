@@ -83,6 +83,7 @@ export default {
 img{
   height: 50px;
   object-fit:cover;
+  // filter: invert();
   }
 
 
