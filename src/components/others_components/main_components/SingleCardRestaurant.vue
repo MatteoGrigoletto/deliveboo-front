@@ -77,4 +77,70 @@ color: white;
 padding: 0px 5px 5px 5px;
 text-align: center;
 }
+
+// media
+
+@media screen and (max-width:600px){
+
+  .card__info__text{
+    > *{
+      margin: 2px;
+      font-size: 1rem;
+    }
+  }
+  .card__info__btn{
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  .badge{
+    padding: 2px;
+  }
+}
+@media screen and (min-width:601px) and (max-width:960px){
+  
+  .card__info__text{
+    > *{
+      margin: 2px;
+      font-size: 0.8rem;
+    }
+  }
+  .card__info__btn{
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  .badge{
+    padding: 2px;
+  }
+}
+@media screen and (min-width:961px) and (max-width: 1300px){
+  .card__info__text{
+    > *{
+      margin: 2px;
+      font-size: 0.8rem;
+    }
+  }
+  .card__info__btn{
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  .badge{
+    padding: 3px;
+  }
+}
+@media screen and (min-width:1301px) and (max-width: 1600px){
+  .card__info__text{
+    > *{
+      margin: 2px;
+      font-size: 0.8rem;
+    }
+  }
+  .card__info__btn{
+
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  .badge{
+    padding: 4px;
+  }
+}
 </style>
