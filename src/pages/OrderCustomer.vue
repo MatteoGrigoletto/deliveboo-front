@@ -60,7 +60,7 @@ export default {
         order.push(newObj)
       }
       const obj = { 
-        order:arrObj,
+        order:order,
         name_customer: this.name,
         email_customer: this.email,
         address_customer: this.address,
