@@ -37,6 +37,7 @@
       </div>
     </div>
   </div>
+  <!-- evento notifica aggiunta prodotto al carrello -->
   <div v-if="showPopup" class="popup">
       Prodotto aggiunto al carrello!
   </div>
@@ -202,8 +203,8 @@ export default {
   position: fixed;
   bottom: 20px;
   right: 0%;
-  background-color: #333;
-  color: white;
+  background-color: #3ef541;
+  color: rgb(8, 8, 8);
   padding: 10px;
   margin: 10px;
   border-radius: 5px;

@@ -10,12 +10,14 @@
           <button class="close-button" @click="$emit('close')">X</button>
         </div>
         <div class="modal-body">
+          <!-- controllo se il carrello e' vuoto -->
           <slot v-if="store.cart <= 0">
           <div>
               <h2>Il tuo carrello è vuoto! </h2>
-              <button  @click="store.showModal = false"><router-link :to="{ name: 'HomePage' }"> Ritorna ai Ristoranti</router-link></button>
+              <button  @click="store.showModal = false">Ritorna ai Ristoranti</button>
             </div>
           </slot>
+          <!-- se il carrello e' pieno -->
           <slot v-else> 
             <div class="container-item-cart">
               <div  v-for="item,index in store.cart">

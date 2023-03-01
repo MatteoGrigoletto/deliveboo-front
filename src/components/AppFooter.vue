@@ -1,24 +1,7 @@
 <template>
   <footer  v-if="$route.path === '/'">
     <section class="section-partner">
-      <div class="info-partner">
-        <div class="info-partner__single">
-          <div class="info-partner__single__img">
-            <img src="../assets/banner-deliveboo.jpg" alt="" />
-          </div>
-          <div class="info-partner__single__info">
-            <button>Lavora con noi</button>
-          </div>
-        </div>
-        <div class="info-partner__single">
-          <div class="info-partner__single__img">
-            <img src="../assets/image-partner1.jpg" alt="" />
-          </div>
-          <div class="info-partner__single__info">
-            <button>Entra nella nostra community</button>
-          </div>
-        </div>
-      </div>
+     <PartnerSection/>
     </section>
     <section class="section-site">
       <div class="info-site">
@@ -72,8 +55,17 @@
 </template>
 
 <script>
+import PartnerSection from './others_components/footer_components/PartnerSection.vue';
 export default {
   name: "AppFooter",
+  data(){
+    return {
+      
+    }
+  },
+  components: {
+    PartnerSection,
+  }
 };
 </script>
 
@@ -90,31 +82,15 @@ footer {
       display: flex;
     } 
   }
-
-
+  
+  
   // Info Partner
   .section-partner{
     background-color: rgb(94, 92, 92);
-    .info-partner {  
-      justify-content: center;
-      .info-partner__single {
-        width: 500px;
-        margin: 100px 50px;
-        border: 2px solid white;
-        position: relative;
-        .info-partner__single__img{
-          height: 100%;
-        }
-        .info-partner__single__info {
-          position: absolute;
-          bottom: 2%;
-          left: 2%;
-        }
-      }
-    }
+    
   }
-    // Links
-
+  // Links
+  
   .section-site{
     .info-site {
       margin-top: 100px;
@@ -139,19 +115,45 @@ footer {
 }
 // Social
 
-  .section-social{
-    .info-social__app{
+.section-social{
+  .info-social__app{
+    
+    ul{
+      display: flex;
+      justify-content: flex-start;
       
-      ul{
-        display: flex;
-        justify-content: flex-start;
+      li{
+        margin:10px 20px 10px 20px ;         
+      }
+    }
+  }
+}
+
+//  media
+
+@media screen and (max-width: 600px) {
+
+
+
+    div{
+       width: 100% !important;
+      flex-wrap: wrap;
+      .info-partner__single{
+        width: 100% !important;
         
-        li{
-          margin:10px 20px 10px 20px ;
-          
+        &__info{
+          font-size: 0.7rem;
+          width: 100% !important;
         }
       }
     }
   }
+
+@media screen and (min-width: 601px) and (max-width: 960px) {
+}
+@media screen and (min-width: 961px) and (max-width: 1300px) {
+}
+@media screen and (min-width: 1301px) and (max-width: 1600px) {
+}
     
 </style>
