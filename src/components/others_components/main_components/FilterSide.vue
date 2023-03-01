@@ -1,10 +1,5 @@
 <template>
   <div class="side">
-    <button>
-      <router-link :to="{ name: 'HomePage' }" @click="resetRestaurant()">
-        Torna ai ristoranti
-      </router-link>
-    </button>
     <div>
       <form @submit.prevent="submitForm">
         <label v-for="(kitchen, index) in store.Kitchens" :key="index">
@@ -77,7 +72,7 @@ export default {
 
     label {
       display: block;
-      margin-bottom: 21px;
+      margin-bottom: 25px;
       font-size: 1.1rem;
       font-weight: bold;
       height: 60px;
