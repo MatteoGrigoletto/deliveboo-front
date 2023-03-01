@@ -47,32 +47,32 @@ export default {
   methods: {
 
     sendData(){
-      let products = Object.values(this.store.cart).map(elm => elm.name)
+      let products = Object.values(this.store.cart).map(elm => elm.id)
       let quantity = this.store.cart.map(product => product.quantity)
       let order = []
       for(let i = 0; i < products.length; i++){
-        let newObj = {
-          product: products[i],
+        let SingleProduct = {
+          product_id: products[i],
           quantity:quantity[i]
         }
-        order.push(newObj)
+        order.push(SingleProduct)
       }
-      const obj = { 
+      // const obj = { 
+      //   order:order,
+      //   name_customer: this.name,
+      //   email_customer: this.email,
+      //   address_customer: this.address,
+      //   phone_number: this.phone,
+      //   total_price: this.store.totalPriceCart,
+      //  }
+      // console.log(obj); 
+      axios.post('http://localhost:8000/api/orders', {
+        name_customer: this.name,
+        email_customer: this.email,
+        address_customer: this.address,
+        phone_number: this.phone,
+        total_price: this.store.totalPriceCart,
         order:order,
-        name_customer: this.name,
-        email_customer: this.email,
-        address_customer: this.address,
-        phone_customer: this.phone,
-        total_price: this.store.totalPriceCart,
-       }
-      console.log(obj); 
-      axios.post('http://localhost:8000/api/', {
-        name_customer: this.name,
-        email_customer: this.email,
-        address_customer: this.address,
-        phone_customer: this.phone,
-        total_price: this.store.totalPriceCart,
-        order:order
 
       }).then(response => {
         console.log(response.data);
