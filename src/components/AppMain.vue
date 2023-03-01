@@ -81,16 +81,45 @@ main {
 // media
 
 @media screen and (max-width: 600px) {
+  main {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--main-bg-color);
+
   .filter-side {
-    display: none;
+    width: 100%;
   }
   .main-view {
-    overflow-y: none;
-    overflow-x: auto;
-    width: 100% !important;
+    
+    height: 500px;
+    position: relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 100%;
+    margin: auto;
   }
 }
+}
 @media screen and (min-width: 601px) and (max-width: 960px) {
+  main {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--main-bg-color);
+
+  .filter-side {
+    width: 100%;
+  }
+  .main-view {
+    
+    height: 1000px;
+    position: relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 100%;
+    margin: auto;
+  }
+}
+
 }
 @media screen and (min-width: 961px) and (max-width: 1300px) {
 }

@@ -45,9 +45,7 @@ export default {
     };
   },
   methods: {
-    // submitForm() {
-     
-    // },
+
     sendData(){
       let products = Object.values(this.store.cart).map(elm => elm.name)
       let quantity = this.store.cart.map(product => product.quantity)
@@ -68,15 +66,20 @@ export default {
         total_price: this.store.totalPriceCart,
        }
       console.log(obj); 
-      // axios.post('', {
-      //   name_customer: formData.name_customer,
-      //   email_customer: formData.email_customer,
-      //   address_customer: formData.address_customer,
-      //   phone_customer: formData.phone_customer,
-      //   total_price: formData.total_price,
+      axios.post('http://localhost:8000/api/', {
+        name_customer: this.name,
+        email_customer: this.email,
+        address_customer: this.address,
+        phone_customer: this.phone,
+        total_price: this.store.totalPriceCart,
+        order:order
 
-      // })
-    }
+      }).then(response => {
+        console.log(response.data);
+      }).catch(error => {
+        console.log(error);
+      })
+    },
   },
   mounted(){
     this.price = this.store.totalPriceCart;

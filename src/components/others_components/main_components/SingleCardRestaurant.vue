@@ -3,7 +3,7 @@
   <div class="card__img">
     <img :src="restaurant.image_url === null ? restaurant.image : restaurant.image_url" alt="">
   </div>
-  <h5>{{ restaurant.name }}</h5>
+  <h6>{{ restaurant.name }}</h6>
   <div class="card__info">   
     <div class="card__info__text">
       <p>{{ restaurant.street_address }}</p>
@@ -66,7 +66,7 @@ export default {
   }
 
 }
-h5{
+h6{
 position: absolute;
 top: 3%;
 right: 50%;

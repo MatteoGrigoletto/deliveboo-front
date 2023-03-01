@@ -30,7 +30,7 @@
         </div>
         <div class="card-product__info">   
           <h5>{{ product.name }}</h5>
-          <button class="card-product__btn-info">Informazioni</button>
+          <button class="card-product__info__btn">Info</button>
           <p>{{ product.price }} €</p>
           <button @click="pushProduct(product)"><i class="fa-solid fa-cart-shopping"></i></button>
         </div>
@@ -182,7 +182,7 @@ export default {
       font-weight: bold;
       
     }
-    .card-product__btn-info{
+    .card-product__info__btn{
       margin: 0px;
       padding: 2px;
     }
@@ -190,7 +190,6 @@ export default {
       padding-right:5px;
     }
     button{
-      margin-left: 10px;
       border-radius: 5px;
       }
 
@@ -237,19 +236,65 @@ export default {
   }
 }
 
-}
-@media screen and (min-width:601px) and (max-width:960px){
-
-  .single-restaurant{
-  display: flex;
-  .single-restaurant__image{
-    width: 400px;
-    height: 300px;
+// products
+.product-restaurant{
+  margin-top: 30px;
+  .product-restaurant__food,.product-restaurant__drink {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .card-product{
+    display: flex;
+    background-image:var(--product-bg-color) ;
+    width: calc(100% / 2 - 10px);
+    margin: 5px;
+    margin-left: 0;
+    border-radius:5px;
+  .card-product__image{
     
     img{
-      border-radius: 10px;
+      object-fit: cover;
+      width: 100px;
+      height: 100px;
+    
     }
   }
+  .card-product__info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    h5{
+      font-size: 0.8rem;
+    }
+    &__btn{
+      display: none;
+    }
+    p{
+      font-size: 0.9rem;
+    }
+    button{
+      margin: 0;
+      max-width: 50px;
+
+
+      }
+
+    }
+  }
+}
+
+}
+@media screen and (min-width:601px) and (max-width:960px){
+  .single-restaurant{
+    display: flex;
+    .single-restaurant__image{
+      width: 400px;
+      height: 300px;
+    
+      img{
+        border-radius: 10px;
+      }
+    }
   .single-restaurant__info{
     margin-left: 40px;
 
@@ -262,14 +307,193 @@ export default {
     }
   }
 }
-  
-  
+
+// products
+  .product-restaurant{
+    margin-top: 30px;
+    .product-restaurant__food,.product-restaurant__drink {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .card-product{
+      display: flex;
+      background-image:var(--product-bg-color) ;
+      width: calc(100% / 2 - 10px);
+      margin: 5px;
+      margin-left: 0;
+      border-radius:5px;
+    .card-product__image{
+      
+      img{
+        object-fit: cover;
+        width: 100px;
+        height: 100px;
+      
+      }
+    }
+    .card-product__info{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      h5{
+        font-size: 0.8rem;
+      }
+      &__btn{
+        display: none;
+      }
+      p{
+        font-size: 0.9rem;
+      }
+      button{
+        margin: 0;
+        max-width: 50px;
+      }
+    }
+  }
+}
 }
 @media screen and (min-width:961px) and (max-width: 1300px){
+
+  .single-restaurant{
+    display: flex;
+    .single-restaurant__image{
+      width: 400px;
+      height: 300px;
+    
+      img{
+        border-radius: 10px;
+      }
+    }
+  .single-restaurant__info{
+    margin-left: 40px;
+
+    > *:not(:first-child){
+      margin: 10px 0px ;
+      font-size: 1rem;
+    }
+    .badge{
+      background-image: var(--badge-bg-color);
+    }
+  }
+}
+
+// products
+  .product-restaurant{
+    margin-top: 30px;
+    .product-restaurant__food,.product-restaurant__drink {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .card-product{
+      display: flex;
+      background-image:var(--product-bg-color) ;
+      width: calc(100% / 3 - 10px);
+      margin: 5px;
+      margin-left: 0;
+      border-radius:5px;
+    .card-product__image{
+      
+      img{
+        object-fit: cover;
+        width: 100px;
+        height: 100px;
+      
+      }
+    }
+    .card-product__info{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      h5{
+        font-size: 1rem;
+      }
+      &__btn{
+        display: none;
+      }
+      p{
+        font-size: 1rem;
+      }
+      button{
+        margin: 0;
+        max-width: 70px;
+      }
+    }
+  }
+}
  
 }
 @media screen and (min-width:1301px) and (max-width: 1600px){
   
+  .single-restaurant{
+    display: flex;
+    .single-restaurant__image{
+      width: 400px;
+      height: 300px;
+    
+      img{
+        border-radius: 10px;
+      }
+    }
+  .single-restaurant__info{
+    margin-left: 40px;
+
+    > *:not(:first-child){
+      margin: 10px 0px ;
+      font-size: 1rem;
+    }
+    .badge{
+      background-image: var(--badge-bg-color);
+    }
+  }
+}
+
+// products
+  .product-restaurant{
+    margin-top: 30px;
+    .product-restaurant__food,.product-restaurant__drink {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .card-product{
+      display: flex;
+      background-image:var(--product-bg-color) ;
+      width: calc(100% / 3 - 10px);
+      margin: 5px;
+      margin-left: 0;
+      border-radius:5px;
+    .card-product__image{
+      
+      img{
+        object-fit: cover;
+        width: 100px;
+        height: 100px;
+      
+      }
+    }
+    .card-product__info{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      h5{
+        font-size: 1rem;
+      }
+      &__btn{
+        display: block;
+      }
+      p{
+        font-size: 1rem;
+      }
+      button{
+        margin: 0;
+        max-width: 70px;
+      }
+    }
+  }
+}
+
 }
 
 </style>

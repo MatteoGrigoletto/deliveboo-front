@@ -127,4 +127,136 @@ export default {
     display: none;
   }
 }
+
+
+@media screen and (max-width: 600px) {
+
+  .side {
+    height: 250px;
+
+  div {
+    margin: auto;
+    form{
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    label {
+      display: block;
+      font-size: 0.5rem;
+      width: calc(100% / 5 - 5px);
+      height: 80px;
+      position: relative;
+    }
+    span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 2;
+      text-align: center;
+      transform: translate(-50%);
+      background-color: rgb(16, 16, 16, 0.7);
+      padding: 0px 5px;
+      border-radius: 10px;
+      font-size: 0.6rem;
+    }
+
+    /* Aggiungi una classe CSS per evidenziare il testo del checkbox selezionato */
+    .active {
+      color: rgb(250, 136, 28);
+    }
+
+    input[type="checkbox"] {
+      position: absolute;
+      top: 50%;
+      left: 0%;
+      z-index: 2;
+      transform: translate(50%, 50%);
+      display: none;
+    }
+    img {
+      position: absolute;
+      top: 15%;
+      left: 0%;
+      object-fit: cover;
+    }
+  }
+}
+}
+
+
+@media screen and (min-width: 601px) and (max-width: 960px) {
+  .side {
+    height: 250px;
+
+  div {
+    margin: auto;
+    form{
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    label {
+      display: block;
+      font-size: 0.5rem;
+      width: calc(100% / 5 - 5px);
+      height: 80px;
+      position: relative;
+    }
+    span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 2;
+      text-align: center;
+      transform: translate(-50%);
+      background-color: rgb(16, 16, 16, 0.7);
+      padding: 0px 5px;
+      border-radius: 10px;
+    }
+
+    /* Aggiungi una classe CSS per evidenziare il testo del checkbox selezionato */
+    .active {
+      color: rgb(250, 136, 28);
+    }
+
+    input[type="checkbox"] {
+      position: absolute;
+      top: 50%;
+      left: 0%;
+      z-index: 2;
+      transform: translate(50%, 50%);
+      display: none;
+    }
+    img {
+      position: absolute;
+      top: 15%;
+      left: 0%;
+      object-fit: cover;
+    }
+  }
+}
+
+}
+@media screen and (min-width: 961px) and (max-width: 1300px) {
+
+  span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 2;
+      text-align: center;
+      transform: translate(-50%);
+      background-color: rgb(16, 16, 16, 0.7);
+      padding: 0px 5px;
+      border-radius: 10px;
+      font-size: 0.7rem;
+    }
+
+}
+@media screen and (min-width: 1301px) and (max-width: 1600px) {
+}
+
 </style>
