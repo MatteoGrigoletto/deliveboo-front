@@ -115,13 +115,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-section{
-  position: absolute;
-  width: 100%;
-  top: 0%;
-  right: 0%;
-  color: var(--restaurant-text-color);
-}
 .single-restaurant{
   display: flex;
   .single-restaurant__image{
