@@ -8,9 +8,17 @@
     <div>
       <form @submit.prevent="submitForm">
         <label v-for="(kitchen, index) in store.Kitchens" :key="index">
-          <input type="checkbox" :value="kitchen.name" v-model="store.checkbox" >
-          <span @click="toggleActive(index)" :class="{ active: activeIndexes.includes(index) }">{{ kitchen.name }}</span>
-          <img @click="toggleActive(index)" :src="kitchen.image" alt="">
+          <input
+            type="checkbox"
+            :value="kitchen.name"
+            v-model="store.checkbox"
+          />
+          <span
+            @click="toggleActive(index)"
+            :class="{ active: activeIndexes.includes(index) }"
+            >{{ kitchen.name }}</span
+          >
+          <img @click="toggleActive(index)" :src="kitchen.image" alt="" />
         </label>
       </form>
     </div>
@@ -18,20 +26,20 @@
 </template>
 
 <script>
-import { store } from '../../../store';
+import { store } from "../../../store";
 
 export default {
-  name: 'FilterSide',
+  name: "FilterSide",
   data() {
     return {
       store,
-      activeIndexes: [] // Array per tenere traccia degli indici dei checkbox attivi
+      activeIndexes: [], // Array per tenere traccia degli indici dei checkbox attivi
     };
   },
   methods: {
     resetRestaurant() {
-      store.inputKitchens = '';
-      store.input = '';
+      store.inputKitchens = "";
+      store.input = "";
     },
     submitForm() {
       console.log(this.store.checkbox);
@@ -46,8 +54,8 @@ export default {
         // Aggiungi l'indice all'array activeIndexes
         this.activeIndexes.push(index);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -62,6 +70,7 @@ export default {
   padding: 10px 30px;
   background-color: var(--side-bg-color);
   color: var(--side-text-color);
+  overflow-y: scroll;
 
   div {
     width: 100%;

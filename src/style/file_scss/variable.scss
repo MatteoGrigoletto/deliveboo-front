@@ -1,17 +1,17 @@
 :root {
   // header
-  --header-bg-color:rgba(0, 0, 0, 0.8);
+  --header-bg-color: rgba(0, 0, 0, 0.8);
 
   // colore bottoni
   --btn-bg-color: var(--header-bg-color);
   --btn-text-color: rgb(254, 251, 251);
-  --btn-hover-color:var(--product-bg-color);
+  --btn-hover-color: var(--product-bg-color);
 
   // card product
   --card-bg-color: rgba(179, 172, 172, 0.2);
-  
+
   // MAIN
-  --body-bg-color: rgb(233, 231, 229,0.5);
+  --body-bg-color: rgb(233, 231, 229, 0.5);
   --main-bg-color: var(--body--bg-color);
   // SIDE
   --side-bg-color: rgba(34, 33, 33, 0.9);
@@ -24,11 +24,14 @@
   // CARD PRODUCT
   --product-bg-color: var(--card-bg-color);
   // SINGLE RESTAURANT
-  --restaurant-text-color:var(--card-text-color);
+  --restaurant-text-color: var(--card-text-color);
 
   //BADGE RESTAURANT
-  --badge-bg-color:var(--card-bg-color); 
+  --badge-bg-color: var(--card-bg-color);
 
   // FOOTER
-  --footer-bg-color:var(--side-bg-color);
+  --footer-bg-color: var(--side-bg-color);
+
+  // links  hover text
+  --link-text-color: orange;
 }
