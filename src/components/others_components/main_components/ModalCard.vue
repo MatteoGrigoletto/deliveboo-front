@@ -149,6 +149,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+  background-image: var(--cart-bg-color);
 }
 
 .modal-body {

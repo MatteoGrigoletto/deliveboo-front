@@ -69,16 +69,19 @@ export default {
      // Variabile che assume il valore dell'oggetto dentro all'array se presente.
     let check = this.store.cart.find(elm=> elm.id === obj.id)
      if(check){
+      this.showPopup = true;
       console.log(check);
       check.quantity ++;
       localStorage.setItem('cartItems',JSON.stringify(this.store.cart));
     }
       else if(store.cart.length === 0){
+        this.showPopup = true;
         obj.quantity = 1
         this.store.cart.push(obj);
         localStorage.setItem('cartItems',JSON.stringify(this.store.cart));
       }
       else if(store.cart[0].restaurant_id === obj.restaurant_id) {
+        this.showPopup = true;
         obj.quantity = 1;
         this.store.cart.push(obj);
         localStorage.setItem('cartItems',JSON.stringify(this.store.cart));
@@ -88,7 +91,6 @@ export default {
         alert(`🍕🍕 Hai provato ad aggiungere prodotti di ristoranti diversi 🍕🍕`)
       }
       // FA COMPARIRE IL POP-UP PER 5 SECONDI
-      this.showPopup = true;
       setTimeout(() => {
         this.showPopup = false;
       },5000);
@@ -171,6 +173,9 @@ export default {
     }
   }
   .card-product__info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     margin-left: 10px;
     max-height: 150px;
     
@@ -191,6 +196,7 @@ export default {
     }
     button{
       border-radius: 5px;
+      width: 50px;
       }
 
     }
