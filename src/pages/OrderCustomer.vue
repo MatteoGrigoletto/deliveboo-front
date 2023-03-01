@@ -1,7 +1,7 @@
 <template>
   <div class="form">
     <h2>Inserisci i tuoi dati</h2>
-    <form @submit.prevent="submitForm">
+    <form @submit.prevent="sendData">
       <div class="form-group">
         <label for="name">Nome:</label>
         <input id="name" type="text" v-model="name" required>
@@ -30,12 +30,13 @@
 </template>
 
 <script>
+import axios from 'axios';
 import {store} from '../store';
 export default {
     name:'OrderCustomer',
   data() {
     return {
-        store,
+      store,
       name: '',
       email: '',
       address: '',
@@ -44,16 +45,38 @@ export default {
     };
   },
   methods: {
-    submitForm() {
-      const formData = {
-        name: this.name,
-        email: this.email,
-        address: this.address,
-        phone: this.phone,
-        price: this.store.totalPriceCart,
-      };
-      console.log(formData);
-    },
+    // submitForm() {
+     
+    // },
+    sendData(){
+      let products = Object.values(this.store.cart).map(elm => elm.name)
+      let quantity = this.store.cart.map(product => product.quantity)
+      let order = []
+      for(let i = 0; i < products.length; i++){
+        let newObj = {
+          product: products[i],
+          quantity:quantity[i]
+        }
+        order.push(newObj)
+      }
+      const obj = { 
+        order:arrObj,
+        name_customer: this.name,
+        email_customer: this.email,
+        address_customer: this.address,
+        phone_customer: this.phone,
+        total_price: this.store.totalPriceCart,
+       }
+      console.log(obj); 
+      // axios.post('', {
+      //   name_customer: formData.name_customer,
+      //   email_customer: formData.email_customer,
+      //   address_customer: formData.address_customer,
+      //   phone_customer: formData.phone_customer,
+      //   total_price: formData.total_price,
+
+      // })
+    }
   },
   mounted(){
     this.price = this.store.totalPriceCart;
