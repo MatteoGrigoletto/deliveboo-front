@@ -29,7 +29,6 @@ export default {
 
 <style lang="scss" scoped>
 main {
-  margin-top: 20px;
   display: flex;
   justify-content: center;
   background-color: var(--main-bg-color);
@@ -41,7 +40,7 @@ main {
     width: 85%;
     position: relative;
     overflow-y: scroll;
-    margin-left: 20px;
+    margin: 20px 0px 0px 10px;
     overflow-x: hidden;
   }
 

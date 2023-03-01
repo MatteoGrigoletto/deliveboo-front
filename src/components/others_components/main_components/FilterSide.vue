@@ -60,10 +60,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .side {
   width: 100%;
   height: calc(100vh - 100px);
-  border-radius: 5px 5px 0px 0px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -114,6 +114,22 @@ export default {
       left: 0%;
       object-fit: cover;
     }
+  }
+}
+/* nasconde la scrollbar in Chrome, Safari e Opera */
+.side::-webkit-scrollbar {
+  display: none;
+}
+
+/* nasconde la scrollbar in Firefox */
+.side {
+  scrollbar-width: none;
+}
+
+/* rimuove la scrollbar di Internet Explorer */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .side::-ms-scrollbar {
+    display: none;
   }
 }
 </style>

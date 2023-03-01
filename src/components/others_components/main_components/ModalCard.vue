@@ -6,11 +6,17 @@
       <div class="modal-background" @click="$emit('close')"></div>
       <div class="modal-content">
         <div class="modal-header">
-          <h2>Aggiungi</h2>
+          <h2>Il tuo Carrello</h2>
           <button class="close-button" @click="$emit('close')">X</button>
         </div>
         <div class="modal-body">
-          <slot>
+          <slot v-if="store.cart <= 0">
+          <div>
+              <h2>Il tuo carrello è vuoto! </h2>
+              <button  @click="store.showModal = false"><router-link :to="{ name: 'HomePage' }"> Ritorna ai Ristoranti</router-link></button>
+            </div>
+          </slot>
+          <slot v-else> 
             <div class="container-item-cart">
               <div  v-for="item,index in store.cart">
                 <div class="item-cart">
@@ -131,8 +137,8 @@ export default {
   padding: 0px;
   border-radius: 4px;
   box-shadow: 0px 0px 10px rgba(7, 7, 7, 0.5);
-  width: 50%;
-  height: 80%;
+  width: 30%;
+  height: 70%;
   overflow: hidden;
 }
 
@@ -142,67 +148,108 @@ export default {
   align-items: center;
   margin-bottom: 10px;
 }
-.modal-body{
-padding: 10px 2px;
+
+.modal-body {
+  padding: 10px 2px;
 }
+
 .close-button {
   background-color: transparent;
   border: none;
   font-size: 20px;
   cursor: pointer;
 }
-// modale carrello
-.container-item-cart{
+
+.container-item-cart {
   width: 102%;
   height: 400px;
-  overflow-y: scroll; 
-  .item-cart{
+  overflow-y: scroll;
+
+  .item-cart {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 10px 0px;
     border-radius: 5px;
-    // background-color: var(--header-bg-color);
+    box-shadow: 0px 0px 10px rgba(7, 7, 7, 0.5);
 
-    .item-cart__image{
-      width: 30%;
+    &:hover {
+      box-shadow: 0px 0px 15px rgba(7, 7, 7, 0.7);
+      transition: all 0.2s ease-in-out;
     }
-    .item-cart__info{
-      width: 30%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content:center;
 
-      p{
-        margin: 5px 0px;
+    &__image {
+      width: 70px;
+      height: 70px;
+      overflow: hidden;
+      border-radius: 5px;
+      margin-right: 10px;
+      img {
+        object-fit: cover;
       }
-      .item-cart__info__btn{
-        
-        button{
-          margin: 0px 10px;
+    }
+
+    &__info {
+      display: flex;
+      align-items: center;
+
+      P{
+        margin: 0;
+      }
+      button {
+          border: none;
+          background-color: transparent;
+          font-size: 18px;
+          cursor: pointer;
+          margin: 0px 5px;
+          // padding: 5px;
+          border-radius: 5px;
+          box-shadow: 0px 0px 5px rgba(7, 7, 7, 0.3);
+          &:hover {
+            background-color: #000000;
+            color: #ffffff;
+          }
+        }
+      }
+      button {
+        background-color: transparent;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        color: red;
+
+        &:hover {
+          color: #ffffff;
+          background-color: #ff4500;
+          border-radius: 5px;
+          box-shadow: 0px 0px 5px rgba(7, 7, 7, 0.3);
+          }
         }
       }
     }
-  } 
-}
-.container-info-cart{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  .container-info-cart{
+    text-align: center;
 
-  >*{
-    width: 200px;
-    margin-top: 30px;
+    button{
+      margin: 50px 20px;
+    }
+  }
+  // media
+
+@media screen and (max-width:600px){
+  .modal-content {
+    width: 100%;
   }
 }
-.fade-leave-active {
-  transition: opacity 1s;
+@media screen and (min-width:601px) and (max-width:960px){
+  
+  
 }
-.fade-enter-active {
-  transition: opacity 1s;
+@media screen and (min-width:961px) and (max-width: 1300px){
+ 
 }
-.fade-enter, .fade-leave-to {
-  opacity: 0;
+@media screen and (min-width:1301px) and (max-width: 1600px){
+  
 }
+
 </style>

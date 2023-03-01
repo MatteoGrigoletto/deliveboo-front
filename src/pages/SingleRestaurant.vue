@@ -6,11 +6,14 @@
       <img :src="singleRestaurant.image_url === null ? singleRestaurant.image : singleRestaurant.image_url" alt="">
     </div>
     <div class="single-restaurant__info">
-      <h1>{{singleRestaurant.name}}</h1>
+      <h2>{{singleRestaurant.name}}</h2>
       <p>{{singleRestaurant.city}}</p>
       <p>{{singleRestaurant.street_address}}</p>
       <span>Tipologia di cucina: </span>
       <span class="badge text-bg-light fs-6 me-1 rounded-pill" v-for="tipology in filterKitchens(singleRestaurant.kitchens)">{{ tipology}}</span>
+      <div>
+        <button><router-link :to="{ name: 'HomePage' }"> Ritorna ai Ristoranti</router-link></button>
+      </div>
     </div>
   </div>
   
@@ -132,8 +135,9 @@ export default {
   .single-restaurant__info{
     margin-left: 50px;
 
-    p,span{
-    font-size: 1.3rem;
+    > *:not(:first-child){
+      margin: 20px 0px ;
+      font-size: 1.3rem;
     }
     .badge{
       background-image: var(--badge-bg-color);
