@@ -1,10 +1,10 @@
 <template>
-  <footer>
+  <footer  v-if="$route.path === '/'">
     <section class="section-partner">
       <div class="info-partner">
         <div class="info-partner__single">
           <div class="info-partner__single__img">
-            <img src="../assets/image-partner1.jpg" alt="" />
+            <img src="../assets/banner-deliveboo.jpg" alt="" />
           </div>
           <div class="info-partner__single__info">
             <button>Lavora con noi</button>
@@ -25,37 +25,34 @@
         <div class="info-site__links">
           <h5>Scopri Deliveboo</h5>
           <ul>
-            <li class="info-site__link"><a href="">Investitori</a></li>
-            <li class="info-site__link"><a href="">Chi siamo</a></li>
-            <li class="info-site__link"><a href="">Ristoranti</a></li>
-            <li class="info-site__link"><a href="">Pressroom</a></li>
-            <li class="info-site__link"><a href="">Programmazione</a></li>
-            <li class="info-site__link"><a href="">Design</a></li>
+            <li class="info-site__link"><a href="#">Investitori</a></li>
+            <li class="info-site__link"><a href="#">Ristoranti</a></li>
+            <li class="info-site__link"><a href="#">Pressroom</a></li>
+            <li class="info-site__link"><a href="#">Programmazione</a></li>
+            <li class="info-site__link"><a href="#">Design</a></li>
           </ul>
         </div>
         <div class="info-site__legal">
           <h5>Note legali</h5>
           <ul>
-            <li class="info-site__link"><a href="">Termini & Condizioni</a></li>
-            <li class="info-site__link">
-              <a href="">Informativa sulla privacy</a>
-            </li>
-            <li class="info-site__link"><a href="">Cookies</a></li>
+            <li class="info-site__link"><a href="#">Termini & Condizioni</a></li>
+            <li class="info-site__link"><a href="#">Informativa sulla privacy</a></li>
+            <li class="info-site__link"><a href="#">Cookies</a></li>
           </ul>
         </div>
         <div class="info-site__help">
           <h5>Aiuto</h5>
           <ul>
-            <li class="info-site__link"><a href="">FAQ</a></li>
-            <li class="info-site__link"><a href="">Contatti</a></li>
-            <li class="info-site__link"><a href="">Tipi di cucina</a></li>
+            <li class="info-site__link"><a href="#">FAQ</a></li>
+            <li class="info-site__link"><a href="#">Contatti</a></li>
+            <li class="info-site__link"><a href="#">Tipi di cucina</a></li>
           </ul>
         </div>
         <div class="info-site__app">
           <h5>Porta Deliveboo con te</h5>
           <ul>
-            <li class="info-site__link"><a href="">Investitori</a></li>
-            <li class="info-site__link"><a href="">Chi siamo</a></li>
+            <li class="info-site__link"><a href="#">Investitori</a></li>
+            <li class="info-site__link"><a href="#">Chi siamo</a></li>
           </ul>
         </div>
       </div>
@@ -103,8 +100,11 @@ footer {
       .info-partner__single {
         width: 500px;
         margin: 100px 50px;
-        position: relative;
         border: 2px solid white;
+        position: relative;
+        .info-partner__single__img{
+          height: 100%;
+        }
         .info-partner__single__info {
           position: absolute;
           bottom: 2%;
