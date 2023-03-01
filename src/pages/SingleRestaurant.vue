@@ -213,11 +213,55 @@ export default {
 // media
 
 @media screen and (max-width:600px){
-  section{
-    position: relative;
+  
+  .single-restaurant{
+  display: flex;
+  .single-restaurant__image{
+    width: 300px;
+    height: 300px;
+    
+    img{
+      border-radius: 10px;
+    }
+  }
+  .single-restaurant__info{
+    margin-left: 10px;
+
+    > *:not(:first-child){
+      margin: 10px 0px ;
+      font-size: 0.9rem;
+    }
+    .badge{
+      background-image: var(--badge-bg-color);
+    }
   }
 }
+
+}
 @media screen and (min-width:601px) and (max-width:960px){
+
+  .single-restaurant{
+  display: flex;
+  .single-restaurant__image{
+    width: 400px;
+    height: 300px;
+    
+    img{
+      border-radius: 10px;
+    }
+  }
+  .single-restaurant__info{
+    margin-left: 40px;
+
+    > *:not(:first-child){
+      margin: 10px 0px ;
+      font-size: 1rem;
+    }
+    .badge{
+      background-image: var(--badge-bg-color);
+    }
+  }
+}
   
   
 }

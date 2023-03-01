@@ -87,6 +87,7 @@ main {
   .main-view {
     overflow-y: none;
     overflow-x: auto;
+    width: 100% !important;
   }
 }
 @media screen and (min-width: 601px) and (max-width: 960px) {
