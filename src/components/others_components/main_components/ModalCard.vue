@@ -7,6 +7,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h2>Il tuo Carrello</h2>
+          <button @click="removeAllProducts()">Svuota carrello</button>
           <button class="close-button" @click="$emit('close')">X</button>
         </div>
         <div class="modal-body">
@@ -87,6 +88,10 @@ export default {
      this.store.totalPriceCart = arr.map(elm => elm.quantity * elm.price).reduce((totale,singlePrice)=> totale += Number(singlePrice),0).toFixed(2);
      return this.store.totalPriceCart;
     },
+    removeAllProducts(){
+     this.store.cart = []
+      localStorage.setItem('cartItems', JSON.stringify(this.store.cart));
+    }
   },
 
   // PERMETTE DI PRENDERE I DATI SALVATI NEL LOCALSTORAGE DI JS...LA LOGICA PER SALVARLI ALL'INTERNO DEL LOCALSTORAGE
