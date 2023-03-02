@@ -59,13 +59,17 @@ cart: [],
 
 // productQuantity: '',
 
-// modal show
+// modal show carrello
 showModal: false,
 
+// Modal informazioni prodotto
+modalProduct: false,
 // PREZZO TOTALE DEL CARRELLO
 totalPriceCart: 0,
 
 productQuantity: [],
+// info product
+infoProduct: null,
 
 // funzioni per aumentare quantita' prodotti carrello
 quantityUp(product){
@@ -84,3 +88,4 @@ quantityDown(product){
   localStorage.setItem('cartItems', JSON.stringify(this.cart));
 },
 });
+

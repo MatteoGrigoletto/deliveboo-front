@@ -21,38 +21,42 @@
   
  <!-- Prodotti del ristorante -->
  <!-- Possibilità di creare un componente "Product" per eliminare codice ridondante -->
-  
-  <div class="product-restaurant">
-    <h3>Prodotti</h3>
-    <!-- Card cibo prodotti -->
-    <div class="product-restaurant__food">
-      <div class="card-product" v-for="product, index in singleRestaurant.products">
-        <div class="card-product__image">
-          <img :src="product.image_url === null ? product.image : product.image_url" alt="">
+ 
+ <div class="product-restaurant">
+   <h3>Prodotti</h3>
+   <!-- Card cibo prodotti -->
+   <div class="product-restaurant__food">
+     <!-- ciclo l'array riempito dalla API -->
+     <div class="card-product" v-for="product, index in singleRestaurant.products">
+      <div class="card-product__image">
+        <img :src="product.image_url === null ? product.image : product.image_url" alt="">
+      </div>
+      <div class="card-product__info">
+        <div class="card-product__info__title">
+          <h5>{{ product.name }}</h5>
+        </div>   
+        <div class="card-product__info__price">
+          <span>{{ product.price }} €</span>
+          <button @click="infoProducts(product)">info</button>
+          <!-- Componente per visualizzare la descrizione del prodotto -->
+          <InfoProduct :show="store.modalProduct" title="Titolo della modale" @close="store.modalProduct = false"></InfoProduct>
         </div>
-        <div class="card-product__info">
-          <div class="card-product__info__title">
-            <h5>{{ product.name }}</h5>
-          </div>   
-          <div class="card-product__info__price">
-            <span>{{ product.price }} €</span>
-            <button>info</button>
-          </div>
-          <div v-if="!store.cart.find(elm=> elm.id === product.id)" class="card-product__quantity" >
-            <button @click="pushProduct(product)"><i class="fa-solid fa-cart-shopping"></i></button>
-          </div>
-          
-          <!-- Se il prodotto viene aggiunto al carrello escono dei bottono con la quale poter trovare il prodotto -->
-          <!-- dentro al carrello e modificarne la quantita' -->
-          <div v-else class="card-product__quantity">
-            <button @click="store.quantityDown(findProduct(product))"> - </button>
-            <span> {{ findProduct(product).quantity }} </span>
-            <button @click="store.quantityUp(findProduct(product))"> + </button>
-          </div>
+        <div v-if="!store.cart.find(elm=> elm.id === product.id)" class="card-product__quantity" >
+          <button @click="pushProduct(product)"><i class="fa-solid fa-cart-shopping"></i></button>
+        </div>
+        
+        <!-- Se il prodotto viene aggiunto al carrello escono dei bottono con la quale poter trovare il prodotto -->
+        <!-- dentro al carrello e modificarne la quantita' -->
+        <div v-else class="card-product__quantity">
+          <button @click="store.quantityDown(findProduct(product))"> - </button>
+          <span> {{ findProduct(product).quantity }} </span>
+          <button @click="store.quantityUp(findProduct(product))"> + </button>
         </div>
       </div>
     </div>
   </div>
+</div>
+<!-- <InfoProduct  :show="store.modalProduct" :products="infoProdut" title="info-product" @close="store.modalProduct = false" > </InfoProduct> -->
   <!-- evento notifica aggiunta prodotto al carrello -->
   <div v-if="showPopupAddProduct" class="add-popup">
       Prodotto aggiunto al carrello!
@@ -69,6 +73,7 @@
 <script>
 import axios from "axios";
 import { store } from "../store";
+import InfoProduct from "../components/others_components/main_components/InfoProduct.vue";
 export default {
   name: "SingleRestaurant",
   data() {
@@ -80,8 +85,16 @@ export default {
     };
   },
   components:{
+    InfoProduct  
   },
+  
   methods:{
+    infoProducts(product){
+      this.store.modalProduct = true
+      
+      this.store.infoProduct = product
+      
+    },
     hiddenText(str){
      return str.slice(0,50)
     },
@@ -194,7 +207,7 @@ export default {
     margin: 15px;
     margin-left: 0;
     padding: 10px;
-    border: 1px solid white;
+    border: 1px solid rgb(68, 67, 67);
     border-radius:5px;
   .card-product__image{
     width: 40%;

@@ -58,7 +58,7 @@ methods:{
 <style lang="scss" scoped>
 .card {
   border-radius: 20px;
-  border: 2px solid rgb(219, 215, 215);
+  border: 1px solid rgb(68, 67, 67);
   width: calc(100% / 4 - 20px);
   margin: 10px;
   height: 350px;
