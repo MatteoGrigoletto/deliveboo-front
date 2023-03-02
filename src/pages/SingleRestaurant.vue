@@ -24,7 +24,7 @@
     <h3>Prodotti</h3>
     <!-- Card cibo prodotti -->
     <div class="product-restaurant__food">
-      <div class="card-product" v-for="product in singleRestaurant.products" v-show="product.is_available === 1">
+      <div class="card-product" v-for="product, index in singleRestaurant.products" v-show="product.is_available === 1">
         <div class="card-product__image">
           <img :src="product.image_url === null ? product.image : product.image_url" alt="">
         </div>
@@ -32,7 +32,15 @@
           <h5>{{ product.name }}</h5>
           <button class="card-product__info__btn">Info</button>
           <p>{{ product.price }} €</p>
-          <button @click="pushProduct(product)"><i class="fa-solid fa-cart-shopping"></i></button>
+          <button v-if="!store.cart.find(elm=> elm.id === product.id)" @click="pushProduct(product)"><i class="fa-solid fa-cart-shopping"></i></button>
+          
+          <!-- Se il prodotto viene aggiunto al carrello escono dei bottono con la quale poter trovare il prodotto -->
+          <!-- dentro al carrello e modificarne la quantita' -->
+          <div v-else>
+            <button @click="store.quantityUp(store.cart.find(elm=> elm.id === product.id))"> + </button>
+            <span> {{ store.cart.find(elm=> elm.id === product.id).quantity }} </span>
+            <button @click="store.quantityDown(store.cart.find(elm=> elm.id === product.id))"> - </button>
+          </div>
         </div>
       </div>
     </div>
@@ -62,29 +70,27 @@ export default {
     hiddenText(str){
      return str.slice(0,50)
     },
+
    // Metodo per trasformare l'oggetto in stringa e memorizzarlo nel localStorage.
    // Nel componente ModalCard.vue il prodotto viene riconvertito in oggetto.
     pushProduct(obj){ 
 
      // Variabile che assume il valore dell'oggetto dentro all'array se presente.
-    let check = this.store.cart.find(elm=> elm.id === obj.id)
-     if(check){
-      this.showPopup = true;
-      console.log(check);
-      check.quantity ++;
-      localStorage.setItem('cartItems',JSON.stringify(this.store.cart));
-    }
-      else if(store.cart.length === 0){
+      let check = this.store.cart.find(elm=> elm.id === obj.id)
+    
+        if(store.cart.length === 0){
         this.showPopup = true;
         obj.quantity = 1
         this.store.cart.push(obj);
         localStorage.setItem('cartItems',JSON.stringify(this.store.cart));
+        this.hiddenBtnCart = true
       }
-      else if(store.cart[0].restaurant_id === obj.restaurant_id) {
+      else if(store.cart[0].restaurant_id === obj.restaurant_id && !check) {
         this.showPopup = true;
         obj.quantity = 1;
         this.store.cart.push(obj);
         localStorage.setItem('cartItems',JSON.stringify(this.store.cart));
+        this.hiddenBtnCart = true
       }
       else{ 
         // Alert se si prova ad aggiungere prodotti di ristoranti diversi.
@@ -93,12 +99,14 @@ export default {
       // FA COMPARIRE IL POP-UP PER 5 SECONDI
       setTimeout(() => {
         this.showPopup = false;
-      },5000);
+      },3000);
     },
     filterKitchens(restaurant){
       let final = new Set(restaurant.map(elm => elm.name))
       return [...final]
-    }
+    },
+
+
   },
   //Chiamata axios che prende come parametro lo slag generato dal liink della card presente
   // nel componente AppCard.vue 

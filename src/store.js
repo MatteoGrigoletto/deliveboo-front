@@ -65,5 +65,22 @@ showModal: false,
 // PREZZO TOTALE DEL CARRELLO
 totalPriceCart: 0,
 
+productQuantity: [],
 
+// funzioni per aumentare quantita' prodotti carrello
+quantityUp(product,index){
+  
+  product.quantity++
+  localStorage.setItem('cartItems', JSON.stringify(this.cart));
+  console.log(localStorage);
+  
+},
+quantityDown(product,index){
+
+  product.quantity--
+  if( product.quantity <= 0){
+    this.cart.splice(index,1)   
+  }
+  localStorage.setItem('cartItems', JSON.stringify(this.cart));
+},
 });

@@ -30,8 +30,8 @@
                   </div>
                   <div class="item-cart__info">
                     <div class="item-cart__info__btn">
-                      <button @click="quantityDown(item,index)"> - </button>
-                      <button @click="quantityUp(item,index)"> + </button>
+                      <button @click="store.quantityDown(item,index)"> - </button>
+                      <button @click="store.quantityUp(item,index)"> + </button>
                     </div>
                     <div>
                       <p>Quantita: {{ item.quantity }}</p>
@@ -87,17 +87,6 @@ export default {
      this.store.totalPriceCart = arr.map(elm => elm.quantity * elm.price).reduce((totale,singlePrice)=> totale += Number(singlePrice),0).toFixed(2);
      return this.store.totalPriceCart;
     },
-    quantityUp(product,index){
-      product.quantity++
-      localStorage.setItem('cartItems', JSON.stringify(this.store.cart));
-    },
-    quantityDown(product,index){
-      product.quantity--
-      if( product.quantity <= 0){
-        this.store.cart.splice(index,1)   
-      }
-      localStorage.setItem('cartItems', JSON.stringify(this.store.cart));
-    }
   },
 
   // PERMETTE DI PRENDERE I DATI SALVATI NEL LOCALSTORAGE DI JS...LA LOGICA PER SALVARLI ALL'INTERNO DEL LOCALSTORAGE
