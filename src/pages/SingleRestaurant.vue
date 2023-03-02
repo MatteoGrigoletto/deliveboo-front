@@ -24,22 +24,21 @@
     <h3>Prodotti</h3>
     <!-- Card cibo prodotti -->
     <div class="product-restaurant__food">
-      <div class="card-product" v-for="product, index in singleRestaurant.products" v-show="product.is_available === 1">
+      <div class="card-product" v-for="product, index in singleRestaurant.products">
         <div class="card-product__image">
           <img :src="product.image_url === null ? product.image : product.image_url" alt="">
         </div>
         <div class="card-product__info">   
           <h5>{{ product.name }}</h5>
-          <button class="card-product__info__btn">Info</button>
           <p>{{ product.price }} €</p>
           <button v-if="!store.cart.find(elm=> elm.id === product.id)" @click="pushProduct(product)"><i class="fa-solid fa-cart-shopping"></i></button>
           
           <!-- Se il prodotto viene aggiunto al carrello escono dei bottono con la quale poter trovare il prodotto -->
           <!-- dentro al carrello e modificarne la quantita' -->
-          <div v-else>
-            <button @click="store.quantityUp(store.cart.find(elm=> elm.id === product.id))"> + </button>
+          <div v-else class="card-product__quantity">
+            <button @click="store.quantityUp(store.cart.find((elm,index)=> elm.id === product.id))"> + </button>
             <span> {{ store.cart.find(elm=> elm.id === product.id).quantity }} </span>
-            <button @click="store.quantityDown(store.cart.find(elm=> elm.id === product.id))"> - </button>
+            <button @click="store.quantityDown(store.cart.find((elm, index)=> elm.id === product.id))"> - </button>
           </div>
         </div>
       </div>
@@ -70,6 +69,7 @@ export default {
     hiddenText(str){
      return str.slice(0,50)
     },
+
 
    // Metodo per trasformare l'oggetto in stringa e memorizzarlo nel localStorage.
    // Nel componente ModalCard.vue il prodotto viene riconvertito in oggetto.
@@ -173,41 +173,33 @@ export default {
     border: 1px solid white;
     border-radius:5px;
   .card-product__image{
-    max-width: 150px;
-    max-height: 150px;
+    width: 50%;
 
     img{
-      width: 150px;
+      height: 150px;
       object-fit: cover;
     }
   }
   .card-product__info{
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-left: 10px;
-    max-height: 150px;
-    
-    > *{
-      margin-bottom: 3px;
-    }
-
-    span{
-      font-weight: bold;
-      
-    }
+    margin-left: 5px;
     .card-product__info__btn{
-      margin: 0px;
       padding: 2px;
-    }
-    .card-product__input{
-      padding-right:5px;
     }
     button{
       border-radius: 5px;
       width: 50px;
       }
-
+      .card-product__quantity{
+        text-align: center;
+        button{
+          padding: 0px;
+          margin: 0px 10px;
+        }
+      }
     }
   }
 }
@@ -228,286 +220,19 @@ export default {
 
 @media screen and (max-width:600px){
   
-  .single-restaurant{
-  display: flex;
-  .single-restaurant__image{
-    width: 300px;
-    height: 300px;
-    
-    img{
-      border-radius: 10px;
-    }
-  }
-  .single-restaurant__info{
-    margin-left: 10px;
-
-    > *:not(:first-child){
-      margin: 10px 0px ;
-      font-size: 0.9rem;
-    }
-    .badge{
-      background-image: var(--badge-bg-color);
-    }
-  }
-}
-
-// products
-.product-restaurant{
-  margin-top: 30px;
-  .product-restaurant__food,.product-restaurant__drink {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .card-product{
-    display: flex;
-    background-image:var(--product-bg-color) ;
-    width: calc(100% / 2 - 10px);
-    margin: 5px;
-    margin-left: 0;
-    border-radius:5px;
-  .card-product__image{
-    
-    img{
-      object-fit: cover;
-      width: 100px;
-      height: 100px;
-    
-    }
-  }
-  .card-product__info{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    h5{
-      font-size: 0.8rem;
-    }
-    &__btn{
-      display: none;
-    }
-    p{
-      font-size: 0.9rem;
-    }
-    button{
-      margin: 0;
-      max-width: 50px;
-
-
-      }
-
-    }
-  }
-}
+ 
 
 }
 @media screen and (min-width:601px) and (max-width:960px){
-  .single-restaurant{
-    display: flex;
-    .single-restaurant__image{
-      width: 400px;
-      height: 300px;
-    
-      img{
-        border-radius: 10px;
-      }
-    }
-  .single-restaurant__info{
-    margin-left: 40px;
-
-    > *:not(:first-child){
-      margin: 10px 0px ;
-      font-size: 1rem;
-    }
-    .badge{
-      background-image: var(--badge-bg-color);
-    }
-  }
-}
-
-// products
-  .product-restaurant{
-    margin-top: 30px;
-    .product-restaurant__food,.product-restaurant__drink {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    .card-product{
-      display: flex;
-      background-image:var(--product-bg-color) ;
-      width: calc(100% / 2 - 10px);
-      margin: 5px;
-      margin-left: 0;
-      border-radius:5px;
-    .card-product__image{
-      
-      img{
-        object-fit: cover;
-        width: 100px;
-        height: 100px;
-      
-      }
-    }
-    .card-product__info{
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
-      h5{
-        font-size: 0.8rem;
-      }
-      &__btn{
-        display: none;
-      }
-      p{
-        font-size: 0.9rem;
-      }
-      button{
-        margin: 0;
-        max-width: 50px;
-      }
-    }
-  }
-}
+ 
 }
 @media screen and (min-width:961px) and (max-width: 1300px){
 
-  .single-restaurant{
-    display: flex;
-    .single-restaurant__image{
-      width: 400px;
-      height: 300px;
-    
-      img{
-        border-radius: 10px;
-      }
-    }
-  .single-restaurant__info{
-    margin-left: 40px;
-
-    > *:not(:first-child){
-      margin: 10px 0px ;
-      font-size: 1rem;
-    }
-    .badge{
-      background-image: var(--badge-bg-color);
-    }
-  }
-}
-
-// products
-  .product-restaurant{
-    margin-top: 30px;
-    .product-restaurant__food,.product-restaurant__drink {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    .card-product{
-      display: flex;
-      background-image:var(--product-bg-color) ;
-      width: calc(100% / 3 - 10px);
-      margin: 5px;
-      margin-left: 0;
-      border-radius:5px;
-    .card-product__image{
-      
-      img{
-        object-fit: cover;
-        width: 100px;
-        height: 100px;
-      
-      }
-    }
-    .card-product__info{
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
-      h5{
-        font-size: 1rem;
-      }
-      &__btn{
-        display: none;
-      }
-      p{
-        font-size: 1rem;
-      }
-      button{
-        margin: 0;
-        max-width: 70px;
-      }
-    }
-  }
-}
  
 }
+
 @media screen and (min-width:1301px) and (max-width: 1600px){
   
-  .single-restaurant{
-    display: flex;
-    .single-restaurant__image{
-      width: 400px;
-      height: 300px;
-    
-      img{
-        border-radius: 10px;
-      }
-    }
-  .single-restaurant__info{
-    margin-left: 40px;
-
-    > *:not(:first-child){
-      margin: 10px 0px ;
-      font-size: 1rem;
-    }
-    .badge{
-      background-image: var(--badge-bg-color);
-    }
-  }
-}
-
-// products
-  .product-restaurant{
-    margin-top: 30px;
-    .product-restaurant__food,.product-restaurant__drink {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    .card-product{
-      display: flex;
-      background-image:var(--product-bg-color) ;
-      width: calc(100% / 3 - 10px);
-      margin: 5px;
-      margin-left: 0;
-      border-radius:5px;
-    .card-product__image{
-      
-      img{
-        object-fit: cover;
-        width: 100px;
-        height: 100px;
-      
-      }
-    }
-    .card-product__info{
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
-      h5{
-        font-size: 1rem;
-      }
-      &__btn{
-        display: block;
-      }
-      p{
-        font-size: 1rem;
-      }
-      button{
-        margin: 0;
-        max-width: 70px;
-      }
-    }
-  }
-}
 
 }
 

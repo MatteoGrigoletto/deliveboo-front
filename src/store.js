@@ -76,10 +76,10 @@ quantityUp(product,index){
   
 },
 quantityDown(product,index){
-
+  let productIndexCart= this.cart.findIndex(elm => elm.id === product.id)
   product.quantity--
   if( product.quantity <= 0){
-    this.cart.splice(index,1)   
+    this.cart.splice(productIndexCart,1)   
   }
   localStorage.setItem('cartItems', JSON.stringify(this.cart));
 },
