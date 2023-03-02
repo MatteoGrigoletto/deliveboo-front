@@ -3,12 +3,14 @@
   <div class="card__img">
     <img :src="restaurant.image_url === null ? restaurant.image : restaurant.image_url" alt="">
   </div>
-  <h6>{{ restaurant.name }}</h6>
   <div class="card__info">   
     <div class="card__info__text">
+      <h6>{{ restaurant.name }}</h6>
       <p>{{ restaurant.street_address }}</p>
       <p>{{ restaurant.city }}</p>
-      <span class="badge text-bg-light fs-7 rounded-pill" v-for="kitchen in filterKitchens(restaurant.kitchens)">{{kitchen}}</span>
+      <div>
+        <span class="badge text-bg-light fs-7 rounded-pill" v-for="kitchen in filterKitchens(restaurant.kitchens)">{{kitchen}}</span>
+      </div>
     </div> 
     <div class="card__info__btn">
       <button><router-link :to="{name: 'SingleRestaurant',params: { restaurant: restaurant.slug }}">Prodotti</router-link></button>
@@ -47,36 +49,47 @@ export default {
   }
 .card__info{
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
-  padding-top: 5px;
+  padding: 1px;
   height: 40%;
   border-radius:0px 0px 20px 20px;
   background-image: var(--card-bg-color);
   color: var(--card-text-color);
 
   .card__info__text{
-    > *{
-      margin: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h6{
+      margin: 10px;
+      font-weight: bold;
+    }
+    
+    > *:not(:first-child){
+      margin: 4px 10px;
+      font-size: 0.8rem;
     }
   }
   .card__info__btn{
-    text-align: center;
-    margin-bottom: 5px;
-  }
+    display: flex;
+    align-items: center;
+    justify-content: center;  
 
+    button{
+      margin-right: 10px;
+      padding: 2px;
+
+      a{
+        font-size: 0.8rem;
+      }
+    } 
+  }
 }
-h6{
-position: absolute;
-top: 3%;
-right: 50%;
-transform: translate(50%);
-background-color:var(--header-bg-color);
-border-radius: 5px;
-color: white;
-padding: 0px 5px 5px 5px;
-text-align: center;
-}
+.badge{
+  padding: 5px;
+    margin: 0px 1px;
+  }
 
 // media
 
@@ -85,31 +98,22 @@ text-align: center;
   .card__info__text{
     > *{
       margin: 2px;
-      font-size: 1rem;
+      font-size: 1.1rem;
     }
   }
-  .card__info__btn{
-    text-align: center;
-    margin-bottom: 5px;
-  }
   .badge{
-    padding: 2px;
+    padding: 5px;
   }
 }
 @media screen and (min-width:601px) and (max-width:960px){
   
   .card__info__text{
     > *{
-      margin: 2px;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
     }
   }
-  .card__info__btn{
-    text-align: center;
-    margin-bottom: 5px;
-  }
   .badge{
-    padding: 2px;
+    padding: 5px;
   }
 }
 @media screen and (min-width:961px) and (max-width: 1300px){

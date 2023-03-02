@@ -169,6 +169,7 @@ export default {
     max-height: 150px;
 
     img{
+      width: 150px;
       object-fit: cover;
     }
   }
