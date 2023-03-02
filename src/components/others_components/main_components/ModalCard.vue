@@ -30,8 +30,8 @@
                   </div>
                   <div class="item-cart__info">
                     <div class="item-cart__info__btn">
-                      <button @click="store.quantityDown(item,index)"> - </button>
-                      <button @click="store.quantityUp(item,index)"> + </button>
+                      <button @click="store.quantityDown(item)"> - </button>
+                      <button @click="store.quantityUp(item)"> + </button>
                     </div>
                     <div>
                       <p>Quantita: {{ item.quantity }}</p>

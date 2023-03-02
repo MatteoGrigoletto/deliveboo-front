@@ -36,9 +36,9 @@
           <!-- Se il prodotto viene aggiunto al carrello escono dei bottono con la quale poter trovare il prodotto -->
           <!-- dentro al carrello e modificarne la quantita' -->
           <div v-else class="card-product__quantity">
-            <button @click="store.quantityUp(store.cart.find((elm,index)=> elm.id === product.id))"> + </button>
-            <span> {{ store.cart.find(elm=> elm.id === product.id).quantity }} </span>
-            <button @click="store.quantityDown(store.cart.find((elm, index)=> elm.id === product.id))"> - </button>
+            <button @click="store.quantityDown(findProduct(product))"> - </button>
+            <span> {{ findProduct(product).quantity }} </span>
+            <button @click="store.quantityUp(findProduct(product))"> + </button>
           </div>
         </div>
       </div>
@@ -69,7 +69,10 @@ export default {
     hiddenText(str){
      return str.slice(0,50)
     },
-
+    // Funzione per trovare il prodotto alla quale aumentare la quantita'
+    findProduct(product){
+     return this.store.cart.find((elm)=> elm.id === product.id)
+    },
 
    // Metodo per trasformare l'oggetto in stringa e memorizzarlo nel localStorage.
    // Nel componente ModalCard.vue il prodotto viene riconvertito in oggetto.
