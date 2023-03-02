@@ -3,7 +3,7 @@
     <div class="nav-bar__logo">
       <img src="../../../assets/brand.webp" alt="logo">
     </div>
-    <div class="nav-bar__input">
+    <div class="nav-bar__input" v-if="$route.path === '/'">
       <input type="text" v-model="store.input" placeholder="Ricerca ristorante"/>
     </div>
     <div class="nav-bar__buttons">
@@ -73,7 +73,7 @@ export default {
 
     display: flex;
     list-style: none;
-    justify-content: space-around;
+    justify-content: fle;
     align-items: center;
     margin:0;
     .nav-bar__buttons__cart{

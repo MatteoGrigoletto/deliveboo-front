@@ -45,8 +45,14 @@
     </div>
   </div>
   <!-- evento notifica aggiunta prodotto al carrello -->
-  <div v-if="showPopup" class="popup">
+  <div v-if="showPopupAddProduct" class="add-popup">
       Prodotto aggiunto al carrello!
+  </div>
+  <!-- evento notifica prodotti di due ristoranti diversi -->
+  <div v-if="showPopupDoubleRestorant" class="add-popup">
+    <p>Prodotti di due ristoranti diversi,</p>
+     <p>svuota il carrello per aggiungere questo prodotto</p> 
+     <button @click="store.showModal = true">Per aprire il carrello</button>
   </div>
 </section>
 </template>
@@ -60,7 +66,8 @@ export default {
     return {
       store,
       singleRestaurant: [],
-      showPopup: false,
+      showPopupAddProduct: false,
+      showPopupDoubleRestorant: false,
     };
   },
   components:{
@@ -82,14 +89,14 @@ export default {
       let check = this.store.cart.find(elm=> elm.id === obj.id)
     
         if(store.cart.length === 0){
-        this.showPopup = true;
+        this.showPopupAddProduct = true;
         obj.quantity = 1
         this.store.cart.push(obj);
         localStorage.setItem('cartItems',JSON.stringify(this.store.cart));
         this.hiddenBtnCart = true
       }
       else if(store.cart[0].restaurant_id === obj.restaurant_id && !check) {
-        this.showPopup = true;
+        this.showPopupAddProduct = true;
         obj.quantity = 1;
         this.store.cart.push(obj);
         localStorage.setItem('cartItems',JSON.stringify(this.store.cart));
@@ -97,12 +104,15 @@ export default {
       }
       else{ 
         // Alert se si prova ad aggiungere prodotti di ristoranti diversi.
-        alert(`🍕🍕 Hai provato ad aggiungere prodotti di ristoranti diversi 🍕🍕`)
+        this.showPopupDoubleRestorant = true
       }
-      // FA COMPARIRE IL POP-UP PER 5 SECONDI
+      // FA COMPARIRE IL POP-UP PER 3 SECONDI
       setTimeout(() => {
-        this.showPopup = false;
+        this.showPopupAddProduct = false;
       },3000);
+      setTimeout(() => {
+        this.showPopupDoubleRestorant = false;
+      },7000);
     },
     filterKitchens(restaurant){
       let final = new Set(restaurant.map(elm => elm.name))
@@ -208,14 +218,15 @@ export default {
 }
 
 // POP-UP NOTIFICA AGGIUNTO PRODOTTO AL CARRELLO
-.popup {
+.add-popup {
   position: fixed;
   bottom: 20px;
   right: 0%;
-  background-color: #3ef541;
+  background-color: #e8dfd6;
   color: rgb(8, 8, 8);
   padding: 10px;
   margin: 10px;
+  border: 2px solid rgb(245, 121, 13);
   border-radius: 5px;
 }
 

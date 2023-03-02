@@ -1,6 +1,6 @@
 <template>
-  <footer  v-if="$route.path === '/'">
-    <section class="section-partner">
+  <footer v-if="$route.path === '/'" >
+    <section class="section-partner" >
      <PartnerSection/>
     </section>
     <section class="section-site">

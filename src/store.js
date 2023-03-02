@@ -68,14 +68,14 @@ totalPriceCart: 0,
 productQuantity: [],
 
 // funzioni per aumentare quantita' prodotti carrello
-quantityUp(product,index){
+quantityUp(product){
   
   product.quantity++
   localStorage.setItem('cartItems', JSON.stringify(this.cart));
   console.log(localStorage);
   
 },
-quantityDown(product,index){
+quantityDown(product){
   let productIndexCart= this.cart.findIndex(elm => elm.id === product.id)
   product.quantity--
   if( product.quantity <= 0){
