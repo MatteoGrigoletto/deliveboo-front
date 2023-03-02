@@ -140,7 +140,6 @@ export default {
   border-radius: 4px;
   box-shadow: 0px 0px 10px rgba(7, 7, 7, 0.5);
   width: 30%;
-  height: 70%;
   overflow: hidden;
 }
 
@@ -153,7 +152,7 @@ export default {
 }
 
 .modal-body {
-  padding: 10px 2px;
+  padding: 10px 10px;
 }
 
 .close-button {
@@ -164,7 +163,7 @@ export default {
 }
 
 .container-item-cart {
-  width: 102%;
+  width: 100%;
   height: 400px;
   overflow-y: scroll;
 
@@ -237,6 +236,30 @@ export default {
       margin: 50px 20px;
     }
   }
+
+ /* nasconde la scrollbar in Chrome, Safari e Opera */
+ .container-item-cart::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* nasconde la scrollbar in Firefox */
+  .container-item-cart {
+    scrollbar-width: none;
+  }
+
+  /* rimuove la scrollbar di Internet Explorer */
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .container-item-cart::-ms-scrollbar {
+      display: none;
+    }
+  }
+
+
+
+
+
+
+
   // media
 
 @media screen and (max-width:600px){
