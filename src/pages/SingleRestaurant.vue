@@ -128,6 +128,7 @@ export default {
         // Alert se si prova ad aggiungere prodotti di ristoranti diversi.
         this.showPopupDoubleRestorant = true
       }
+      
       // FA COMPARIRE IL POP-UP PER 3 SECONDI
       setTimeout(() => {
         this.showPopupAddProduct = false;

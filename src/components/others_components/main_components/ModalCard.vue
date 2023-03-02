@@ -86,6 +86,8 @@ export default {
     // METODO PER CALCOLARE IL VALORE TOTALE DEL CARRELLO
     totalPrice(arr){ 
      this.store.totalPriceCart = arr.map(elm => elm.quantity * elm.price).reduce((totale,singlePrice)=> totale += Number(singlePrice),0).toFixed(2);
+     localStorage.setItem('totalPrice',JSON.stringify(Number(this.store.totalPriceCart)));
+    console.log(localStorage);
      return this.store.totalPriceCart;
     },
     removeAllProducts(){

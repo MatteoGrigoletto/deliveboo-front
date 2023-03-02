@@ -8,13 +8,6 @@
     :restaurant = "restaurant"
    ></SingleCardRestaurant>
   </div>
-  
-  <!-- RICERCA TRAMITE CATEGORIE  -->
-  <div v-else-if="store.inputKitchens.length > 0" class="card" v-for="restaurant in store.restaurants" v-show="restaurant.kitchens[0].name == store.inputKitchens " >
-    <SingleCardRestaurant 
-    :restaurant = "restaurant"
-   ></SingleCardRestaurant>
-  </div>
 
   <!-- RICERCA TRAMITE COMPONENTE FiltetSide -->
   <div v-else-if="store.checkbox.length > 0" class="card" v-for="restaurant in store.restaurants" v-show="filterCheckbox(restaurant)" >
