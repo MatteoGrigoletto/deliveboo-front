@@ -1,7 +1,7 @@
 <template>
   <div class="nav-bar">
     <div class="nav-bar__logo">
-      <img src="https://impactwebagency.com/wp-content/uploads/2022/05/banner-deliveboo.png" alt="logo">
+      <img src="../../../assets/brand.webp" alt="logo">
     </div>
     <div class="nav-bar__input">
       <input type="text" v-model="store.input" placeholder="Ricerca ristorante"/>

@@ -230,10 +230,13 @@ export default {
       }
     }
   .container-info-cart{
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 
     button{
-      margin: 50px 20px;
+      margin: 10px 0px;
     }
   }
 
@@ -253,13 +256,6 @@ export default {
       display: none;
     }
   }
-
-
-
-
-
-
-
   // media
 
 @media screen and (max-width:600px){
@@ -268,14 +264,19 @@ export default {
   }
 }
 @media screen and (min-width:601px) and (max-width:960px){
-  
-  
+  .modal-content {
+    width: 80%;
+  }
 }
 @media screen and (min-width:961px) and (max-width: 1300px){
- 
+  .modal-content {
+    width: 70%;
+  }
 }
 @media screen and (min-width:1301px) and (max-width: 1600px){
-  
+  .modal-content {
+    width: 50%;
+  }
 }
 
 </style>
