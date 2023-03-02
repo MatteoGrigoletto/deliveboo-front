@@ -6,16 +6,13 @@
     <section>
       <SliderRestaurant></SliderRestaurant>
     </section>
-    <section>
-      <KitchensCategory></KitchensCategory>
-    </section>
   </header>
 </template>
 
 <script>
 import NavbarHeader from "./others_components/header_components/NavbarHeader.vue";
 import SliderRestaurant from "./others_components/header_components/SliderRestaurant.vue";
-import KitchensCategory from "./others_components/header_components/KitchensCategory.vue";
+
 export default {
   name: "AppHeader",
   data() {
@@ -24,7 +21,6 @@ export default {
   components: {
     NavbarHeader,
     SliderRestaurant,
-    KitchensCategory,
   },
 };
 </script>
