@@ -20,7 +20,7 @@
       </div>
       <div class="form-group flex">
         <label for="price">Prezzo:</label>
-        <input id="price" type="number" min="0" step=".01" v-model="store.totalPriceCart" readonly required>
+        <input id="price" type="number" min="0" step=".01" v-model="price" readonly required>
         <span> €</span>
       </div>
       <div id="dropin-container" class="dropin"></div>
@@ -41,12 +41,15 @@ export default {
       email: '',
       address: '',
       phone: '',
-      price: store.totalPriceCart,
+      price:'',
     };
   },
   methods: {
 
+    // Funzione che spedisce tramite chiamata axios un oggetto al server 
+    // con all'interno i dati relativi all'ordine.
     sendData(){
+      // associa il prodotto ordinato con la rispettiva quantita'
       let products = Object.values(this.store.cart).map(elm => elm.id)
       let quantity = this.store.cart.map(product => product.quantity)
       let order = []
@@ -57,15 +60,17 @@ export default {
         }
         order.push(SingleProduct)
       }
-      // const obj = { 
-      //   order:order,
-      //   name_customer: this.name,
-      //   email_customer: this.email,
-      //   address_customer: this.address,
-      //   phone_number: this.phone,
-      //   total_price: this.store.totalPriceCart,
-      //  }
-      // console.log(obj); 
+      // oggetto che viene salvato nel localeStorage
+      this.store.objCustomer = { 
+        name_customer: this.name,
+        email_customer: this.email,
+        address_customer: this.address,
+        phone_number: this.phone,
+       }
+
+       localStorage.setItem('objCustomer',JSON.stringify(this.store.objCustomer));
+
+
       axios.post('http://localhost:8000/api/orders', {
         name_customer: this.name,
         email_customer: this.email,
@@ -82,7 +87,15 @@ export default {
     },
   },
   mounted(){
-    this.price = this.store.totalPriceCart;
+
+    // Fa persistere il dato relativo al totale del ordine
+    if(localStorage.getItem('totalPrice')){
+
+    const order = JSON.parse(localStorage.getItem('totalPrice'))
+    this.price = order
+    }
+
+    // Gestione del fake pagamento
     let button = document.querySelector('#submit-button');
 
       braintree.dropin.create({
@@ -97,6 +110,16 @@ export default {
         });
       })
     });
+
+    //Recupera i dati dal localStorage per ripopolare il form 
+    if(localStorage.getItem('objCustomer')){
+
+      const customer = JSON.parse(localStorage.getItem('objCustomer'))
+      this.name = customer.name
+      this.email = customer.email
+      this.address = customer.address
+      this.phone = customer.phone
+    }
   }
 };
 </script>

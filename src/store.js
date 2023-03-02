@@ -1,14 +1,7 @@
 import { reactive } from "vue";
 
 export const store = reactive({
-  // gli viene assegnato un valore quando viene aperto il sito (tramite API)
-  restaurants: [],
-  
-  //MEMORIZZA CUCINE DALLE CHECKBOX SELEZIONATE
-  checkbox: [],
-  // variabile input v-model
-  input: "",
-
+ 
 Kitchens:[{
   name:'italiano',
   image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjuCLjIw7roxv0VKvGEtptGPMIdN5kMCxyADEUB9AzTQ&s'
@@ -51,24 +44,35 @@ Kitchens:[{
   },
         
 ],
+// gli viene assegnato un valore quando viene aperto il sito (tramite API)
+restaurants: [],
 
-inputKitchens : '',
+// Memorizza cucine dalle checkbox selezionate
+ checkbox: [],
 
-// CARRELLO
+// Variabile input v-model NavBar
+ input: "",
+
+// Oggetto con i dati dell'ordine
+objCustomer:null,
+
+
+// Carrello con i prodotti
 cart: [],
 
-// productQuantity: '',
-
-// modal show carrello
+// Modal show carrello per aprirla e chiuderla
 showModal: false,
 
-// Modal informazioni prodotto
+// Modal informazioni prodotto per aprirla e chiuderla
 modalProduct: false,
-// PREZZO TOTALE DEL CARRELLO
+
+// Prezzo totale del carrello
 totalPriceCart: 0,
 
+// 
 productQuantity: [],
-// info product
+
+// Variabile con all'interno le info del prodotto 
 infoProduct: null,
 
 // funzioni per aumentare quantita' prodotti carrello
@@ -84,6 +88,7 @@ quantityDown(product){
   product.quantity--
   if( product.quantity <= 0){
     this.cart.splice(productIndexCart,1)   
+    console.log(this.productQuantity);
   }
   localStorage.setItem('cartItems', JSON.stringify(this.cart));
 },

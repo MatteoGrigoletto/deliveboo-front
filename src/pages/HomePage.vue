@@ -19,6 +19,31 @@ export default {
   components: {
     CardsRestaurants
 },
+methods:{
+  getCustomer(){
+
+    // Prende i dati dell'email e del nome dalla rotta 
+    // e li salva in un oggetto che poi viene passato
+    // al localStorage, per poi resettare la rotta 
+    // eliminando i dati sensibili da essa.
+    // Funzione eseguita nel hook mounted
+    const email = this.$route.query.email;
+    const name = this.$route.query.name;
+    
+    if (email && name) {
+      const customer = {
+        name: name,
+        email: email,    
+      }
+      localStorage.setItem('objCustomer', JSON.stringify(customer));
+      this.store.objCustomer = customer
+      this.$router.push({ path: '/' });
+    }
+     else {
+      this.store.objCustomer = JSON.parse(localStorage.getItem('objCustomer'));
+    }
+  }
+},
   created() {
     axios.get("http://localhost:8000/api/restaurants").then((response) => {
       this.store.restaurants = response.data;
@@ -27,7 +52,7 @@ export default {
     });
   },
   mounted(){
-    console.log('arrivo?');
+   this. getCustomer()
   }
 };
 </script>
