@@ -9,11 +9,11 @@
          </div>
          <div class="modal-body">
            <slot class="modal-body__content" >
-            <div>
-              <p>Grazie {{ name }} per aver averci scelto.</p>
-              <p>Per maggiori informazioni rigurdanti il suo ordine,clicca il link sottostante.</p>
+            <div class="modal-body__content__info">
+              <p>Grazie <span>{{ name }}</span> per averci scelto!</p>
+              <p>Per maggiori informazioni riguardanti il suo ordine, clicca il link sottostante.</p>
             </div>
-            <router-link :to="{name: 'CheckOut'}" v-if="store.modalCheckOut" ><button> Riepilogo ordine</button></router-link> 
+            <router-link :to="{name: 'CheckOut'}" v-if="store.modalCheckOut" ><button class="btn-order"> Riepilogo ordine</button></router-link> 
            </slot>
          </div>
        </div>
@@ -82,13 +82,14 @@
    padding-top: 150px;
    position: relative;
    background-color:var(--top-bg-color);
+   border-radius: 2px;
  
    h2{
     position: absolute;
     bottom: 0%;
     left: 2%;
     z-index: 100;
-    background-color: rgb(19, 19, 19,0.4);
+    background-color: rgb(19, 19, 19,0.8);
     font-weight: bold;
     color: white;
     border-radius: 5px;
@@ -97,10 +98,12 @@
  
    img{
      position: absolute;
-     top: 0%;
+     bottom: 0%;
+     z-index: 1;
      right: 0%;
      width: 100%;
      object-fit: cover;
+   
  }
  }
  
@@ -109,6 +112,13 @@
      
      .modal-body__content{
          overflow-y: scroll;
+
+         &__info{
+
+          span{
+            font-weight: bold;
+          }
+        }
          
      }
  
@@ -123,10 +133,20 @@
    font-size: 20px;
    cursor: pointer;
    position: absolute;
-   top:5%;
-   right:5%;
+   top:3%;
+   right:1%;
+   color: white;
  }
- 
+ .btn-order{
+    background-color: var(--order-btn-bg-color);
+    color: var(--order-btn-text-color);
+
+    &:hover{
+      background-color: var(--order-btn-hover-color);
+      color: var(--order-btn-hover-text);
+    }
+
+}
  
   /* nasconde la scrollbar in Chrome, Safari e Opera */
   .modal-body__content::-webkit-scrollbar {

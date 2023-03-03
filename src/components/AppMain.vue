@@ -32,6 +32,7 @@ main {
   display: flex;
   justify-content: center;
   background-color: var(--main-bg-color);
+ 
 
   .filter-side {
     width: 15%;
@@ -40,7 +41,7 @@ main {
     width: 85%;
     position: relative;
     overflow-y: scroll;
-    margin: 20px 0px 0px 10px;
+    margin: 20px 10px 0px 10px;
     overflow-x: hidden;
   }
 

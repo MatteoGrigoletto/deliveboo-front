@@ -10,7 +10,7 @@
         </div>
         <div class="info-partner__single">
           <div class="info-partner__single__img">
-            <img src="../../../assets/image-partner1.jpg" alt="" />
+            <img src="../../../assets/community.jpg" alt="" />
           </div>
           <div class="info-partner__single__info">
             <button>Entra nella nostra community</button>

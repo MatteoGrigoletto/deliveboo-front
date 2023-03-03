@@ -1,5 +1,5 @@
 <template>
-    <div class="test">
+    <div class="my-container">
    <div class="container-slide">
       <img class="slide" src="https://media-cldnry.s-nbcnews.com/image/upload/rockcms/2022-03/plant-based-food-mc-220323-02-273c7b.jpg" alt="" />
       <img class="slide" src="https://res.cloudinary.com/tf-lab/image/upload/restaurant/b2229bc3-266d-47c1-9643-aef1f3a9fada/9dc726ee-b85e-40e1-b21b-a8f653334df7.jpg" alt="" />
@@ -48,8 +48,8 @@ mounted(){
 </script>
 
 <style lang="scss" scoped>
-.container-slide {
 
+.container-slide {
   height: 400px;
 }
 

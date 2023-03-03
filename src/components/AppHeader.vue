@@ -30,5 +30,6 @@ header{
   background-color: var(--header-bg-color);
   position: relative;
   overflow: hidden;
+  box-shadow: 10px 10px 10px black;
 }
 </style>

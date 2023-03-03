@@ -21,7 +21,7 @@
       </div>
     </div>
     <div>
-      <router-link :to="{name: 'HomePage'}"> <button>Vuoi ordinare qualcos'atro? </button></router-link> 
+      <router-link :to="{name: 'HomePage'}"> <button class="btn-check-out">Vuoi ordinare qualcos'atro? </button></router-link> 
     </div>
   </section>
 </template>
@@ -77,5 +77,14 @@ export default {
       width: calc(25% - 0.5rem);
     }
   }
+}
+.btn-check-out{
+  background-color: var(--order-btn-bg-color);
+  color: var(--order-btn-text-color);
+
+  &:hover{
+    background-color: var(--order-btn-hover-color);
+    color: var(--order-btn-hover-text);
+    }
 }
 </style>

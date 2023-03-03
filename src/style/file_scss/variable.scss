@@ -24,7 +24,7 @@
   --main-bg-color: var(--body--bg-color);
   
   // side
-  --side-bg-color: rgba(34, 33, 33, 0.9);
+  --side-bg-color: rgba(34, 33, 33);
   --side-text-color: white;
   --hover-check-color: rgb(105, 236, 232);
   
@@ -56,9 +56,12 @@
 
   // OrderCOnfirmed.vue
   --top-bg-color:var(--header-bg-color);
+  --order-btn-bg-color: var(--link-text-color);
+  --order-btn-text-color: white;
+  --order-btn-hover-color: var( --header-bg-color);
+  --order-btn-hover-text:white;
 
   // Footer InfoSection 
-
   --title-color: var(--link-text-color);
 
 }
