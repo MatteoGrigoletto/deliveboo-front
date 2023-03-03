@@ -53,6 +53,10 @@ methods:{
   },
   mounted(){
    this. getCustomer()
+
+    // Riporto a false le variabili relative alla comparsa della modale
+    // ordine confermato e alla rotta dell'ordine specifico
+    this.store.checkOutControll = false
   }
 };
 </script>

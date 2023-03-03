@@ -133,7 +133,7 @@ export default {
 .modal-content {
   background-color: white;
   padding: 0px;
-  border-radius: 4px;
+  border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(7, 7, 7, 0.5);
   width: 30%;
   overflow: hidden;
@@ -168,7 +168,7 @@ export default {
     justify-content: space-between;
     align-items: center;
     margin: 10px 0px;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(7, 7, 7, 0.5);
 
     &:hover {
@@ -180,7 +180,7 @@ export default {
       width: 70px;
       height: 70px;
       overflow: hidden;
-      border-radius: 5px;
+      border-radius: 10px 0px 0px 10px;
       margin-right: 10px;
       img {
         object-fit: cover;

@@ -59,7 +59,7 @@ export default {
     padding: 20px;
     
     h5{
-      color: orange;
+      color: var(--title-color);
     }
     ul {
       padding: 0px;

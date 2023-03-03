@@ -77,6 +77,7 @@ export default {
       font-weight: bold;
       height: 60px;
       position: relative;
+      border-radius: 5px;
     }
     span {
       position: absolute;
@@ -92,7 +93,7 @@ export default {
 
     /* Aggiungi una classe CSS per evidenziare il testo del checkbox selezionato */
     .active {
-      color: rgb(250, 136, 28);
+      color: var(--hover-check-color);
     }
 
     input[type="checkbox"] {
@@ -108,6 +109,7 @@ export default {
       top: 15%;
       left: 0%;
       object-fit: cover;
+      border-radius: 10px;
     }
   }
 }

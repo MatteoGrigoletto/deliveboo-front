@@ -3,13 +3,17 @@
        <div class="modal-background" @click="$emit('close')"></div>
        <div class="modal-content">
          <div class="modal-header">
-           <h2>Informazioni Prodotto</h2>
-       
+           <h2>Ordine Confermato</h2>
+            <img src="../../../assets/Deliveroo-Logo.png" alt="">
            <button class="close-button" @click="$emit('close')">X</button>
          </div>
          <div class="modal-body">
            <slot class="modal-body__content" >
-            <router-link :to="{name: 'CheckOut'}" v-if="store.modalCheckOut" >Ordine</router-link> 
+            <div>
+              <p>Grazie {{ name }} per aver averci scelto.</p>
+              <p>Per maggiori informazioni rigurdanti il suo ordine,clicca il link sottostante.</p>
+            </div>
+            <router-link :to="{name: 'CheckOut'}" v-if="store.modalCheckOut" ><button> Riepilogo ordine</button></router-link> 
            </slot>
          </div>
        </div>
@@ -34,6 +38,7 @@
        type: String,
        required: true
      },
+     name:String,
  }
  }
  </script>
@@ -74,15 +79,20 @@
    justify-content: space-between;
    align-items: center;
    margin-bottom: 10px;
+   padding-top: 150px;
    position: relative;
+   background-color:var(--top-bg-color);
  
    h2{
-     z-index: 100;
-     background-color: rgb(19, 19, 19,0.4);
-     font-weight: bold;
-     color: white;
-     padding: 20px;
-     border-radius: 5px;
+    position: absolute;
+    bottom: 0%;
+    left: 2%;
+    z-index: 100;
+    background-color: rgb(19, 19, 19,0.4);
+    font-weight: bold;
+    color: white;
+    border-radius: 5px;
+     
  }
  
    img{
@@ -112,6 +122,9 @@
    border: none;
    font-size: 20px;
    cursor: pointer;
+   position: absolute;
+   top:5%;
+   right:5%;
  }
  
  

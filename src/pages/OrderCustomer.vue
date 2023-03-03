@@ -29,7 +29,11 @@
     </form>
 
     <!-- Componente che viene visualizzato una volta che l'ordine e' andato a buon fine -->
-    <OrderConfirmed :show="store.modalCheckOut" title="order-confirmed" @close="store.modalCheckOut = false"></OrderConfirmed>
+    <OrderConfirmed :show="store.modalCheckOut"
+      title="order-confirmed"
+      @close="store.modalCheckOut = false"
+      :name="name"
+      ></OrderConfirmed>
   </div>
 </template>
 
