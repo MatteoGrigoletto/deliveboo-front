@@ -25,9 +25,10 @@
       </div>
       <div id="dropin-container" class="dropin"></div>
       <button v-if="store.checkOutControll === false" id="submit-button" type="submit" class="button button--small button--green">Purchase</button>
-      <router-link :to="{name: 'CheckOut'}" v-if="store.checkOutControll" >Ordine</router-link> 
-     
+      <router-link :to="{name: 'CheckOut'}" v-if="store.checkOutControll" >Ordine</router-link>    
     </form>
+
+    <!-- Componente che viene visualizzato una volta che l'ordine e' andato a buon fine -->
     <OrderConfirmed :show="store.modalCheckOut" title="order-confirmed" @close="store.modalCheckOut = false"></OrderConfirmed>
   </div>
 </template>
@@ -88,6 +89,11 @@ export default {
 
       }).then(response => {
         console.log(response.data.message);
+
+      // Se l'ordine ha avuto successo  il carrello viene svuotato e eliminato dal localstorage
+      // la viariabili booleane servono per gestire l'apertura della modale  OrderConfirmed e
+      // la comparsa della rotta per la visualizzazione dell'ordine completo
+
        if(response.data.message === 'Ordine creato con successo.'){
         this.store.checkOutControll = true
         this.store.modalCheckOut = true 

@@ -4,15 +4,17 @@ ordine
 <router-link :to="{name: 'HomePage'}">Ordine</router-link> 
     </div>
 </template>
-
 <script>
+import {store} from '../store';
 export default {
     name:'CheckOut',
     data () {
-        return {}
+        return {
+        store}
     },
     mounted(){
-        console.log(localStorage);
+        this.store.checkOutControll = false
+        this.store.modalCheckOut = false 
   }
 }
 </script>
