@@ -1,7 +1,8 @@
 <template>
   <div class="nav-bar">
     <div class="nav-bar__logo">
-      <img src="../../../assets/Deliveroo-Logo.png" alt="logo">
+      <img src="../../../assets/Deliveroo-Logo-final.png" alt="logo">
+      <h1>DeliveBoo</h1>
     </div>
     <div class="nav-bar__input" v-if="$route.path === '/'">
       <input type="text" v-model="store.input" placeholder="Ricerca ristorante"/>
@@ -57,6 +58,20 @@ export default {
   .nav-bar__logo,.nav_bar__buttons{
     width: 25%;
     height: 100%;
+    display: flex;
+    margin:0;
+    align-items: center;
+
+  }
+  .nav-bar__logo{
+    h1{
+      width: 80%;
+    }
+    img{
+      height: 70px;
+      width: 20%;
+      object-fit:cover;
+    }
   }
   .nav-bar__input{
     width: 50%;
@@ -69,21 +84,11 @@ export default {
 }
 .nav-bar__buttons{
 
-    display: flex;
     list-style: none;
-    justify-content: fle;
-    align-items: center;
-    margin:0;
     .nav-bar__buttons__cart{
       position: relative;
     }
 }
-img{
-  height: 50px;
-  object-fit:contain;
- 
-  }
-
 
   .count-cart{
     position: absolute;
@@ -106,9 +111,6 @@ img{
 @media screen and (max-width:600px){
   .nav-bar{
     padding:20px 10px;
-    .nav-bar__logo{
-        display: none;
-    }
     .nav-bar__input{
       
       input{
@@ -128,9 +130,7 @@ img{
 @media screen and (min-width:601px) and (max-width:1300px){
   .nav-bar{
     padding: 20px 10px;
-    .nav-bar__logo{
-        padding: 0px 20px;
-    }
+
     .nav-bar__input{
       
       input{
@@ -141,8 +141,8 @@ img{
     .nav-bar__buttons{
       
       button {
-        margin: 0px 10px;
-        padding: 10px 20px;
+        margin: 0px 5px;
+        padding: 5px 5px;
       }
     }
   }
@@ -151,9 +151,6 @@ img{
   
   .nav-bar{
     padding: 20px 10px;
-    .nav-bar__logo{
-      padding: 0px 20px;
-    }
     .nav-bar__input{
       
       input{

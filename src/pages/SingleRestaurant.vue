@@ -56,7 +56,6 @@
       </div>
     </div>
   </div>
-  <!-- <InfoProduct  :show="store.modalProduct" :products="infoProdut" title="info-product" @close="store.modalProduct = false" > </InfoProduct> -->
   <!-- evento notifica aggiunta prodotto al carrello -->
   <div v-if="showPopupAddProduct" class="add-popup">
       Prodotto aggiunto al carrello!
@@ -239,7 +238,7 @@ export default {
       justify-content: space-between;
 
       button{
-        background-color: rgb(207, 204, 204);
+        background-color: var(--product-btn-info);
         color: black;
         border: 1px solid black;
         padding: 0px 4px;

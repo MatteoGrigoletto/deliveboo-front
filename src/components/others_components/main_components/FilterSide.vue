@@ -86,7 +86,7 @@ export default {
       z-index: 2;
       text-align: center;
       transform: translate(-50%);
-      background-color: rgb(16, 16, 16, 0.7);
+      background-color: rgba(0, 0, 0, 0.7);
       padding: 0px 5px;
       border-radius: 10px;
     }
