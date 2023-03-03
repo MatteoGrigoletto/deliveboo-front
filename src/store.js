@@ -84,6 +84,10 @@ modalCheckOut: false,
 checkOutProduct: [],
 checkOutTotalPriceProduct: 0,
 
+// Controllo se utente e' ristoratore
+
+checkUser: false,
+
 // funzioni per aumentare quantita' prodotti carrello
 quantityUp(product){
   

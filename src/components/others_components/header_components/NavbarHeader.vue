@@ -17,12 +17,9 @@
       </div>    
 
       </button> 
-      <button><a href="http://127.0.0.1:8000/register">Registrati</a></button>
-      <button><a href="http://127.0.0.1:8000/login">Accedi</a></button>   
-    </div>
-    <div class="app">
-        <ModalCart :show="store.showModal" title="Titolo della modale" @close="store.showModal = false">          
-        </ModalCart>
+      <button v-if="store.checkUser === false"><a href="http://127.0.0.1:8000/register">Registrati</a></button>
+      <button v-if="store.checkUser"><a href="http://127.0.0.1:8000/login">La tua attivita'</a></button>   
+      <ModalCart :show="store.showModal" title="Titolo della modale" @close="store.showModal = false"></ModalCart>
     </div>
   </div>
   

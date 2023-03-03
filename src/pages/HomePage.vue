@@ -38,8 +38,10 @@ methods:{
       localStorage.setItem('objCustomer', JSON.stringify(customer));
       this.store.objCustomer = customer
       this.$router.push({ path: '/' });
+      this.store.checkUser = true
     }
      else {
+      localStorage.removeItem('objCustomer')
       this.store.objCustomer = JSON.parse(localStorage.getItem('objCustomer'));
     }
   }
@@ -50,6 +52,7 @@ methods:{
       console.log(store.restaurants);
      
     });
+    console.log(localStorage);
   },
   mounted(){
    this. getCustomer()
