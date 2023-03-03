@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage.vue";
 import Page404 from "./pages/Page404.vue";
 import SingleRestaurant from "./pages/SingleRestaurant.vue";
 import OrderCustomer from "./pages/OrderCustomer.vue";
+import CheckOut from "./pages/CheckOut.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -24,7 +25,11 @@ const router = createRouter({
       name: "SingleRestaurant",
       component: SingleRestaurant,
     },
-
+    {
+      path: "/checkout",
+      name: "CheckOut",
+      component: CheckOut,
+    },
     {
       path: "/:pathMatch(.*)*",
       name: "page-404",

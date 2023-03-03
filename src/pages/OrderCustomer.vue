@@ -24,14 +24,18 @@
         <span> €</span>
       </div>
       <div id="dropin-container" class="dropin"></div>
-      <button id="submit-button" type="submit" class="button button--small button--green">Purchase</button>
+      <button v-if="store.checkOutControll === false" id="submit-button" type="submit" class="button button--small button--green">Purchase</button>
+      <router-link :to="{name: 'CheckOut'}" v-if="store.checkOutControll" >Ordine</router-link> 
+     
     </form>
+    <OrderConfirmed :show="store.modalCheckOut" title="order-confirmed" @close="store.modalCheckOut = false"></OrderConfirmed>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
 import {store} from '../store';
+import OrderConfirmed from '../components/others_components/main_components/OrderConfirmed.vue';
 export default {
     name:'OrderCustomer',
   data() {
@@ -43,6 +47,9 @@ export default {
       phone: '',
       price:'',
     };
+  },
+  components:{
+    OrderConfirmed,
   },
   methods: {
 
@@ -80,10 +87,20 @@ export default {
         order:order,
 
       }).then(response => {
-        console.log(response.data);
+        console.log(response.data.message);
+       if(response.data.message === 'Ordine creato con successo.'){
+        this.store.checkOutControll = true
+        this.store.modalCheckOut = true 
+        localStorage.removeItem('cartItems')
+        this.store.cart = []
+        console.log(localStorage);
+
+        }
       }).catch(error => {
         console.log(error);
+        this.store.checkOutControll = false
       })
+      this.store.checkOutControll = false
     },
   },
   mounted(){

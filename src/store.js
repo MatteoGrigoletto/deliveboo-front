@@ -56,7 +56,6 @@ restaurants: [],
 // Oggetto con i dati dell'ordine
 objCustomer:null,
 
-
 // Carrello con i prodotti
 cart: [],
 
@@ -74,6 +73,12 @@ productQuantity: [],
 
 // Variabile con all'interno le info del prodotto 
 infoProduct: null,
+
+//Variabile che controlla se l'ordine ha avuto successo 
+checkOutControll: false,
+
+//Variabile per aprire o chiudere modale ordine 
+modalCheckOut: false,
 
 // funzioni per aumentare quantita' prodotti carrello
 quantityUp(product){
