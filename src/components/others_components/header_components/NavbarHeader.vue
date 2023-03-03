@@ -1,12 +1,13 @@
 <template>
   <div class="nav-bar">
     <div class="nav-bar__logo">
-      <img src="../../../assets/brand.webp" alt="logo">
+      <img src="../../../assets/Deliveroo-Logo.png" alt="logo">
     </div>
     <div class="nav-bar__input" v-if="$route.path === '/'">
       <input type="text" v-model="store.input" placeholder="Ricerca ristorante"/>
     </div>
-    <div class="nav-bar__buttons">
+    <div class="nav-bar__buttons" v-if="$route.path !== '/order' && $route.path !== '/checkout'">
+    
       <!-- BOTTONE PER ATTIVARE IL COMPONENTE ModalCard.vue -->   
       <button class="nav-bar__buttons__cart" @click="store.showModal = true"><i class="fa-solid fa-cart-shopping"></i> 
         
@@ -20,8 +21,8 @@
       <button><a href="http://127.0.0.1:8000/login">Accedi</a></button>   
     </div>
     <div class="app">
-        <ModalCard :show="store.showModal" title="Titolo della modale" @close="store.showModal = false">          
-        </ModalCard>
+        <ModalCart :show="store.showModal" title="Titolo della modale" @close="store.showModal = false">          
+        </ModalCart>
     </div>
   </div>
   
@@ -29,7 +30,7 @@
 
 <script>
 import { store } from "../../../store.js";
-import ModalCard from "../main_components/ModalCard.vue";
+import ModalCart from "../main_components/ModalCart.vue";
 export default {
   name: "NavbarHeader",
   data() {
@@ -39,7 +40,7 @@ export default {
     };
   },
   components:{
-    ModalCard
+    ModalCart
   },
 };
 </script>
@@ -82,8 +83,8 @@ export default {
 }
 img{
   height: 50px;
-  object-fit:cover;
-  // filter: invert();
+  object-fit:contain;
+ 
   }
 
 
