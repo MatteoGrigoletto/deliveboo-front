@@ -5,15 +5,14 @@
   </div>
   <div class="card__info">   
     <div class="card__info__text">
-      <h6>{{ restaurant.name }}</h6>
-      <p>{{ restaurant.street_address }}</p>
-      <p>{{ restaurant.city }}</p>
+      <h5>{{ restaurant.name }}</h5>
+      <span>{{ restaurant.street_address }}, {{ restaurant.city }}</span>
       <div>
         <span class="badge text-bg-light fs-7 rounded-pill" v-for="kitchen in filterKitchens(restaurant.kitchens)">{{kitchen}}</span>
       </div>
     </div> 
     <div class="card__info__btn">
-      <button><router-link :to="{name: 'SingleRestaurant',params: { restaurant: restaurant.slug }}">Prodotti</router-link></button>
+     <router-link :to="{name: 'SingleRestaurant',params: { restaurant: restaurant.slug }}"><button>Prodotti</button></router-link>
     </div>
   </div>
 
@@ -50,7 +49,7 @@ export default {
 .card__info{
   display: flex;
   justify-content: space-between;
-  padding: 1px;
+  padding: 10px;
   height: 40%;
   border-radius:0px 0px 20px 20px;
   background-image: var(--card-bg-color);
@@ -61,14 +60,13 @@ export default {
     flex-direction: column;
     justify-content: space-between;
 
-    h6{
-      margin: 10px;
+    h5{
       font-weight: bold;
     }
     
-    > *:not(:first-child){
-      margin: 4px 10px;
-      font-size: 0.8rem;
+    > *{
+      margin: 1px 10px;
+      
     }
   }
   .card__info__btn{
@@ -87,8 +85,9 @@ export default {
   }
 }
 .badge{
-  padding: 5px;
-    margin: 0px 1px;
+  padding: 4px;
+  margin: 0px px;
+  border: 1px solid black;
   }
 
 // media
@@ -105,12 +104,53 @@ export default {
 }
 @media screen and (min-width:601px) and (max-width:960px){
   
+  .card__info__text{
+
+h5{
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+> *{
+  margin: 1px 10px;
+  font-size: 0.8rem;    
+}
+}
+.card__info__btn{
+
+button{
+  font-size: 0.9rem;
+} 
+}
   
 }
 @media screen and (min-width:961px) and (max-width: 1300px){
-  
+
+  .card__info__text{
+
+    h5{
+      font-weight: bold;
+      font-size: 1rem;
+    }
+    
+    > *{
+      font-size: 0.8rem;    
+    }
+  }
+
+ 
 }
 @media screen and (min-width:1301px) and (max-width: 1600px){
+
+  .card__info__text{
+
+h5{
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+}
+
 
 }
 </style>

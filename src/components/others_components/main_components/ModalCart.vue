@@ -15,7 +15,7 @@
           <slot v-if="store.cart <= 0">
           <div>
               <h2>Il tuo carrello è vuoto! </h2>
-              <button  @click="store.showModal = false">Ritorna ai Ristoranti</button>
+              <button  @click="store.showModal = false">Ritorna ai Prodotti</button>
             </div>
           </slot>
           <!-- se il carrello e' pieno -->
@@ -162,6 +162,8 @@ export default {
   width: 100%;
   height: 400px;
   overflow-y: scroll;
+  background-image: url(../../../assets/Deliveroo-Logo-final.png);
+  background-position: 50%;
 
   .item-cart {
     display: flex;
@@ -169,7 +171,8 @@ export default {
     align-items: center;
     margin: 10px 0px;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(7, 7, 7, 0.5);
+    background-color: rgb(255, 253, 253,0.96);
+    box-shadow: 0px 0px 13px rgba(0, 0, 0, 1);
 
     &:hover {
       box-shadow: 0px 0px 15px rgba(7, 7, 7, 0.7);
@@ -197,34 +200,25 @@ export default {
       button {
           border: none;
           background-color: transparent;
-          font-size: 18px;
+          font-size: 15px;
           cursor: pointer;
           margin: 0px 5px;
-          // padding: 5px;
           border-radius: 5px;
           box-shadow: 0px 0px 5px rgba(7, 7, 7, 0.3);
-          &:hover {
-            background-color: #000000;
+
+          &:hover{
+            background-color: greenyellow;
+          }
+
+          &:hover:first-child {
+            background-color: #f96969;
             color: #ffffff;
           }
-        }
-      }
-      button {
-        background-color: transparent;
-        border: none;
-        font-size: 16px;
-        cursor: pointer;
-        color: red;
-
-        &:hover {
-          color: #ffffff;
-          background-color: #ff4500;
-          border-radius: 5px;
-          box-shadow: 0px 0px 5px rgba(7, 7, 7, 0.3);
-          }
+          
         }
       }
     }
+  }
   .container-info-cart{
     display: flex;
     flex-direction: column;

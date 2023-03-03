@@ -18,8 +18,8 @@
       </div>    
 
       </button> 
-      <button v-if="store.checkUser === false"><a href="http://127.0.0.1:8000/register">Registrati</a></button>
-      <button v-if="store.checkUser"><a href="http://127.0.0.1:8000/login">La tua attivita'</a></button>   
+      <button v-if="store.checkUser === false"><a href="http://127.0.0.1:8000/register">Sei un ristoratore?</a></button>
+      <button v-if="store.checkUser"><a href="http://127.0.0.1:8000/login">Il tuo ristorante</a></button>   
       <ModalCart :show="store.showModal" title="Titolo della modale" @close="store.showModal = false"></ModalCart>
     </div>
   </div>
@@ -54,6 +54,7 @@ export default {
   z-index: 100;
   width: 100%;
   background-color: var(--header-bg-color);
+  padding: 10px;
 
   .nav-bar__logo,.nav_bar__buttons{
     width: 25%;
@@ -85,8 +86,23 @@ export default {
 .nav-bar__buttons{
 
     list-style: none;
+    button{
+        background-color: var(--header-btn-bg-color);
+        color: var(--header-btn-text-color);
+        font-weight: bold;
+
+        &:hover{
+          background-color: var(--header-btn-hover-color);
+          color: var(--header-btn-hover-text);
+        }
+        a:hover{
+          color: var(--header-btn-bg-color);
+        }
+      }
     .nav-bar__buttons__cart{
       position: relative;
+
+     
     }
 }
 
@@ -96,13 +112,14 @@ export default {
     right: -20%;
     width: 35px;
     height: 35px;
-    border: 1px solid white;
+    border: 1px solid black;
     border-radius: 100%;
-    background-image: var(--card-bg-color);
-    color: white;
+    background-color: var(--count-bg-color);
+    color: black;
     text-align: center;
     line-height: 35px;
     font-size: 1rem;
+    font-weight: bold;
   }
 
 
@@ -110,7 +127,6 @@ export default {
 // media query
 @media screen and (max-width:600px){
   .nav-bar{
-    padding:20px 10px;
     .nav-bar__input{
       
       input{
@@ -129,7 +145,6 @@ export default {
 }
 @media screen and (min-width:601px) and (max-width:1300px){
   .nav-bar{
-    padding: 20px 10px;
 
     .nav-bar__input{
       
@@ -150,7 +165,7 @@ export default {
 @media screen and (min-width:1301px) and (max-width: 100000px){
   
   .nav-bar{
-    padding: 20px 10px;
+
     .nav-bar__input{
       
       input{

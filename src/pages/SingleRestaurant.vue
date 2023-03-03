@@ -14,7 +14,7 @@
         <span class="badge text-bg-light fs-6 me-1 rounded-pill" v-for="tipology in filterKitchens(singleRestaurant.kitchens)">{{ tipology}}</span>
       </div>
       <div>
-        <button><router-link :to="{ name: 'HomePage' }"> Ritorna ai Ristoranti</router-link></button>
+        <router-link :to="{ name: 'HomePage' }"><button>Ritorna ai Ristoranti</button></router-link>
       </div>
     </div>
   </div>
@@ -167,7 +167,7 @@ export default {
 .single-restaurant{
   display: flex;
   .single-restaurant__image{
-    width: 50%;
+    width: 40%;
     height: 400px;
     border-radius: 11px ;
     border: 2px solid var(--restaurant-border-color);
@@ -187,7 +187,7 @@ export default {
       font-size: 1.3rem;
     }
     .badge{
-      background-image: var(--badge-bg-color);
+      background-color: var(--badge-bg-color) !important;
       color: var(--badge-color) !important;
     }
   }
@@ -211,10 +211,13 @@ export default {
     border-radius:5px;
   .card-product__image{
     width: 40%;
+    border-radius: 5px;
+    box-shadow: 0px 5px 5px black;
 
     img{
       height: 150px;
       object-fit: cover;
+      border-radius: 5px;
     }
   }
   .card-product__info{
@@ -222,10 +225,10 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-left: 5px;
+    margin-left: 20px;
     
     h5{
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: bold;  
     }
     .card-product__info__price{
@@ -238,9 +241,6 @@ export default {
       justify-content: space-between;
 
       button{
-        background-color: var(--product-btn-info);
-        color: black;
-        border: 1px solid black;
         padding: 0px 4px;
       }   
     }
@@ -308,7 +308,7 @@ export default {
 }
 @media screen and (min-width:601px) and (max-width:960px){
 
-  single-restaurant{
+  .single-restaurant{
   .single-restaurant__image{
     width: 50%;
   }

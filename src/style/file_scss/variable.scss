@@ -4,13 +4,20 @@
   //Title header 
   --title-color:var(--link-text-color);
 
-  // colore bottoni
-  --btn-bg-color: var(--product-btn-info);
+  // bottoni header
+  --header-btn-bg-color: var(--link-text-color);
+  --header-btn-text-color: white;
+  --header-btn-hover-color: var( --header-btn-text-color);
+  --header-btn-hover-text:var(--header-btn-bg-color);
+
+  // bottoni general
+  --btn-bg-color: rgb(247, 236, 236);
   --btn-text-color: rgb(0, 0, 0);
-  --btn-hover-color: var(--product-bg-color);
+  --btn-hover-color: var(--header-bg-color);
+  --btn-hover-text:white;
   
-  // card product
-  --card-bg-color: rgba(179, 172, 172, 0.2);
+  // count product
+  --count-bg-color: rgba(255, 255, 255);
   
   // main
   --body-bg-color: rgb(233, 231, 229, 0.5);
@@ -18,23 +25,24 @@
   
   // side
   --side-bg-color: rgba(34, 33, 33, 0.9);
-  --side-text-color: var(--btn-text-color);
+  --side-text-color: white;
   --hover-check-color: rgb(105, 236, 232);
   
   // card restaurant
-  --card-bg-color: linear-gradient(to bottom, #c3c5c5, #00b8a8, #00b8a8);
+  --card-bg-color: linear-gradient(to bottom, #e3e9e9, #58dbd0, #12d7c6);
   --card-text-color: black;
 
   // Card product
   --product-bg-color: var(--card-bg-color);
   --product-btn-info: rgb(223, 219, 219);
+  --product-border-color:black;
 
   // Single restaurant
   --restaurant-text-color: var(--card-text-color);
   --restaurant-border-color:var(--link-text-color);
   
   //Badge restaurant
-  --badge-bg-color: var(--card-bg-color);
+  --badge-bg-color: var(--link-text-color);
   --badge-color:white;
 
   // Footer

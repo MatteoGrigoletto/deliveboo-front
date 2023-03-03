@@ -4,7 +4,7 @@
        <div class="modal-content">
          <div class="modal-header">
            <h2>Ordine Confermato</h2>
-            <img src="../../../assets/Deliveroo-Logo.png" alt="">
+            <img src="../../../assets/Deliveroo-Logo-final.png" alt="">
            <button class="close-button" @click="$emit('close')">X</button>
          </div>
          <div class="modal-body">

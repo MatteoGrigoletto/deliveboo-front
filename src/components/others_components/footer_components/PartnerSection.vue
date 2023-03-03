@@ -2,7 +2,7 @@
     <div class="info-partner">
         <div class="info-partner__single">
           <div class="info-partner__single__img">
-            <img src="../../../assets/banner-deliveboo.jpg" alt="" />
+            <img src="../../../assets/Deliveroo-Logo-final.png" alt="" />
           </div>
           <div class="info-partner__single__info">
             <button>Lavora con noi</button>
@@ -40,6 +40,8 @@ export default {
     position: relative;
     .info-partner__single__img{
       height: 100%;
+      background-color: aliceblue;
+      border: 2px solid black;
     }
     .info-partner__single__info {
       position: absolute;

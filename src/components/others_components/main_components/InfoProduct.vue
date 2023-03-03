@@ -3,13 +3,12 @@
       <div class="modal-background" @click="$emit('close')"></div>
       <div class="modal-content">
         <div class="modal-header">
-          <h2>Informazioni Prodotto</h2>
+          <h2>{{ store.infoProduct.name }}</h2>
           <img :src="store.infoProduct.image_url === null ? store.infoProduct.image : store.infoProduct.image_url" alt="">
           <button class="close-button" @click="$emit('close')">X</button>
         </div>
         <div class="modal-body">
           <slot class="modal-body__content" >
-            <h3>{{ store.infoProduct.name }}</h3> 
             <div>
                 <h4>Descrizione:</h4>
                 <p>{{store.infoProduct.description}}</p>
@@ -108,7 +107,7 @@ export default {
         
     }
 
-    h3{
+    h4{
       font-weight: bold;
     }
 }
