@@ -5,7 +5,7 @@
             <img src="../../../assets/Deliveroo-Logo-final.png" alt="" />
           </div>
           <div class="info-partner__single__info">
-            <button>Lavora con noi</button>
+            <button class="btn-blue">Lavora con noi</button>
           </div>
         </div>
         <div class="info-partner__single">
@@ -13,7 +13,7 @@
             <img src="../../../assets/community.jpg" alt="" />
           </div>
           <div class="info-partner__single__info">
-            <button>Entra nella nostra community</button>
+            <button class="btn-blue">Entra nella nostra community</button>
           </div>
         </div>
       </div>

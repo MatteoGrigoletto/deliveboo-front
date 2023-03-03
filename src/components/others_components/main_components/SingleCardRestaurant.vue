@@ -76,7 +76,7 @@ export default {
 
     button{
       margin-right: 10px;
-      padding: 2px;
+      padding: 2px 5px;
 
       a{
         font-size: 0.8rem;

@@ -32,3 +32,20 @@ h1{
   color:var(--title-color);
   font-weight: bold;
 }
+
+.btn-blue{
+  background-color: var(--order-btn-bg-color);
+  color: var(--order-btn-text-color);
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid rgb(151, 149, 149);
+  &:hover {
+    background-color: var(--order-btn-hover-color);
+    color: var(--order-btn-hover-text);
+
+    a:hover {
+      color: var(--btn-hover-text);
+    }
+  }
+
+}

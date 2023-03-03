@@ -14,7 +14,7 @@
         <span class="badge text-bg-light fs-6 me-1 rounded-pill" v-for="tipology in filterKitchens(singleRestaurant.kitchens)">{{ tipology}}</span>
       </div>
       <div>
-        <router-link :to="{ name: 'HomePage' }"><button>Ritorna ai Ristoranti</button></router-link>
+        <router-link :to="{ name: 'HomePage' }"><button class="btn-blue">Ritorna ai Ristoranti</button></router-link>
       </div>
     </div>
   </div>

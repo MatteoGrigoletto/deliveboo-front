@@ -47,7 +47,7 @@
             </div>
             <div class="container-info-cart">
               <span>Totale: {{ totalPrice(store.cart) }} €</span>
-              <button class="btn-pay"><router-link :to="{name: 'OrderCustomer'}" @click="store.showModal = false">Conferma</router-link></button>      
+              <button class="btn-pay btn-blue"><router-link :to="{name: 'OrderCustomer'}" @click="store.showModal = false">Conferma</router-link></button>      
             </div>
           </slot>
         </div>
@@ -224,9 +224,10 @@ export default {
     flex-direction: column;
     align-items: center;
 
-
-    button{
-      margin: 10px 0px;
+    span {
+      margin: 15px 0px;
+    
+      font-weight: bold;
     }
   }
 
