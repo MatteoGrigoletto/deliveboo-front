@@ -25,17 +25,21 @@
 
   // Card product
   --product-bg-color: var(--card-bg-color);
+
   // Single restaurant
   --restaurant-text-color: var(--card-text-color);
-
+  --restaurant-border-color:var(--link-text-color);
+  
   //Badge restaurant
   --badge-bg-color: var(--card-bg-color);
+  --badge-color:white;
 
   // Footer
   --footer-bg-color: var(--side-bg-color);
 
   // Links  hover text
   --link-text-color: #00b8a8;
+
   // Cart
   --cart-bg-color:var(--card-bg-color);
 

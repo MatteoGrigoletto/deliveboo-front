@@ -4,7 +4,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h2>Informazioni Prodotto</h2>
-          <img :src=" store.infoProduct.image " alt="">
+          <img :src="store.infoProduct.image_url === null ? store.infoProduct.image : store.infoProduct.image_url" alt="">
           <button class="close-button" @click="$emit('close')">X</button>
         </div>
         <div class="modal-body">

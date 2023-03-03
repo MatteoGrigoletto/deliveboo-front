@@ -80,6 +80,10 @@ checkOutControll: false,
 //Variabile per aprire o chiudere modale ordine 
 modalCheckOut: false,
 
+//Prodotti comprati dal cliente 
+checkOutProduct: [],
+checkOutTotalPriceProduct: 0,
+
 // funzioni per aumentare quantita' prodotti carrello
 quantityUp(product){
   

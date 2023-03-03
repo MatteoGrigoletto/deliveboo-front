@@ -101,16 +101,21 @@ export default {
        if(response.data.message === 'Ordine creato con successo.'){
         this.store.checkOutControll = true
         this.store.modalCheckOut = true 
-        localStorage.removeItem('cartItems')
+        localStorage.removeItem('cartItems');
+        localStorage.removeItem('totalPrice');
+        this.store.checkOutProduct = this.store.cart;
+        this.store.checkOutTotalPriceProduct = this.store.totalPriceCart;        
+        this.store.totalPriceCart = 0;
         this.store.cart = []
         console.log(localStorage);
+      
 
         }
       }).catch(error => {
         console.log(error);
         this.store.checkOutControll = false
       })
-      this.store.checkOutControll = false
+        this.store.checkOutControll = false
     },
   },
   mounted(){
