@@ -68,10 +68,11 @@ methods:{
 .home-page-main {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
+  // width: 100%;
   position: absolute;
   top: 0%;
   right: 0%;
+  // margin: 0px 10px;
 }
 
 

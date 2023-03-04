@@ -54,7 +54,6 @@ methods:{
   border: 1px solid rgb(68, 67, 67);
   width: calc(100% / 4 - 20px);
   margin: 10px;
-  height: 350px;
   color: rgb(27, 27, 28);
   position: relative;
   background-image: var(--card-bg-color);

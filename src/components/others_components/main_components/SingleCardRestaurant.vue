@@ -110,11 +110,11 @@ export default {
 
 h5{
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 > *{
-  margin: 1px 10px;
+  
   font-size: 0.8rem;    
 }
 }
