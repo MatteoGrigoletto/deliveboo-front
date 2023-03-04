@@ -64,11 +64,6 @@ export default {
     h5{
       font-weight: bold;
     }
-    
-    > *{
-      margin: 1px 10px;
-      
-    }
   }
   .card__info__btn{
     display: flex;

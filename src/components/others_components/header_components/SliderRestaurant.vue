@@ -1,12 +1,12 @@
 <template>
     <div class="my-container">
    <div class="container-slide">
-      <img class="slide" src="https://media-cldnry.s-nbcnews.com/image/upload/rockcms/2022-03/plant-based-food-mc-220323-02-273c7b.jpg" alt="" />
-      <img class="slide" src="https://res.cloudinary.com/tf-lab/image/upload/restaurant/b2229bc3-266d-47c1-9643-aef1f3a9fada/9dc726ee-b85e-40e1-b21b-a8f653334df7.jpg" alt="" />
-      <img class="slide" src="https://media-assets.lacucinaitaliana.it/photos/61fa593858315a939b1970b4/16:9/w_1280,c_limit/africa-experience-ristorante-venezia.jpg" alt="" />
-      <img class="slide" src="https://assets.bonappetit.com/photos/60ef61ee1cd5ffae42c1d616/master/pass/Pollo-al-Carbon02.jpg" alt="" />
-      <img class="slide" src="https://insanelygoodrecipes.com/wp-content/uploads/2020/07/Homemade-Pepperoni-Pizza.png" alt="" />
-      <img class="slide" src="https://img.freepik.com/premium-photo/variety-sushi-isolated-black-background-traditional-japanese-food_138656-976.jpg?w=1800" alt="" />
+      <img class="slide" src="../../../assets/9dc726ee-b85e-40e1-b21b-a8f653334df7.jpg" alt="" />
+      <img class="slide" src="../../../assets/photo-1623341214825-9f4f963727da.jfif" alt="" />
+      <img class="slide" src="../../../assets/Homemade-Pepperoni-Pizza.png" alt="" />
+      <img class="slide" src="../../../assets/plant-based-food-mc-220323-02-273c7b.jpg" alt="" />
+      <img class="slide" src="../../../assets/Pollo-al-Carbon02.webp" alt="" />
+      <img class="slide" src="../../../assets/sushi-galateo-tonno-1200x675.jpg" alt="" />
     </div>
 </div>
 </template>
