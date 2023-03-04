@@ -161,7 +161,7 @@ export default {
       background-color: rgb(16, 16, 16, 0.7);
       padding: 0px 5px;
       border-radius: 10px;
-      font-size: 0.6rem;
+      font-size: 0.7rem;
     }
 
     /* Aggiungi una classe CSS per evidenziare il testo del checkbox selezionato */
