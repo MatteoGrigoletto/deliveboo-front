@@ -13,7 +13,7 @@
             <img src="../../../assets/community.jpg" alt="" />
           </div>
           <div class="info-partner__single__info">
-            <button class="btn-blue">Entra nella nostra community</button>
+            <button class="btn-blue">Community</button>
           </div>
         </div>
       </div>
@@ -72,11 +72,9 @@ export default {
     width: 100%;
     
     .info-partner__single{
-      width: 100%;
       
       &__info{
         font-size: 0.7rem;
-        width: 100% !important;
       }
     }
   }
@@ -85,7 +83,6 @@ export default {
   .info-partner{
     width: 90%;
     .info-partner__single{
-      width: 100%;
       
       &__info{
         font-size: 0.7rem;
@@ -98,7 +95,6 @@ export default {
   .info-partner{
     width: 80%;
     .info-partner__single{
-      width: 100%;
       
       &__info{
         font-size: 0.7rem;

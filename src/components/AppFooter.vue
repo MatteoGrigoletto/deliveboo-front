@@ -41,9 +41,8 @@ export default {
 footer {
   background-color: var(--footer-bg-color);
   color: white;
-
   section{
-
+    
     >div{
       width: 70%;
       margin: auto;
@@ -51,6 +50,7 @@ footer {
     } 
   }
   .section-partner{
+    box-shadow: 0px 0px 50px 5px black;
     background-color: rgb(94, 92, 92);
   }
   

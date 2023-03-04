@@ -7,12 +7,12 @@
     <div class="card__info__text">
       <h5>{{ restaurant.name }}</h5>
       <span>{{ restaurant.street_address }}, {{ restaurant.city }}</span>
-      <div>
-        <span class="badge text-bg-light fs-7 rounded-pill" v-for="kitchen in filterKitchens(restaurant.kitchens)">{{kitchen}}</span>
-      </div>
     </div> 
     <div class="card__info__btn">
-     <router-link :to="{name: 'SingleRestaurant',params: { restaurant: restaurant.slug }}"><button>Prodotti</button></router-link>
+      <router-link :to="{name: 'SingleRestaurant',params: { restaurant: restaurant.slug }}"><button>Prodotti</button></router-link>
+    </div>
+    <div class="card__info__badge">
+      <span class="badge text-bg-light fs-7 rounded-pill" v-for="kitchen in filterKitchens(restaurant.kitchens)">{{kitchen}}</span>
     </div>
   </div>
 
@@ -43,12 +43,12 @@ export default {
     height: 60%;
     
     img{
-    border-radius: 20px 20px 0px 0px;
+    border-radius: 10px 10px 0px 0px;
     }
   }
 .card__info{
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   padding: 10px;
   height: 40%;
   border-radius:0px 0px 20px 20px;
@@ -59,6 +59,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 70%;
 
     h5{
       font-weight: bold;
@@ -73,9 +74,9 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;  
+    width: 30%;
 
     button{
-      margin-right: 10px;
       padding: 2px 5px;
 
       a{
@@ -83,12 +84,18 @@ export default {
       }
     } 
   }
-}
-.badge{
-  padding: 4px;
-  margin: 0px px;
-  border: 1px solid black;
+  .card__info__badge{
+    width: 100%;
+    display: flex;
+    align-items: end;
+
+    .badge{
+      padding: 3px;
+      border: 1px solid black;
+      overflow: hidden;
+      }
   }
+}
 
 // media
 

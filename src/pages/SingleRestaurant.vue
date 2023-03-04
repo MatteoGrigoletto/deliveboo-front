@@ -9,8 +9,8 @@
       <h2>{{singleRestaurant.name}}</h2>
       <p>{{singleRestaurant.city}}</p>
       <p>{{singleRestaurant.street_address}}</p>
-      <span>Tipologia di cucina: </span>
       <div class="badge-container">
+        <span>Tipologia di cucina: </span>
         <span class="badge text-bg-light fs-6 me-1 rounded-pill" v-for="tipology in filterKitchens(singleRestaurant.kitchens)">{{ tipology}}</span>
       </div>
       <div>
@@ -62,9 +62,11 @@
   </div>
   <!-- evento notifica prodotti di due ristoranti diversi -->
   <div v-if="showPopupDoubleRestorant" class="add-popup">
-    <p>Prodotti di due ristoranti diversi,</p>
-    <p>svuota il carrello per aggiungere questo prodotto</p> 
-    <button @click="store.showModal = true">Per aprire il carrello</button>
+    <p>
+      Prodotti di due ristoranti diversi,<br>
+      <span @click="store.showModal = true">svuota il carrello</span>
+      per aggiungere questo prodotto
+    </p> 
   </div>
 </section>
 </template>
@@ -181,7 +183,7 @@ export default {
     margin-left: 30px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
 
     > *:not(:first-child){
       font-size: 1.3rem;
@@ -265,8 +267,14 @@ export default {
   color: rgb(8, 8, 8);
   padding: 10px;
   margin: 10px;
-  border: 2px solid rgb(245, 121, 13);
+  border: 2px solid var(--pop-border-color);
   border-radius: 5px;
+
+  span{
+    color: var(--pop-border-color);
+    cursor: pointer;
+    font-weight: bold;
+  }
 }
 
 // media
@@ -275,7 +283,7 @@ export default {
   
   .single-restaurant{
   .single-restaurant__image{
-    width: 50%;
+    width: 60%;
   }
 
   .single-restaurant__info{
@@ -304,7 +312,6 @@ export default {
     }
   }
 }
-
 }
 @media screen and (min-width:601px) and (max-width:960px){
 
@@ -323,13 +330,17 @@ export default {
 
 // products
 .product-restaurant{
- 
   .card-product{
-   
+    
+    align-items: center;
     width: calc(100% / 2 - 10px);
     margin: 5px;
   .card-product__image{
     width: 30%;
+    height: 70%;
+    img{
+      height: 100%;
+    }
   }
   .card-product__info{
 

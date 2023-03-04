@@ -117,6 +117,13 @@ export default {
   border: none;
   font-size: 20px;
   cursor: pointer;
+  z-index: 222;
+  color: white;
+  position: absolute;
+  padding: 5px;
+  top: 2%;
+  right: 1%;
+  background-color: rgb(19, 19, 19,0.4);
 }
 
 

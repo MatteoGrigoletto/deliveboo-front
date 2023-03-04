@@ -13,7 +13,7 @@
         <div class="modal-body">
           <!-- controllo se il carrello e' vuoto -->
           <slot v-if="store.cart <= 0">
-          <div>
+          <div class="container-item-cart cart-empty">
               <h2>Il tuo carrello è vuoto! </h2>
               <button  @click="store.showModal = false">Ritorna ai Prodotti</button>
             </div>
@@ -109,6 +109,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+
 .modal {
   position: fixed;
   top: 0;
@@ -180,7 +182,7 @@ export default {
     }
 
     &__image {
-      width: 70px;
+      width: 15%;
       height: 70px;
       overflow: hidden;
       border-radius: 10px 0px 0px 10px;
@@ -189,10 +191,14 @@ export default {
         object-fit: cover;
       }
     }
-
+    &__name{
+      width: 35%;
+    }
     &__info {
+      width: 50%;
       display: flex;
       align-items: center;
+      justify-content: space-around;
 
       P{
         margin: 0;
@@ -217,6 +223,18 @@ export default {
           
         }
       }
+    }
+  }
+  .cart-empty{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    h2{
+      background-color: rgb(0, 0, 0,0.6);
+      border-radius: 5px;
+      color: white;
     }
   }
   .container-info-cart{
@@ -253,10 +271,42 @@ export default {
   .modal-content {
     width: 100%;
   }
+  .container-item-cart {
+    .item-cart { 
+      
+      
+      &__image {
+        width: 0%;
+      
+      }
+      &__name{
+        width: 30%;
+        text-align: start;
+      }
+      &__info {
+        width: 70%;
+      }
+    }
+  }
 }
 @media screen and (min-width:601px) and (max-width:960px){
   .modal-content {
     width: 80%;
+  }
+  .container-item-cart {
+    .item-cart { 
+
+      &__image {
+        width: 15%;
+      
+      }
+      &__name{
+        width: 30%;
+      }
+      &__info {
+        width: 55%;
+      }
+    }
   }
 }
 @media screen and (min-width:961px) and (max-width: 1300px){

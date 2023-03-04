@@ -165,9 +165,7 @@ export default {
     }
 
     /* Aggiungi una classe CSS per evidenziare il testo del checkbox selezionato */
-    .active {
-      color: rgb(250, 136, 28);
-    }
+  
 
     input[type="checkbox"] {
       position: absolute;
@@ -220,9 +218,7 @@ export default {
     }
 
     /* Aggiungi una classe CSS per evidenziare il testo del checkbox selezionato */
-    .active {
-      color: rgb(250, 136, 28);
-    }
+  
 
     input[type="checkbox"] {
       position: absolute;

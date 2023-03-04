@@ -41,8 +41,8 @@ main {
     width: 85%;
     position: relative;
     overflow-y: scroll;
-    margin: 20px 10px 0px 10px;
     overflow-x: hidden;
+    margin: 20px 20px 0px 20px;
   }
 
   /* nasconde la scrollbar in Chrome, Safari e Opera */
@@ -89,6 +89,7 @@ main {
 
   .filter-side {
     width: 100%;
+    box-shadow: 0px 0px 10px 10px black;
   }
   .main-view {
     
@@ -96,8 +97,8 @@ main {
     position: relative;
     overflow-y: scroll;
     overflow-x: hidden;
-    width: 100%;
     margin: auto;
+    margin-top: 20px;
   }
 }
 }
@@ -109,6 +110,7 @@ main {
 
   .filter-side {
     width: 100%;
+    box-shadow: 0px 0px 10px 10px black;
   }
   .main-view {
     
@@ -116,14 +118,18 @@ main {
     position: relative;
     overflow-y: scroll;
     overflow-x: hidden;
-    width: 100%;
     margin: auto;
+    margin-top: 20px;
   }
 }
 
 }
 @media screen and (min-width: 961px) and (max-width: 1300px) {
+
 }
 @media screen and (min-width: 1301px) and (max-width: 1600px) {
+  .main-view{
+    margin: 20px 30px 0px 30px;
+  }
 }
 </style>

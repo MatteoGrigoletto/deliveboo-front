@@ -1,6 +1,10 @@
 <template>
   <div class="form">
-    <h2>Inserisci i tuoi dati</h2>
+    <div class="form__btn">
+      <h2>Inserisci i tuoi dati</h2>
+      <router-link :to="{name: 'HomePage'}" v-if="!store.checkOutControll" ><button class="btn-blue">Torna nell'area ristoranti</button></router-link> 
+     
+    </div>
     <form @submit.prevent="sendData">
       <div class="form-group">
         <label for="name">Nome:</label>
@@ -25,7 +29,7 @@
       </div>
       <div id="dropin-container" class="dropin"></div>
       <button v-if="store.checkOutControll === false" id="submit-button" type="submit" class="button button--small button--green">Purchase</button>
-      <router-link :to="{name: 'CheckOut'}" v-if="store.checkOutControll" >Ordine</router-link>    
+      <router-link :to="{name: 'CheckOut'}" v-if="store.checkOutControll" ><button class="btn-blue">Visualizza ordine</button></router-link>    
     </form>
 
     <!-- Componente che viene visualizzato una volta che l'ordine e' andato a buon fine -->
@@ -164,7 +168,10 @@ export default {
   background-color: #f7f7f7;
   border-radius: 5px;
 }
-
+.form__btn{
+  display: flex;
+  justify-content: space-between;
+}
 .form h2 {
   margin-top: 0;
 }

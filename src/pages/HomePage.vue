@@ -41,7 +41,7 @@ methods:{
       this.store.checkUser = true
     }
      else {
-      localStorage.removeItem('objCustomer')
+      // localStorage.removeItem('objCustomer')
       this.store.objCustomer = JSON.parse(localStorage.getItem('objCustomer'));
     }
   }
@@ -53,9 +53,9 @@ methods:{
      
     });
     console.log(localStorage);
+    this. getCustomer()
   },
   mounted(){
-   this. getCustomer()
 
     // Riporto a false le variabili relative alla comparsa della modale
     // ordine confermato e alla rotta dell'ordine specifico

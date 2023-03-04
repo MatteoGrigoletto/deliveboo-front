@@ -1,7 +1,7 @@
 <template>
   <div class="nav-bar">
     <div class="nav-bar__logo">
-      <img src="../../../assets/Deliveroo-Logo-final.png" alt="logo">
+      <img src="../../../assets/Deliveroo-Logo-final.png" alt="logo" class="nav-bar__logo__img">
       <h1>DeliveBoo</h1>
     </div>
     <div class="nav-bar__input" v-if="$route.path === '/'">
@@ -80,6 +80,8 @@ export default {
 
     input{
       width: 100%;
+      padding: 5px 0px;
+      border-radius: 10px;
     }
   }
 }
@@ -90,6 +92,8 @@ export default {
         background-color: var(--header-btn-bg-color);
         color: var(--header-btn-text-color);
         font-weight: bold;
+        margin: 0px 20px;
+        padding: 7px 20px;
 
         &:hover{
           background-color: var(--header-btn-hover-color);
@@ -126,59 +130,57 @@ export default {
 
 // media query
 @media screen and (max-width:600px){
-  .nav-bar{
-    .nav-bar__input{
-      
-      input{
-        padding: 5px 0px;
-        border-radius: 10px;
-      }
+ 
+  .nav-bar__logo{
+    width: 40%;
+    &__img{
+      width: 100% !important;
     }
-    .nav-bar__buttons{
-      
-    button {
-        margin: 0px 10px;
-        padding: 5px 10px;
-      }
+
+    h1{
+      display: none;
     }
   }
-}
-@media screen and (min-width:601px) and (max-width:1300px){
-  .nav-bar{
-
-    .nav-bar__input{
-      
-      input{
-        padding: 10px 0px;
-        border-radius: 10px;
-      }
-    }
-    .nav-bar__buttons{
-      
-      button {
-        margin: 0px 5px;
-        padding: 5px 5px;
-      }
+  .nav-bar__input{
+    display: none;
+  }
+  .nav-bar__buttons{
+    width: 60%;
+    text-align: end;
+    button{
+      margin: 0px 10px;
+      padding: 7px 10px;
     }
   }
+    
 }
-@media screen and (min-width:1301px) and (max-width: 100000px){
-  
-  .nav-bar{
+@media screen and (min-width:601px) and (max-width:960px){
 
-    .nav-bar__input{
-      
-      input{
-        padding: 10px 10px;
-        border-radius: 10px;
-      }
+  .nav-bar__logo{
+    
+    &__img{
+      width: 100% !important;
     }
-    .nav-bar__buttons{
-      
-      button{
-        margin: 0px 10px;
-        padding: 10px 30px;
-      }
+
+    h1{
+      display: none;
+    }
+  }
+  .nav-bar__buttons{
+    width: 60%;
+    text-align: end;
+    button{
+      margin: 0px 10px;
+      padding: 7px 10px;
+    }
+  }  
+}
+@media screen and (min-width:961px) and (max-width: 1300px){
+  .nav-bar__buttons{
+    
+    button{
+      margin: 0px 10px;
+      padding: 7px 10px;
     }
   }
 }
