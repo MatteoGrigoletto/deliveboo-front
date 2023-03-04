@@ -2,7 +2,7 @@
   <div class="nav-bar">
     <div class="nav-bar__logo">
       <img src="../../../assets/Deliveroo-Logo-final.png" alt="logo" class="nav-bar__logo__img">
-      <h1>DeliveBoo</h1>
+      <router-link :to="{name:'HomePage'}"><h1>DeliveBoo</h1></router-link>
     </div>
     <div class="nav-bar__input" v-if="$route.path === '/'">
       <input type="text" v-model="store.input" placeholder="Ricerca ristorante"/>

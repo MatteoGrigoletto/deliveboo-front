@@ -2,8 +2,7 @@
   <div class="form">
     <div class="form__btn">
       <h2>Inserisci i tuoi dati</h2>
-      <router-link :to="{name: 'HomePage'}" v-if="!store.checkOutControll" ><button class="btn-blue">Torna nell'area ristoranti</button></router-link> 
-     
+      <router-link :to="{name: 'HomePage'}" v-if="!store.checkOutControll" ><button class="btn-blue">Torna nell'area ristoranti</button></router-link>   
     </div>
     <form @submit.prevent="sendData">
       <div class="form-group">
@@ -20,7 +19,7 @@
       </div>
       <div class="form-group">
         <label for="phone">Telefono:</label>
-        <input id="phone" type="tel" v-model="phone" required>
+        <input id="phone" type="tel" v-model="phone" required pattern="[0-9]{10}" title="Il telefono dev'essere formato da 10 caratteri numerici ">
       </div>
       <div class="form-group flex">
         <label for="price">Prezzo:</label>
