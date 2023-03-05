@@ -204,11 +204,10 @@ export default {
     width: calc(100% / 4 - 30px);
     margin: 15px;
     padding: 10px;
-    border: 1px solid rgb(68, 67, 67);
     border-radius: 3px;
     background-color: var(--side-bg-color);
     color: black;
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 2px 2px 2px rgba(123, 123, 123, 0.3);
   .card-product__image{
     width: 40%;
     box-shadow: 0px 5px 5px black;

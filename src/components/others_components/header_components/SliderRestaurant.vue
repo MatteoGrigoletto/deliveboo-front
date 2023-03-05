@@ -1,6 +1,6 @@
 <template>
     <div class="my-container">
-   <div class="container-slide">
+   <div class="container-slide" v-bind:class="{ 'slide-custom': $route.path !== '/'}">
       <img class="slide" src="../../../assets/chips-slide.webp" alt="" />
       <img class="slide" src="../../../assets/photo-1623341214825-9f4f963727da.jfif" alt="" />
       <img class="slide" src="../../../assets/Homemade-Pepperoni-Pizza.png" alt="" />
@@ -49,6 +49,9 @@ mounted(){
 
 <style lang="scss" scoped>
 
+.slide-custom{
+  height: 300px !important;
+}
 .container-slide {
   height: 700px;
 }

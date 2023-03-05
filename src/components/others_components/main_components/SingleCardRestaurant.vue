@@ -90,7 +90,7 @@ export default {
       text-align: center;
       padding: 5px 10px;
       margin-top: 4px;
-      background-color: rgba(69, 207, 34, 0.8);
+      background-color: rgba(69, 207, 34, 0.9);
       color:white;
       border: none;
     }

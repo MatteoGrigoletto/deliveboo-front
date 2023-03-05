@@ -18,7 +18,7 @@
         </div>    
         
       </button> 
-      <button class="btn-blue-white" v-if="store.checkUser === false"><a href="http://127.0.0.1:8000/register">Sei un ristoratore?</a></button>
+      <button class="btn-blue-white" v-if="store.checkUser === false"><a href="http://127.0.0.1:8000/">Sei un ristoratore?</a></button>
       <button class="btn-blue-white" v-if="store.checkUser"><a href="http://127.0.0.1:8000/login">Il tuo ristorante</a></button>   
       <ModalCart  :show="store.showModal" title="Titolo della modale" @close="store.showModal = false"></ModalCart>
     </div>

@@ -50,13 +50,13 @@ methods:{
 
 <style lang="scss" scoped>
 .my-card {
-  border: 1px solid rgb(68, 67, 67);
   width: calc(100% / 4 - 20px);
   margin: 10px;
   color: rgb(27, 27, 28);
   position: relative;
   height: 300px;
   border-radius: 3px;
+  box-shadow: 2px 2px 2px 2px rgba(123, 123, 123, 0.3);
 }
 
 // media

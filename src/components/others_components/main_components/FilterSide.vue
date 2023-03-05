@@ -73,6 +73,7 @@ export default {
       height: 60px;
       position: relative;
       border-radius: 5px;
+      
     }
     span {
       position: absolute;
@@ -84,6 +85,7 @@ export default {
       background-color: rgba(0, 0, 0, 0.7);
       padding: 0px 5px;
       border-radius: 10px;
+      
     }
 
     /* Aggiungi una classe CSS per evidenziare il testo del checkbox selezionato */
