@@ -63,6 +63,7 @@
    height: 100%;
    background-color: rgba(1, 10, 7, 0.2);
    opacity: 1;
+   z-index: -1;
  }
  
  .modal-content {
@@ -114,15 +115,16 @@
          overflow-y: scroll;
 
          &__info{
-
+          margin-bottom: 100px;
+          
           span{
             font-weight: bold;
           }
         }
-         
-     }
- 
-     h3{
+        
+      }
+      
+      h3{
        font-weight: bold;
      }
  }

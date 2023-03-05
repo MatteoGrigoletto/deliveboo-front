@@ -42,6 +42,9 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+section{
+  height: 100vh;
+}
 .product-table {
   margin-top: 2rem;
   border: 1px solid #d9d9d9;

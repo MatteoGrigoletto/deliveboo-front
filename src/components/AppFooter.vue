@@ -53,6 +53,7 @@ footer {
     box-shadow: 0px 0px 50px 5px black;
     background-color: rgb(94, 92, 92);
   }
+
   
   .section-social{
     .info-social__app{

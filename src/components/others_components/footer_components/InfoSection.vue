@@ -49,9 +49,9 @@ export default {
 <style lang="scss" scoped>
 
 .info-site {
-  margin-top: 100px;
+  padding-top: 100px;
   justify-content: center;
-  
+
   > div {
     width: calc(100% / 4 - 6px);
     margin: 3px;

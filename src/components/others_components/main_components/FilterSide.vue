@@ -57,18 +57,13 @@ export default {
 <style lang="scss" scoped>
 
 .side {
-  width: 100%;
-  height: calc(100vh - 100px);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 10px 30px;
+  padding: 10px 20px;
   background-color: var(--side-bg-color);
   color: var(--side-text-color);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   overflow-y: scroll;
 
   div {
-    width: 100%;
 
     label {
       display: block;
@@ -134,10 +129,9 @@ export default {
 @media screen and (max-width: 600px) {
 
   .side {
-    height: 250px;
-
+    
   div {
-    margin: auto;
+   
     form{
       display: flex;
       justify-content: space-between;
@@ -149,38 +143,10 @@ export default {
       font-size: 0.5rem;
       width: calc(100% / 5 - 5px);
       height: 80px;
-      position: relative;
     }
     span {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      z-index: 2;
-      text-align: center;
-      transform: translate(-50%);
-      background-color: rgb(16, 16, 16, 0.7);
-      padding: 0px 5px;
-      border-radius: 10px;
-      font-size: 0.7rem;
-    }
-
-    /* Aggiungi una classe CSS per evidenziare il testo del checkbox selezionato */
-  
-
-    input[type="checkbox"] {
-      position: absolute;
-      top: 50%;
-      left: 0%;
-      z-index: 2;
-      transform: translate(50%, 50%);
-      display: none;
-    }
-    img {
-      position: absolute;
-      top: 15%;
-      left: 0%;
-      object-fit: cover;
-    }
+      font-size: 1rem;
+    } 
   }
 }
 }
@@ -200,59 +166,25 @@ export default {
 
     label {
       display: block;
-      font-size: 0.5rem;
+      font-size: 1rem;
       width: calc(100% / 5 - 5px);
       height: 80px;
       position: relative;
     }
-    span {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      z-index: 2;
-      text-align: center;
-      transform: translate(-50%);
-      background-color: rgb(16, 16, 16, 0.7);
-      padding: 0px 5px;
-      border-radius: 10px;
-    }
-
-    /* Aggiungi una classe CSS per evidenziare il testo del checkbox selezionato */
-  
-
-    input[type="checkbox"] {
-      position: absolute;
-      top: 50%;
-      left: 0%;
-      z-index: 2;
-      transform: translate(50%, 50%);
-      display: none;
-    }
-    img {
-      position: absolute;
-      top: 15%;
-      left: 0%;
-      object-fit: cover;
-    }
+    
   }
 }
 
 }
 @media screen and (min-width: 961px) and (max-width: 1300px) {
-
-  span {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      z-index: 2;
-      text-align: center;
-      transform: translate(-50%);
-      background-color: rgb(16, 16, 16, 0.7);
-      padding: 0px 5px;
-      border-radius: 10px;
-      font-size: 0.7rem;
-    }
-
+  .side {
+  div {
+    
+    label {
+     font-size: 0.9rem   ;
+    }  
+  }
+}
 }
 @media screen and (min-width: 1301px) and (max-width: 1600px) {
 }

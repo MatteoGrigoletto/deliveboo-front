@@ -1,20 +1,26 @@
 <template>
   <main>
-    <section v-if="$route.path === '/'" class="filter-side">
-      <FilterSide></FilterSide>
-    </section>
-    <!-- TRANSIZIONE ANIMATA QUANDO SI CAMBIA ROTTA -->
-    <section class="main-view">
-      <router-view v-slot="{ Component }">
-        <transition name="route" mode="out-in">
-          <component :is="Component"></component>
-        </transition>
-      </router-view>
+    <SectionNews v-if="$route.path === '/'"></SectionNews>
+    <section class="main-section__middle">
+      <div class="main-section__middle__restaurant">
+        <div v-if="$route.path === '/'" class="filter-side">
+          <FilterSide></FilterSide>
+        </div>
+        <!-- TRANSIZIONE ANIMATA QUANDO SI CAMBIA ROTTA -->
+        <div class="main-view">
+          <router-view v-slot="{ Component }">
+            <transition name="route" mode="out-in">
+              <component :is="Component"></component>
+            </transition>
+          </router-view>
+        </div>
+      </div>
     </section>
   </main>
 </template>
 
 <script>
+import SectionNews from './others_components/main_components/SectionNews.vue';
 import FilterSide from "./others_components/main_components/FilterSide.vue";
 export default {
   name: "AppMain",
@@ -23,16 +29,25 @@ export default {
   },
   components: {
     FilterSide,
+    SectionNews,
   },
 };
 </script>
 
 <style lang="scss" scoped>
-main {
+
+.main-section__middle{
+  display: flex;
+  justify-content: center;
+  background-color: var(--main-section-bg-color);
+}
+
+.main-section__middle__restaurant {
   display: flex;
   justify-content: center;
   background-color: var(--main-bg-color);
- 
+  box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.1);
+  width: 100%;
 
   .filter-side {
     width: 15%;
@@ -43,6 +58,7 @@ main {
     overflow-y: scroll;
     overflow-x: hidden;
     margin: 20px 20px 0px 20px;
+   
   }
 
   /* nasconde la scrollbar in Chrome, Safari e Opera */
@@ -82,7 +98,7 @@ main {
 // media
 
 @media screen and (max-width: 600px) {
-  main {
+  .main-section__middle__restaurant{
   display: flex;
   flex-direction: column;
   background-color: var(--main-bg-color);
@@ -103,7 +119,7 @@ main {
 }
 }
 @media screen and (min-width: 601px) and (max-width: 960px) {
-  main {
+  .main-section__middle__restaurant{
   display: flex;
   flex-direction: column;
   background-color: var(--main-bg-color);

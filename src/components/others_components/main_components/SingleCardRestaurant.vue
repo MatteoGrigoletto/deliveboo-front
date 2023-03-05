@@ -6,13 +6,15 @@
   <div class="card__info">   
     <div class="card__info__text">
       <h5>{{ restaurant.name }}</h5>
-      <span>{{ restaurant.street_address }}, {{ restaurant.city }}</span>
+      <span>{{ restaurant.street_address }},<br> 
+        {{ restaurant.city }}
+      </span>
     </div> 
     <div class="card__info__btn">
       <router-link :to="{name: 'SingleRestaurant',params: { restaurant: restaurant.slug }}"><button>Prodotti</button></router-link>
     </div>
     <div class="card__info__badge">
-      <span class="badge text-bg-light fs-7 rounded-pill" v-for="kitchen in filterKitchens(restaurant.kitchens)">{{kitchen}}</span>
+      <span class="badge" v-for="kitchen in filterKitchens(restaurant.kitchens)">{{kitchen}}</span>
     </div>
   </div>
 
@@ -60,9 +62,11 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     width: 70%;
+    font-size: 1.2rem;
 
     h5{
       font-weight: bold;
+      font-size: 1.4rem;
     }
   }
   .card__info__btn{
@@ -72,23 +76,13 @@ export default {
     width: 30%;
 
     button{
-      padding: 2px 5px;
-
-      a{
-        font-size: 0.8rem;
-      }
+      padding: 10px;
     } 
   }
   .card__info__badge{
     width: 100%;
     display: flex;
     align-items: end;
-
-    .badge{
-      padding: 3px;
-      border: 1px solid black;
-      overflow: hidden;
-      }
   }
 }
 
@@ -97,8 +91,10 @@ export default {
 @media screen and (max-width:600px){
 
   .card__info__text{
+    h5{
+      font-size: 2rem;
+    }
     > *{
-      margin: 2px;
       font-size: 1.1rem;
     }
   }
@@ -107,36 +103,17 @@ export default {
 @media screen and (min-width:601px) and (max-width:960px){
   
   .card__info__text{
-
-h5{
-  font-weight: bold;
-  font-size: 1rem;
-}
-
-> *{
-  
-  font-size: 0.8rem;    
-}
-}
-.card__info__btn{
-
-button{
-  font-size: 0.9rem;
-} 
-}
+    > *{
+      font-size: 0.9rem;    
+    }
+  }
   
 }
 @media screen and (min-width:961px) and (max-width: 1300px){
 
   .card__info__text{
-
     h5{
-      font-weight: bold;
-      font-size: 1rem;
-    }
-    
-    > *{
-      font-size: 0.8rem;    
+      font-size: 0.8rem;
     }
   }
 
@@ -146,13 +123,9 @@ button{
 
   .card__info__text{
 
-h5{
-  font-weight: bold;
-  font-size: 1rem;
-}
-
-}
-
-
+    h5{
+      font-size: 1.2rem;
+      }
+    }
 }
 </style>

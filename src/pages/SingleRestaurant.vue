@@ -11,7 +11,7 @@
       <p>{{singleRestaurant.street_address}}</p>
       <div class="badge-container">
         <span>Tipologia di cucina: </span>
-        <span class="badge text-bg-light fs-6 me-1 rounded-pill" v-for="tipology in filterKitchens(singleRestaurant.kitchens)">{{ tipology}}</span>
+        <span class="badge" v-for="tipology in filterKitchens(singleRestaurant.kitchens)">{{ tipology}}</span>
       </div>
       <div>
         <router-link :to="{ name: 'HomePage' }"><button class="btn-blue">Ritorna ai Ristoranti</button></router-link>
@@ -169,13 +169,14 @@ export default {
 .single-restaurant{
   display: flex;
   .single-restaurant__image{
-    width: 40%;
-    height: 400px;
+    // width: 40%;
+    height: 500px;
     border-radius: 11px ;
     border: 2px solid var(--restaurant-border-color);
     
     img{
       border-radius: 10px;
+      object-fit: cover;
     }
   }
 
@@ -187,10 +188,6 @@ export default {
 
     > *:not(:first-child){
       font-size: 1.3rem;
-    }
-    .badge{
-      background-color: var(--badge-bg-color) !important;
-      color: var(--badge-color) !important;
     }
   }
 }
@@ -238,24 +235,26 @@ export default {
         font-size: 1.2rem;
 
       }
-      font-weight: bold;  
       display: flex;
-      justify-content: space-between;
-
-      button{
-        padding: 0px 4px;
-      }   
+      justify-content: space-between; 
     }
     .card-product__quantity{
       text-align: center;
-      button{
-          width: 25%;
-          padding: 0px;
-          margin: 0px 10px;
-        }
+
+      span{
+        padding: 0px 10px;
+      }
       }
     }
   }
+}
+.badge{
+  margin: 5px;
+  padding: 10px;
+  background-color:  var(--link-text-color);
+  color: var(--badge-color);
+  font-weight: bold;
+
 }
 
 // POP-UP NOTIFICA AGGIUNTO PRODOTTO AL CARRELLO
@@ -281,96 +280,31 @@ export default {
 
 @media screen and (max-width:600px){
   
-  .single-restaurant{
-  .single-restaurant__image{
-    width: 60%;
-  }
-
-  .single-restaurant__info{
-
-    > *:not(:first-child){
-      font-size: 1rem;
-    }
-  }
-}
 
 // products
 .product-restaurant{
- 
   .card-product{
-   
     width: 100%;
-  .card-product__image{
-    width: 30%;
-
-  }
-  .card-product__info{
-
-    width: 70%;
-    margin-left: 5px;
-    padding: 5px; 
-    }
   }
 }
 }
 @media screen and (min-width:601px) and (max-width:960px){
 
-  .single-restaurant{
-  .single-restaurant__image{
-    width: 50%;
-  }
-
-  .single-restaurant__info{
-
-    > *:not(:first-child){
-      font-size: 1.1rem;
-    }
-  }
-}
 
 // products
 .product-restaurant{
   .card-product{
     
-    align-items: center;
-    width: calc(100% / 2 - 10px);
+    width: calc(100% - 10px);
     margin: 5px;
   .card-product__image{
-    width: 30%;
-    height: 70%;
-    img{
-      height: 100%;
-    }
+    width: 50%;
   }
-  .card-product__info{
-
-    width: 70%;
-    margin-left: 5px;
-    padding: 5px;
-
-    h5{
-      font-size: 1rem;
-    }
-    }
   }
 }
  
 }
 @media screen and (min-width:961px) and (max-width: 1300px){
-
-  .single-restaurant{
-  .single-restaurant__image{
-    width: 50%;
-  }
-
-  .single-restaurant__info{
-
-    > *:not(:first-child){
-      font-size: 1.1rem;
-    }
-  }
-}
-
 // products
 .product-restaurant{
  
@@ -378,15 +312,7 @@ export default {
    
     width: calc(100% / 2 - 10px);
     margin: 5px;
-  .card-product__image{
-    width: 40%;
-  }
-  .card-product__info{
 
-    width: 60%;
-    margin-left: 5px;
-    padding: 5px;
-    }
   }
 }
  
@@ -394,18 +320,7 @@ export default {
 
 @media screen and (min-width:1301px) and (max-width: 1600px){
   
-  .single-restaurant{
-  .single-restaurant__image{
-    width: 50%;
-  }
-
-  .single-restaurant__info{
-
-    > *:not(:first-child){
-      font-size: 1.1rem;
-    }
-  }
-}
+  
 
 // products
 .product-restaurant{
@@ -414,16 +329,7 @@ export default {
    
     width: calc(100% / 3 - 20px);
     margin: 10px;
-  .card-product__image{
-    width: 40%;
-  }
-  .card-product__info{
-
-    width: 60%;
-    margin-left: 5px;
-    padding: 5px;
-
-    }
+ 
   }
 }
 }

@@ -16,9 +16,10 @@ a {
 button {
   background-color: var(--btn-bg-color);
   color: var(--btn-text-color);
-  padding: 5px 10px;
+  padding: 10px 20px;
   border-radius: 5px;
   border: 1px solid rgb(151, 149, 149);
+  font-weight: bold;
   &:hover {
     background-color: var(--btn-hover-color);
     color: var(--btn-hover-text);
@@ -36,7 +37,7 @@ h1{
 .btn-blue{
   background-color: var(--order-btn-bg-color);
   color: var(--order-btn-text-color);
-  padding: 5px 10px;
+  padding: 10px 20px;
   border-radius: 5px;
   border: 1px solid rgb(151, 149, 149);
   &:hover {
@@ -47,5 +48,15 @@ h1{
       color: var(--btn-hover-text);
     }
   }
-
+}
+.container-60{
+  width: 60%;
+}
+.badge{
+  border-radius: 20px;
+  background-color: white;
+  padding: 1px;
+  font-size: 0.8rem;
+  border: 1px solid rgb(129, 127, 127);
+  overflow: hidden;
 }

@@ -20,11 +20,13 @@
   --count-bg-color: rgba(255, 255, 255);
   
   // main
-  --body-bg-color: rgb(233, 231, 229, 0.5);
-  --main-bg-color: var(--body--bg-color);
+  --body-bg-color: rgb(255, 255, 255);
+  --main-bg-color: rgb(233, 231, 229);
+  --section-news-bg: rgb(244, 239, 239);
+  --main-section-bg-color: var(--section-news-bg);
   
   // side
-  --side-bg-color: rgba(34, 33, 33);
+  --side-bg-color: rgb(241, 240, 240);
   --side-text-color: white;
   --hover-check-color: rgb(105, 236, 232);
   
@@ -45,9 +47,6 @@
   --badge-bg-color: var(--link-text-color);
   --badge-color:white;
 
-  // Footer
-  --footer-bg-color: var(--side-bg-color);
-
   // Links  hover text
   --link-text-color: #00b8a8;
 
@@ -64,6 +63,9 @@
   --order-btn-hover-color: var( --header-bg-color);
   --order-btn-hover-text:white;
 
+  // Footer
+  --footer-bg-color: rgba(34, 33, 33);
+  
   // Footer InfoSection 
   --title-color: var(--link-text-color);
 

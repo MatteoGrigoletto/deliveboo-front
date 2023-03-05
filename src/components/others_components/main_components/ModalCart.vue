@@ -120,6 +120,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 .modal-background {
@@ -130,6 +131,7 @@ export default {
   height: 100%;
   background-color: rgba(1, 10, 7, 0.8);
   opacity: 1;
+  z-index: -1;
 }
 
 .modal-content {
@@ -146,6 +148,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+  padding: 30px 10px;
   background-image: var(--cart-bg-color);
 }
 
@@ -200,14 +203,11 @@ export default {
       align-items: center;
       justify-content: space-around;
 
-      P{
-        margin: 0;
-      }
       button {
           border: none;
           background-color: transparent;
-          font-size: 15px;
           cursor: pointer;
+          padding: 10px;
           margin: 0px 5px;
           border-radius: 5px;
           box-shadow: 0px 0px 5px rgba(7, 7, 7, 0.3);
@@ -234,6 +234,7 @@ export default {
     h2{
       background-color: rgb(0, 0, 0,0.6);
       border-radius: 5px;
+      font-size: 2.4rem;
       color: white;
     }
   }
@@ -318,6 +319,7 @@ export default {
   .modal-content {
     width: 50%;
   }
+  
 }
 
 </style>

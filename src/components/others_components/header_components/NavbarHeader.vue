@@ -8,19 +8,19 @@
       <input type="text" v-model="store.input" placeholder="Ricerca ristorante"/>
     </div>
     <div class="nav-bar__buttons" v-if="$route.path !== '/order' && $route.path !== '/checkout'">
-    
+      
       <!-- BOTTONE PER ATTIVARE IL COMPONENTE ModalCard.vue -->   
-      <button class="nav-bar__buttons__cart" @click="store.showModal = true"><i class="fa-solid fa-cart-shopping"></i> 
+      <button class="nav-bar__buttons__cart btn-blue" @click="store.showModal = true"><i class="fa-solid fa-cart-shopping"></i> 
         
-       <!-- TAG IN POSIZIONE ABSOLUTE CHE INDICA LA QUANTITA' DI PRODOTTI NEL CARRELLO  -->
-       <div v-if="store.cart.length > 0 " class="count-cart">
-        {{ store.cart.length }}
-      </div>    
-
+        <!-- TAG IN POSIZIONE ABSOLUTE CHE INDICA LA QUANTITA' DI PRODOTTI NEL CARRELLO  -->
+        <div v-if="store.cart.length > 0 " class="count-cart">
+          {{ store.cart.length }}
+        </div>    
+        
       </button> 
-      <button v-if="store.checkUser === false"><a href="http://127.0.0.1:8000/register">Sei un ristoratore?</a></button>
-      <button v-if="store.checkUser"><a href="http://127.0.0.1:8000/login">Il tuo ristorante</a></button>   
-      <ModalCart :show="store.showModal" title="Titolo della modale" @close="store.showModal = false"></ModalCart>
+      <button class="btn-blue" v-if="store.checkUser === false"><a href="http://127.0.0.1:8000/register">Sei un ristoratore?</a></button>
+      <button class="btn-blue" v-if="store.checkUser"><a href="http://127.0.0.1:8000/login">Il tuo ristorante</a></button>   
+      <ModalCart  :show="store.showModal" title="Titolo della modale" @close="store.showModal = false"></ModalCart>
     </div>
   </div>
   
@@ -56,44 +56,51 @@ export default {
   background-color: var(--header-bg-color);
   padding: 10px;
 
-  .nav-bar__logo,.nav_bar__buttons{
-    width: 25%;
-    height: 100%;
+  > div{
+    width: 33%;
+  }
+  .nav-bar__logo{
     display: flex;
     margin:0;
     align-items: center;
 
   }
+  .nav_bar__buttons{
+    display: flex;
+    margin:0;
+    align-items: space-between;
+
+  }
   .nav-bar__logo{
-    h1{
-      width: 80%;
-    }
+   h1{
+    font-size: 2rem;
+  }
     img{
-      height: 70px;
+      height: 90px;
       width: 20%;
       object-fit:cover;
     }
   }
   .nav-bar__input{
-    width: 50%;
-    height: 100%;
+    display: flex;
+    justify-content: center;
 
     input{
       width: 100%;
-      padding: 5px 5px;
+      padding: 10px;
       border-radius: 10px;
     }
   }
 }
 .nav-bar__buttons{
 
-    list-style: none;
+  display: flex;
+  justify-content: flex-end;
     button{
         background-color: var(--header-btn-bg-color);
         color: var(--header-btn-text-color);
         font-weight: bold;
-        margin: 0px 20px;
-        padding: 7px 20px;
+        margin: 0px 10px;
 
         &:hover{
           background-color: var(--header-btn-hover-color);
@@ -105,7 +112,6 @@ export default {
       }
     .nav-bar__buttons__cart{
       position: relative;
-
      
     }
 }
@@ -142,15 +148,13 @@ export default {
     }
   }
   .nav-bar__input{
-    display: none;
+  
+    input{
+      display: none;
+    }
   }
   .nav-bar__buttons{
-    width: 60%;
-    text-align: end;
-    button{
-      margin: 0px 10px;
-      padding: 7px 10px;
-    }
+    width: 60% !important;  
   }
     
 }
@@ -166,22 +170,19 @@ export default {
       display: none;
     }
   }
-  .nav-bar__buttons{
-    width: 60%;
-    text-align: end;
-    button{
-      margin: 0px 10px;
-      padding: 7px 10px;
-    }
-  }  
+  .nav-bar__input{
+  
+  input{
+    display: none;
+  }
+}
+.nav-bar__buttons{
+    width: 60% !important;  
+  }
+  
+ 
 }
 @media screen and (min-width:961px) and (max-width: 1300px){
-  .nav-bar__buttons{
-    
-    button{
-      margin: 0px 10px;
-      padding: 7px 10px;
-    }
-  }
+  
 }
 </style>

@@ -9,10 +9,10 @@
         </div>
         <div class="modal-body">
           <slot class="modal-body__content" >
-            <div>
-                <h4>Descrizione:</h4>
+            <div class="modal-body__content__info">
+                <h3>Descrizione:</h3>
                 <p>{{store.infoProduct.description}}</p>
-                <h4>Ingredienti:</h4>
+                <h3>Ingredienti:</h3>
                 <p>{{ store.infoProduct.ingredients }}</p>
             </div>
           </slot>
@@ -63,6 +63,7 @@ export default {
   height: 100%;
   background-color: rgba(1, 10, 7, 0.2);
   opacity: 1;
+  z-index: -1;
 }
 
 .modal-content {
@@ -79,6 +80,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+  padding: 20px;
   position: relative;
 
   h2{
@@ -100,16 +102,18 @@ export default {
 }
 
 .modal-body {
-    padding: 10px 10px;
-    
+    padding: 20px;
     .modal-body__content{
-        overflow-y: scroll;
+      overflow-y: scroll;
+
+      .modal-body__content__info{
+        h4{
+          font-weight: bold;
+        }
         
+      }
     }
 
-    h4{
-      font-weight: bold;
-    }
 }
 
 .close-button {
