@@ -4,7 +4,6 @@
        <div class="modal-content">
          <div class="modal-header">
            <h2>Ordine Confermato</h2>
-            <img src="../../../assets/Deliveroo-Logo-final.png" alt="">
            <button class="close-button" @click="$emit('close')">X</button>
          </div>
          <div class="modal-body">
@@ -12,6 +11,9 @@
             <div class="modal-body__content__info">
               <p>Grazie <span>{{ name }}</span> per averci scelto!</p>
               <p>Per maggiori informazioni riguardanti il suo ordine, clicca il link sottostante.</p>
+            </div>
+            <div>
+              <img src="../../../assets/Deliveroo-Logo-final.png" alt="">
             </div>
             <router-link :to="{name: 'CheckOut'}" v-if="store.modalCheckOut" ><button class="btn-order"> Riepilogo ordine</button></router-link> 
            </slot>
@@ -81,14 +83,14 @@
    justify-content: space-between;
    align-items: center;
    margin-bottom: 10px;
-   padding-top: 150px;
+   padding-top: 100px;
    position: relative;
-   background-color:var(--top-bg-color);
+   background-color:#00b8a8;
    border-radius: 2px;
  
    h2{
     position: absolute;
-    bottom: 0%;
+    bottom: 10%;
     left: 2%;
     z-index: 100;
     background-color: rgb(19, 19, 19,0.8);
@@ -98,15 +100,6 @@
      
  }
  
-   img{
-     position: absolute;
-     bottom: 0%;
-     z-index: 1;
-     right: 0%;
-     width: 100%;
-     object-fit: cover;
-   
- }
  }
  
  .modal-body {
