@@ -281,6 +281,31 @@ export default {
 @media screen and (max-width:600px){
   
 
+  .single-restaurant{
+  display: flex;
+  flex-direction: column;
+  .single-restaurant__image{
+    height: 200px;
+    border-radius: 11px ;
+    border: 2px solid var(--restaurant-border-color);
+    
+    img{
+      border-radius: 10px;
+      object-fit: cover;
+    }
+  }
+
+  .single-restaurant__info{
+    margin: 20px 0px;
+    justify-content: space-between;
+
+    > *:not(:first-child){
+      font-size: 1.3rem;
+      margin: 10px 0px;
+    }
+  }
+}
+
 // products
 .product-restaurant{
   .card-product{
@@ -289,6 +314,32 @@ export default {
 }
 }
 @media screen and (min-width:601px) and (max-width:960px){
+
+  .single-restaurant{
+  display: flex;
+  flex-direction: column;
+  .single-restaurant__image{
+    height: 200px;
+    border-radius: 11px ;
+    border: 2px solid var(--restaurant-border-color);
+    
+    img{
+      border-radius: 10px;
+      object-fit: cover;
+    }
+  }
+
+  .single-restaurant__info{
+    margin: 20px 0px;
+    justify-content: space-between;
+
+    > *:not(:first-child){
+      font-size: 1.3rem;
+      margin: 10px 0px;
+    }
+  }
+}
+
 
 
 // products
