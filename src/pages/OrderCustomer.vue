@@ -166,6 +166,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+section{
+  height: 100vh;
+}
 .form {
   max-width: 600px;
   margin: auto;
@@ -245,7 +249,9 @@ button[type="submit"] {
   // -moz-appearance: none;
   display: inline-block;
 }
-
+.dropin{
+  margin-bottom: 20px;
+}
 .button--small {
   padding: 10px 20px;
   font-size: 0.875rem;

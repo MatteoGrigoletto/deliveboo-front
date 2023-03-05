@@ -74,7 +74,7 @@
    padding: 0px;
    border-radius: 4px;
    box-shadow: 0px 0px 10px rgba(7, 7, 7, 0.5);
-   width: 30%;
+   width: 40%;
    overflow: hidden;
  }
  
