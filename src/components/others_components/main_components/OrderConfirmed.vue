@@ -53,6 +53,7 @@
    display: flex;
    justify-content: center;
    align-items: center;
+   z-index: 10;
  }
  
  .modal-background {
@@ -110,12 +111,13 @@
  
  .modal-body {
      padding: 10px 10px;
+     color: black;
      
      .modal-body__content{
          overflow-y: scroll;
 
          &__info{
-          margin-bottom: 100px;
+          margin: 10px 0px 40px 0px;
           
           span{
             font-weight: bold;

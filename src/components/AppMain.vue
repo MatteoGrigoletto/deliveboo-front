@@ -2,7 +2,7 @@
   <main>
     <SectionNews v-if="$route.path === '/'"></SectionNews>
     <section class="main-section__middle">
-      <div class="main-section__middle__restaurant">
+      <div class="main-section__middle__restaurant" v-bind:class="{ 'background-custom': $route.path === '/order'}" :class="{ 'background-custom': $route.path === '/checkout'}">
         <div v-if="$route.path === '/'" class="filter-side">
           <FilterSide></FilterSide>
         </div>
@@ -41,7 +41,11 @@ export default {
   justify-content: center;
   background-color: var(--main-section-bg-color);
 }
-
+// classe che si attiva solamente nella rotta order
+.background-custom {
+  background-image: url('../assets/pexels-photo-2.jpeg');
+  background-size: cover;
+}
 .main-section__middle__restaurant {
   display: flex;
   justify-content: center;
@@ -109,7 +113,7 @@ export default {
   }
   .main-view {
     
-    height: 500px;
+    height: 600px;
     position: relative;
     overflow-y: scroll;
     overflow-x: hidden;

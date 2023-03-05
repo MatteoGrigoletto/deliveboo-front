@@ -20,6 +20,8 @@ button {
   border-radius: 5px;
   border: 1px solid rgb(151, 149, 149);
   font-weight: bold;
+  cursor: pointer;
+
   &:hover {
     background-color: var(--btn-hover-color);
     color: var(--btn-hover-text);
@@ -40,6 +42,8 @@ h1{
   padding: 10px 20px;
   border-radius: 5px;
   border: 1px solid rgb(151, 149, 149);
+  cursor: pointer;
+
   &:hover {
     background-color: var(--order-btn-hover-color);
     color: var(--order-btn-hover-text);
@@ -49,6 +53,24 @@ h1{
     }
   }
 }
+
+.btn-blue-white{
+  
+  background-color: var(--header-btn-bg-color);
+  color: var(--header-btn-text-color);
+  font-weight: bold;
+  margin: 0px 10px;
+  cursor: pointer;
+
+  &:hover{
+    background-color: var(--header-btn-hover-color);
+    color: var(--header-btn-hover-text);
+  }
+  a:hover{
+    color: var(--header-btn-bg-color);
+  }
+}
+
 .container-60{
   width: 60%;
 }

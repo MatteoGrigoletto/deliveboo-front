@@ -1,43 +1,44 @@
 <template>
-  <div class="form">
-    <div class="form__btn">
-      <h2>Inserisci i tuoi dati</h2>
-      <router-link :to="{name: 'HomePage'}" v-if="!store.checkOutControll" ><button class="btn-blue">Torna nell'area ristoranti</button></router-link>   
-    </div>
-    <form @submit.prevent="sendData">
-      <div class="form-group">
-        <label for="name">Nome:</label>
-        <input id="name" type="text" v-model="name" required>
+  <section>
+    <div class="form">
+      <div class="form__btn">
+        <h2>Inserisci i tuoi dati</h2>
+        <router-link :to="{name: 'HomePage'}" v-if="!store.checkOutControll" ><button class="btn-blue">Torna nell'area ristoranti</button></router-link>   
       </div>
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input id="email" type="email" v-model="email" required>
-      </div>
-      <div class="form-group">
-        <label for="address">Indirizzo:</label>
-        <input id="address" type="text" v-model="address" required>
-      </div>
-      <div class="form-group">
-        <label for="phone">Telefono:</label>
-        <input id="phone" type="tel" v-model="phone" required pattern="[0-9]{10}" title="Il telefono dev'essere formato da 10 caratteri numerici ">
-      </div>
-      <div class="form-group flex">
-        <label for="price">Prezzo:</label>
-        <input id="price" type="number" min="0" step=".01" v-model="price" readonly required>
-        <span> €</span>
-      </div>
-      <div id="dropin-container" class="dropin"></div>
-      <button v-if="store.checkOutControll === false" id="submit-button" type="submit" class="button button--small button--green">Purchase</button>
-      <router-link :to="{name: 'CheckOut'}" v-if="store.checkOutControll" ><button class="btn-blue">Visualizza ordine</button></router-link>    
-    </form>
-
-    <!-- Componente che viene visualizzato una volta che l'ordine e' andato a buon fine -->
-    <OrderConfirmed :show="store.modalCheckOut"
+      <form @submit.prevent="sendData">
+        <div class="form-group">
+          <label for="name">Nome:</label>
+          <input id="name" type="text" v-model="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input id="email" type="email" v-model="email" required>
+        </div>
+        <div class="form-group">
+          <label for="address">Indirizzo:</label>
+          <input id="address" type="text" v-model="address" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Telefono:</label>
+          <input id="phone" type="tel" v-model="phone" required pattern="[0-9]{10}" title="Il telefono dev'essere formato da 10 caratteri numerici ">
+        </div>
+        <div class="form-group flex" id="price">
+          <label for="price">Prezzo:</label>
+           <p>{{ price }} €</p>
+        </div>
+        <div id="dropin-container" class="dropin transparent"></div>
+        <button v-if="store.checkOutControll === false" id="submit-button" type="submit" class="button button--small button--green">Purchase</button>
+        <router-link :to="{name: 'CheckOut'}" v-if="store.checkOutControll" ><button class="btn-blue">Visualizza ordine</button></router-link>    
+      </form>
+      
+      <!-- Componente che viene visualizzato una volta che l'ordine e' andato a buon fine -->
+      <OrderConfirmed :show="store.modalCheckOut"
       title="order-confirmed"
       @close="store.modalCheckOut = false"
       :name="name"
       ></OrderConfirmed>
-  </div>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -162,10 +163,11 @@ export default {
 <style lang="scss" scoped>
 .form {
   max-width: 600px;
-  margin: 0 auto;
+  margin: auto;
   padding: 10px;
-  background-color: #f7f7f7;
+  background-color: transparent;
   border-radius: 5px;
+  color: white;
 }
 .form__btn{
   display: flex;
@@ -194,11 +196,15 @@ export default {
   font-size: 16px;
 }
 #price{
-    outline: none;
-    border: 0;
-    background-color: #f7f7f7 ;
-    margin-left: 50px;
-    max-width: 90px;
+  align-items: center;
+    p{
+      background-color: white;
+      border-radius: 5px;
+      padding: 5px;
+      color: #000000;
+      font-weight: bold;
+      margin-left: 20px;
+    }
 }
 .flex{
     display: flex;
@@ -242,14 +248,14 @@ button[type="submit"] {
 
 .button--green {
   outline: none;
-  background-color: #64d18a;
-  border-color: #64d18a;
+  background-color: #00b8a8 !important;
+  border-color: #00b8a8 !important;
   color: white;
   transition: all 200ms ease;
 }
 
 .button--green:hover {
-  background-color: #8bdda8;
+  background-color: black !important;
   color: white;
 }
 </style>

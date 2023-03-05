@@ -71,11 +71,12 @@ section{
     align-items: center;
     justify-content: space-between;
     padding: 0.5rem 1rem;
+    background-color: #f9f9f9;
 
     &:nth-child(even) {
-      background-color: #f9f9f9;
+      background-color: #afacac;
     }
-
+  
     .cell {
       width: calc(25% - 0.5rem);
     }

@@ -145,7 +145,7 @@ export default {
       height: 80px;
     }
     span {
-      font-size: 1rem;
+      font-size: 0.6rem;
     } 
   }
 }
@@ -166,7 +166,7 @@ export default {
 
     label {
       display: block;
-      font-size: 1rem;
+      font-size: 0.8rem;
       width: calc(100% / 5 - 5px);
       height: 80px;
       position: relative;

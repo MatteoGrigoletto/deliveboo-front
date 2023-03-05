@@ -10,7 +10,7 @@
     <div class="nav-bar__buttons" v-if="$route.path !== '/order' && $route.path !== '/checkout'">
       
       <!-- BOTTONE PER ATTIVARE IL COMPONENTE ModalCard.vue -->   
-      <button class="nav-bar__buttons__cart btn-blue" @click="store.showModal = true"><i class="fa-solid fa-cart-shopping"></i> 
+      <button class="nav-bar__buttons__cart btn-blue-white" @click="store.showModal = true"><i class="fa-solid fa-cart-shopping"></i> 
         
         <!-- TAG IN POSIZIONE ABSOLUTE CHE INDICA LA QUANTITA' DI PRODOTTI NEL CARRELLO  -->
         <div v-if="store.cart.length > 0 " class="count-cart">
@@ -18,8 +18,8 @@
         </div>    
         
       </button> 
-      <button class="btn-blue" v-if="store.checkUser === false"><a href="http://127.0.0.1:8000/register">Sei un ristoratore?</a></button>
-      <button class="btn-blue" v-if="store.checkUser"><a href="http://127.0.0.1:8000/login">Il tuo ristorante</a></button>   
+      <button class="btn-blue-white" v-if="store.checkUser === false"><a href="http://127.0.0.1:8000/register">Sei un ristoratore?</a></button>
+      <button class="btn-blue-white" v-if="store.checkUser"><a href="http://127.0.0.1:8000/login">Il tuo ristorante</a></button>   
       <ModalCart  :show="store.showModal" title="Titolo della modale" @close="store.showModal = false"></ModalCart>
     </div>
   </div>
@@ -97,15 +97,6 @@ export default {
   display: flex;
   justify-content: flex-end;
     button{
-        background-color: var(--header-btn-bg-color);
-        color: var(--header-btn-text-color);
-        font-weight: bold;
-        margin: 0px 10px;
-
-        &:hover{
-          background-color: var(--header-btn-hover-color);
-          color: var(--header-btn-hover-text);
-        }
         a:hover{
           color: var(--header-btn-bg-color);
         }

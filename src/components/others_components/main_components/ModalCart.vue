@@ -7,7 +7,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h2>Il tuo Carrello</h2>
-          <button @click="removeAllProducts()">Svuota carrello</button>
+          <button class="" @click="removeAllProducts()">Svuota carrello</button>
           <button class="close-button" @click="$emit('close')">X</button>
         </div>
         <div class="modal-body">
@@ -15,7 +15,7 @@
           <slot v-if="store.cart <= 0">
           <div class="container-item-cart cart-empty">
               <h2>Il tuo carrello è vuoto! </h2>
-              <button  @click="store.showModal = false">Ritorna ai Prodotti</button>
+              <button  @click="store.showModal = false">Chiudi il carrello</button>
             </div>
           </slot>
           <!-- se il carrello e' pieno -->
@@ -47,7 +47,7 @@
             </div>
             <div class="container-info-cart">
               <span>Totale: {{ totalPrice(store.cart) }} €</span>
-              <button class="btn-pay btn-blue"><router-link :to="{name: 'OrderCustomer'}" @click="store.showModal = false">Conferma</router-link></button>      
+             <router-link :to="{name: 'OrderCustomer'}" @click="store.showModal = false"> <button class="btn-pay btn-blue">Conferma</button></router-link>      
             </div>
           </slot>
         </div>
@@ -137,8 +137,9 @@ export default {
 .modal-content {
   background-color: white;
   padding: 0px;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(7, 7, 7, 0.5);
+  background-color: var(--main-bg-color);
   width: 30%;
   overflow: hidden;
 }
@@ -149,35 +150,38 @@ export default {
   align-items: center;
   margin-bottom: 10px;
   padding: 30px 10px;
-  background-image: var(--cart-bg-color);
+  color: white;
+  background-color: #00b8a8;
 }
 
-.modal-body {
-  padding: 10px 10px;
-}
 
 .close-button {
   background-color: transparent;
   border: none;
   font-size: 20px;
   cursor: pointer;
+  color: white;
+
+  &:hover{
+    color: aqua;
+  }
 }
 
 .container-item-cart {
   width: 100%;
   height: 400px;
   overflow-y: scroll;
-  background-image: url(../../../assets/Deliveroo-Logo-final.png);
   background-position: 50%;
+  padding: 20px;
 
   .item-cart {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 10px 0px;
-    border-radius: 10px;
     background-color: rgb(255, 253, 253,0.96);
     box-shadow: 0px 0px 13px rgba(0, 0, 0, 1);
+    border-radius: 5px;
 
     &:hover {
       box-shadow: 0px 0px 15px rgba(7, 7, 7, 0.7);
@@ -232,17 +236,17 @@ export default {
     align-items: center;
 
     h2{
-      background-color: rgb(0, 0, 0,0.6);
       border-radius: 5px;
       font-size: 2.4rem;
-      color: white;
+      color: rgb(0, 0, 0,0.6);
     }
   }
   .container-info-cart{
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    background-color: white;
+    padding: 20px 0px;
     span {
       margin: 15px 0px;
     

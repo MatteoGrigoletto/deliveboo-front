@@ -103,15 +103,12 @@ export default {
 
 .modal-body {
     padding: 20px;
-    .modal-body__content{
-      overflow-y: scroll;
-
-      .modal-body__content__info{
-        h4{
-          font-weight: bold;
-        }
-        
-      }
+    overflow-y: scroll;
+    h3{
+      font-weight: bold;
+    }
+    p{
+      margin-bottom: 20px;
     }
 
 }
@@ -132,18 +129,18 @@ export default {
 
 
  /* nasconde la scrollbar in Chrome, Safari e Opera */
- .modal-body__content::-webkit-scrollbar {
+ .modal-body::-webkit-scrollbar {
     display: none;
   }
 
   /* nasconde la scrollbar in Firefox */
-  .modal-body__content {
+  .modal-body{
     scrollbar-width: none;
   }
 
   /* rimuove la scrollbar di Internet Explorer */
   @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    .modal-body__content::-ms-scrollbar {
+    .modal-body::-ms-scrollbar {
       display: none;
     }
   }

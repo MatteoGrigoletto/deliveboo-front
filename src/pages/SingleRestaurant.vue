@@ -3,7 +3,7 @@
   <div class="single-restaurant">
     <div class="single-restaurant__image">
      <!-- Controllo immagine -->
-      <img :src="singleRestaurant.image_url === null ? singleRestaurant.image : singleRestaurant.image_url" alt="">
+      <img :src="singleRestaurant.image? singleRestaurant.image : singleRestaurant.image_url" alt="">
     </div>
     <div class="single-restaurant__info">
       <h2>{{singleRestaurant.name}}</h2>
@@ -37,20 +37,20 @@
           </div>   
           <div class="card-product__info__price">
             <span>{{ product.price }} €</span>
-            <button @click="infoProducts(product)">info</button>
+            <button  @click="infoProducts(product)">info</button>
             <!-- Componente per visualizzare la descrizione del prodotto -->
             <InfoProduct :show="store.modalProduct" title="Titolo della modale" @close="store.modalProduct = false"></InfoProduct>
           </div>
           <div v-if="!store.cart.find(elm=> elm.id === product.id)" class="card-product__quantity" >
-            <button @click="pushProduct(product)"><i class="fa-solid fa-cart-shopping"></i></button>
+            <button class="btn-blue" @click="pushProduct(product)"><i class="fa-solid fa-cart-shopping"></i></button>
           </div>
         
           <!-- Se il prodotto viene aggiunto al carrello escono dei bottono con la quale poter trovare il prodotto -->
           <!-- dentro al carrello e modificarne la quantita' -->
           <div v-else class="card-product__quantity">
-            <button @click="store.quantityDown(findProduct(product))"> - </button>
+            <button class="btn-blue minus " @click="store.quantityDown(findProduct(product))"> - </button>
             <span> {{ findProduct(product).quantity }} </span>
-            <button @click="store.quantityUp(findProduct(product))"> + </button>
+            <button class="btn-blue plus" @click="store.quantityUp(findProduct(product))"> + </button>
           </div>
         </div>
       </div>
@@ -169,17 +169,11 @@ export default {
 .single-restaurant{
   display: flex;
   .single-restaurant__image{
-    // width: 40%;
+    width: 50%;
     height: 500px;
-    border-radius: 11px ;
-    border: 2px solid var(--restaurant-border-color);
-    
-    img{
-      border-radius: 10px;
-      object-fit: cover;
-    }
+    border: 2px solid black;
+    border-radius: 3px;
   }
-
   .single-restaurant__info{
     margin-left: 30px;
     display: flex;
@@ -195,28 +189,34 @@ export default {
 // products
 .product-restaurant{
   margin-top: 30px;
+
+  h3{
+    font-size: 2rem;
+    margin: 0px 0px 30px 15px;
+  }
+  
   .product-restaurant__food,.product-restaurant__drink {
     display: flex;
     flex-wrap: wrap;
   }
   .card-product{
     display: flex;
-    background-image:var(--product-bg-color) ;
     width: calc(100% / 4 - 30px);
     margin: 15px;
-    margin-left: 0;
     padding: 10px;
     border: 1px solid rgb(68, 67, 67);
-    border-radius:5px;
+    border-radius: 3px;
+    background-color: var(--side-bg-color);
+    color: black;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   .card-product__image{
     width: 40%;
-    border-radius: 5px;
     box-shadow: 0px 5px 5px black;
 
     img{
       height: 150px;
       object-fit: cover;
-      border-radius: 5px;
+      border-radius: 3px;
     }
   }
   .card-product__info{
@@ -231,16 +231,29 @@ export default {
       font-weight: bold;  
     }
     .card-product__info__price{
+      display: flex;
+      justify-content: space-between;
+
       span{
         font-size: 1.2rem;
-
       }
-      display: flex;
-      justify-content: space-between; 
+      button{
+        border-radius: 3px;
+        padding: 6px 10px;
+      }
     }
     .card-product__quantity{
       text-align: center;
-
+      button{
+        border-radius: 3px;
+        padding: 6px 20px;
+      }
+      .minus:hover{
+        background-color: #f96969 ;
+      }
+      .plus:hover{
+        background-color: greenyellow;
+      }
       span{
         padding: 0px 10px;
       }
@@ -249,8 +262,8 @@ export default {
   }
 }
 .badge{
-  margin: 5px;
-  padding: 10px;
+  margin: 2px;
+  padding: 5px;
   background-color:  var(--link-text-color);
   color: var(--badge-color);
   font-weight: bold;
@@ -285,12 +298,10 @@ export default {
   display: flex;
   flex-direction: column;
   .single-restaurant__image{
+    width: 100%;
     height: 200px;
-    border-radius: 11px ;
-    border: 2px solid var(--restaurant-border-color);
     
     img{
-      border-radius: 10px;
       object-fit: cover;
     }
   }
@@ -304,6 +315,9 @@ export default {
       margin: 10px 0px;
     }
   }
+}
+.badge{
+  padding: 3px;
 }
 
 // products
@@ -319,12 +333,10 @@ export default {
   display: flex;
   flex-direction: column;
   .single-restaurant__image{
+    width: 100%;
     height: 200px;
-    border-radius: 11px ;
-    border: 2px solid var(--restaurant-border-color);
     
     img{
-      border-radius: 10px;
       object-fit: cover;
     }
   }
@@ -356,6 +368,12 @@ export default {
  
 }
 @media screen and (min-width:961px) and (max-width: 1300px){
+
+  .badge{
+  padding: 3px;
+}
+
+  
 // products
 .product-restaurant{
  

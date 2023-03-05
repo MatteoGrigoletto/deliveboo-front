@@ -1,7 +1,7 @@
 <template>   
 <!-- CARD DEL SIGNOLO RISTORANTE CON ROUTE RELATIVA AI SUOI PRODOTTI -->
   <div class="card__img">
-    <img :src="restaurant.image_url === null ? restaurant.image : restaurant.image_url" alt="">
+    <img :src="restaurant.image? restaurant.image : restaurant.image_url" alt="">
   </div>
   <div class="card__info">   
     <div class="card__info__text">
@@ -11,7 +11,7 @@
       </span>
     </div> 
     <div class="card__info__btn">
-      <router-link :to="{name: 'SingleRestaurant',params: { restaurant: restaurant.slug }}"><button>Prodotti</button></router-link>
+      <router-link :to="{name: 'SingleRestaurant',params: { restaurant: restaurant.slug }}"><button class="btn-blue">Prodotti</button></router-link>
     </div>
     <div class="card__info__badge">
       <span class="badge" v-for="kitchen in filterKitchens(restaurant.kitchens)">{{kitchen}}</span>
@@ -44,29 +44,25 @@ export default {
 .card__img{
     height: 60%;
     
-    img{
-    border-radius: 10px 10px 0px 0px;
-    }
   }
 .card__info{
   display: flex;
   flex-wrap: wrap;
   padding: 10px;
   height: 40%;
-  border-radius:0px 0px 20px 20px;
-  background-image: var(--card-bg-color);
-  color: var(--card-text-color);
+  background-color: var(--side-bg-color);
+  color: black;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 
   .card__info__text{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     width: 70%;
-    font-size: 1.2rem;
+    font-size: 1rem;
 
     h5{
       font-weight: bold;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
     }
   }
   .card__info__btn{
@@ -77,12 +73,25 @@ export default {
 
     button{
       padding: 10px;
+      border-radius: 0px;
     } 
   }
   .card__info__badge{
-    width: 100%;
+    position: absolute;
+    top: 0%;
+    right: 1%;
     display: flex;
-    align-items: end;
+    flex-direction: column;
+
+    .badge{
+      border-radius: 0px;
+      text-align: center;
+      padding: 5px 10px;
+      margin-top: 4px;
+      background-color: rgba(69, 207, 34, 0.8);
+      color:white;
+      border: none;
+    }
   }
 }
 
@@ -124,7 +133,7 @@ export default {
   .card__info__text{
 
     h5{
-      font-size: 1.2rem;
+      font-size: 1rem;
       }
     }
 }

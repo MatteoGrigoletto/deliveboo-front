@@ -1,12 +1,12 @@
 <template>
     <div class="my-container">
    <div class="container-slide">
-      <img class="slide" src="../../../assets/9dc726ee-b85e-40e1-b21b-a8f653334df7.jpg" alt="" />
+      <img class="slide" src="../../../assets/chips-slide.webp" alt="" />
       <img class="slide" src="../../../assets/photo-1623341214825-9f4f963727da.jfif" alt="" />
       <img class="slide" src="../../../assets/Homemade-Pepperoni-Pizza.png" alt="" />
       <img class="slide" src="../../../assets/plant-based-food-mc-220323-02-273c7b.jpg" alt="" />
       <img class="slide" src="../../../assets/Pollo-al-Carbon02.webp" alt="" />
-      <img class="slide" src="../../../assets/sushi-galateo-tonno-1200x675.jpg" alt="" />
+      <img class="slide" src="../../../assets/9dc726ee-b85e-40e1-b21b-a8f653334df7.jpg" alt="" />
     </div>
 </div>
 </template>
