@@ -28,6 +28,7 @@
     <div class="product-restaurant__food">
       <!-- ciclo l'array riempito dalla API -->
       <div class="card-product" v-for="product, index in singleRestaurant.products">
+        <div class="available" v-if="!product.is_available" ><img src="../assets/sold-out-transparent-8.png" alt=""></div>
         <div class="card-product__image">
           <img :src="product.image_url === null ? product.image : product.image_url" alt="">
         </div>
@@ -41,8 +42,8 @@
             <!-- Componente per visualizzare la descrizione del prodotto -->
             <InfoProduct :show="store.modalProduct" title="Titolo della modale" @close="store.modalProduct = false"></InfoProduct>
           </div>
-          <div v-if="!store.cart.find(elm=> elm.id === product.id)" class="card-product__quantity" >
-            <button class="btn-blue" @click="pushProduct(product)"><i class="fa-solid fa-cart-shopping"></i></button>
+          <div v-if="!store.cart.find(elm=> elm.id === product.id)" class="card-product__quantity"  >
+            <button v-if="product.is_available" class="btn-blue" @click="pushProduct(product)"><i class="fa-solid fa-cart-shopping"></i></button>
           </div>
         
           <!-- Se il prodotto viene aggiunto al carrello escono dei bottono con la quale poter trovare il prodotto -->
@@ -201,6 +202,7 @@ export default {
   }
   .card-product{
     display: flex;
+    position: relative;
     width: calc(100% / 4 - 30px);
     margin: 15px;
     padding: 10px;
@@ -208,6 +210,13 @@ export default {
     background-color: var(--side-bg-color);
     color: black;
     box-shadow: 2px 2px 2px 2px rgba(123, 123, 123, 0.3);
+
+    .available{
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      width: 40%;
+    }
   .card-product__image{
     width: 40%;
     box-shadow: 0px 5px 5px black;
