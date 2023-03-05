@@ -88,6 +88,12 @@ checkOutTotalPriceProduct: 0,
 
 checkUser: false,
 
+// controllo immagine da back-end
+
+controllImg(img){
+  return img.image.includes('http')? img.image : img.image_url
+},
+
 // funzioni per aumentare quantita' prodotti carrello
 quantityUp(product){
   

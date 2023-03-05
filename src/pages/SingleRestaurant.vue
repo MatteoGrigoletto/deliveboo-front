@@ -3,7 +3,7 @@
   <div class="single-restaurant">
     <div class="single-restaurant__image">
      <!-- Controllo immagine -->
-      <img :src="singleRestaurant.image? singleRestaurant.image : singleRestaurant.image_url" alt="">
+      <img :src="store.controllImg(singleRestaurant)" alt="">
     </div>
     <div class="single-restaurant__info">
       <h2>{{singleRestaurant.name}}</h2>

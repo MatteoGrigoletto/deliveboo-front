@@ -1,7 +1,7 @@
 <template>   
 <!-- CARD DEL SIGNOLO RISTORANTE CON ROUTE RELATIVA AI SUOI PRODOTTI -->
   <div class="card__img">
-    <img :src="restaurant.image? restaurant.image : restaurant.image_url" alt="">
+    <img :src="store.controllImg(restaurant)" alt="">
   </div>
   <div class="card__info">   
     <div class="card__info__text">
@@ -21,12 +21,14 @@
 </template>
 
 <script>
-
+import {store} from '.././../../store';
 export default {
     name: 'SingleCardRestaurant',
     data () {
         
-        return {}
+        return {
+          store,
+        }
     },
     props:{
         restaurant: Object,
