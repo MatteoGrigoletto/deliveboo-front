@@ -40,8 +40,8 @@ methods:{
       this.$router.push({ path: '/' });
       this.store.checkUser = true
     }
-     else {
-      // localStorage.removeItem('objCustomer')
+    else {
+      localStorage.removeItem('objCustomer')
       this.store.objCustomer = JSON.parse(localStorage.getItem('objCustomer'));
     }
   }

@@ -174,6 +174,10 @@ export default {
     height: 500px;
     border: 2px solid black;
     border-radius: 3px;
+
+    img{
+      object-fit: cover;
+    }
   }
   .single-restaurant__info{
     margin-left: 30px;

@@ -24,7 +24,7 @@
         </div>
         <div class="form-group flex" id="price">
           <label for="price">Prezzo:</label>
-           <p>{{ price }} €</p>
+           <p>{{ formatPrice() }} €</p>
         </div>
         <div id="dropin-container" class="dropin transparent"></div>
         <button v-if="store.checkOutControll === false" id="submit-button" type="submit" class="button button--small button--green">Purchase</button>
@@ -61,6 +61,11 @@ export default {
     OrderConfirmed,
   },
   methods: {
+
+    formatPrice(){ 
+      let formatNumber = Number(this.price);
+      return formatNumber.toFixed(2,0)
+    },
 
     // Funzione che spedisce tramite chiamata axios un oggetto al server 
     // con all'interno i dati relativi all'ordine.
